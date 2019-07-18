@@ -1,15 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class App extends CI_Controller {
-
+class Myapp extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->login = true;
+        if($this->login == true){
+            redirect(base_url('User/'));
+        }
     }
+
 
     public function index()
     {
-       $this->load->view('users/root');
+        echo "hallo";
     }
 }
