@@ -28,5 +28,15 @@ class User extends CI_Controller {
         $this->load->view('users/pages/v_buat_pengaduan.html');
     }
 
+    public function listpengaduan()
+    {
+        $this->load->view('users/pages/v_list_pengaduan.html');
+    }
+
+    public function listkeputusan()
+    {
+        $this->load->view('users/pages/v_list_keputusan.html');
+    }
+
    
 }
