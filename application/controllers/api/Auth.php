@@ -16,6 +16,67 @@ class Auth extends REST_Controller {
 
         $this->load->model('m_core');
         $this->load->helper(['jwt','authorization']);
+        $this->load->helper('valid_form');
+    }
+
+
+    public function login_users_post()
+    {
+        $email    = $this->input->post('email');
+        $password = $this->input->post('password');
+
+
+        $where = array(
+            'email' => $email,
+            'password' => $password
+        );
+
+        $config = array(
+            array(
+                'field' => 'email',
+                'label' => 'email',
+                'rules' => 'required|valid_email|trim',
+                'errors' => array(
+                    'valid_email' => 'Email Tidak Valid',
+                    'required'    => 'Email Tidak Boleh Kosong'
+                )
+            ),
+            array(
+                'field' => 'password',
+                'label' => 'password',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'Password Tidak Boleh Kosong'
+                )
+            )
+        );
+
+        $this->form_validation->set_rules($config);
+
+        if($this->form_validation->run() === FALSE){
+            $errors = $this->form_validation->error_array();
+            $this->response(array(
+                'errors' => $errors
+            ), parent::HTTP_BAD_REQUEST);
+            return;
+        }
+
+        
+
+        $check_account = $this->m_core->get_where($this->t_user, $where);
+        if($check_account->num_rows() > 0){
+            $token = AUTHORIZATION::generateToken(array(
+                'payload' => $check_account->result()
+            ));
+
+            $status = parent::HTTP_OK;
+            $respose = ['status' => $status, 'token' => $token];
+            $this->response($respose, $status);
+        }else{
+            $this->response(array(
+                'msg' => 'Invalid Username and password'
+            ), parent::HTTP_NOT_FOUND);
+        }
     }
 
     public function login_petugas_post()
@@ -24,8 +85,9 @@ class Auth extends REST_Controller {
         $password = $this->input->post('password');
         $akses    = $this->input->post('akses');
 
-        $where_login['email']    = $email;
-        // $where_login['password'] = $password;
+        $where_login = array(
+            'email' => $email
+        );
 
         /**
          * cek email and password if empty
@@ -38,7 +100,7 @@ class Auth extends REST_Controller {
             return;
         }
 
-        
+
         /**
          *  cek to database if email anda password exists 
          */
@@ -84,6 +146,220 @@ class Auth extends REST_Controller {
         }
 
     }
+
+    public function register_post()
+    {
+        $id_terdaftar  = rand(0,500);
+        $email         = $this->input->post('email');
+        $password      = $this->input->post('password');
+        $alamat        = $this->input->post('alamat');
+        $nama_depan    = $this->input->post('nama_depan');
+        $nama_belakang = $this->input->post('nama_belakang');
+        $tgl_terdaftar = $this->input->post('tgl_terdaftar');
+        
+
+        $config = array(
+            array(
+                'field' => 'email',
+                'label' => 'email',
+                'rules' => 'required|valid_email|trim',
+                'errors' => array(
+                    'valid_email' => 'Email Tidak Valid',
+                    'required' => 'Email Tidak Boleh Kosong'
+                )
+            ),
+            array(
+                'field' => 'password',
+                'label' => 'password',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'Password Harus Diisi'
+                )
+            ),
+            array(
+                'field' => 'alamat',
+                'label' => 'alamat',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'Alamat Tidak Boleh Kosong'
+                )
+            ) ,
+            array(
+                'field' => 'nama_depan',
+                'label' => 'nama_depan',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'Nama Depan Tidak Boleh Kosong'
+                )
+            ),
+
+        );
+
+        $this->form_validation->set_rules($config);
+
+        if($this->form_validation->run() === FALSE){
+            $erros  = $this->form_validation->error_array();
+            $this->response(array(
+                'errors' => $erros
+            ), parent::HTTP_BAD_REQUEST);
+
+        }else{
+
+            $data = array(
+                'id_terdaftar' => $id_terdaftar,
+                'email' => $email,
+                'password' => $password,
+                'alamat' => $password,
+                'nama_depan' => $nama_depan,
+                'nama_belakang' => $nama_belakang,
+                'tgl_terdaftar' => date('Y-m-d'),
+                'status' => 'false'
+            );
+
+            $check_email = $this->m_core->get_where($this->t_user, array('email' => $email) );
+
+            if($check_email->num_rows() > 0){
+                $status = parent::HTTP_BAD_REQUEST;
+                $this->response(array(
+                    'msg' => 'Email Sudah Di gunakan',
+                    'status' => $status
+                ), $status );
+                return;
+            }
+
+
+            $sendingemail =  $this->sending_email_verification($email, $id_terdaftar);
+
+            if($sendingemail){
+                $status = parent::HTTP_OK;
+                $this->response(array(
+                    'msg' => 'Kode Verifikasi Berhasil Dikirim',
+                    'status' => $status,
+                    'data' => $data 
+                ),$status);
+            }else{
+                $status = parent::HTTP_BAD_REQUEST;
+                $this->response(array(
+                    'msg' => 'Email Gagal Dikirim',
+                    'status' => $status
+                ),$status);
+            }
+
+           
+        }
+    }
+
+    function sending_email_verification($email, $code)
+    {
+         // prosess kirim email
+        $config = [
+            'useragent' => 'CodeIgniter',
+            'protocol'  => 'smtp',
+            'mailpath'  => '/usr/sbin/sendmail',
+            'smtp_host' => 'ssl://smtp.gmail.com',
+            'smtp_user' => 'pengaduanwartawan@gmail.com',   // Ganti dengan email gmail Anda.
+            'smtp_pass' => 'wartawan123',             // Password gmail Anda.
+            'smtp_port' => 465,
+            'smtp_keepalive' => TRUE,
+            'smtp_crypto' => 'SSL',
+            'wordwrap'  => TRUE,
+            'wrapchars' => 80,
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8',
+            'validate'  => TRUE,
+            'crlf'      => "\r\n",
+            'newline'   => "\r\n",
+        ];
+
+            $this->load->library('email', $config);
+            $this->email->initialize($config);
+            $this->email->to($email);
+            $this->email->from('pengaduanwartawan@gmail.com','Pengaduan Wartawan | Dewan Pers');
+            $this->email->subject('Kode Konfirmasi');
+            $this->email->message('Silahkan Konfirmasi code ini'. $code);
+
+            if($this->email->send() )
+            {
+                return 1;
+            }else{
+                return 0;
+            }
+
+    }
+
+    public function insertnewusers_post()
+    {
+        $data = array(
+            'id_terdaftar' => $this->input->post('id_terdaftar'),
+            'email' => $this->input->post('email'),
+            'password' => $this->input->post('password'),
+            'alamat' => $this->input->post('alamat'),
+            'nama_depan' => $this->input->post('nama_depan'),
+            'nama_belakang' => $this->input->post('nama_belakang'),
+            'tgl_terdaftar' => date('Y-m-d'),
+            'status' => 'true'
+        );
+
+         $insert = $this->m_core->add_data($this->t_user, $data);
+
+        if($insert){
+            $status = parent::HTTP_OK;
+            $this->response(array(
+                'msg' => 'Berhasil Melakukan Registrasi',
+                'status' => $status
+            ),$status);
+        }else{
+            $status = parent::HTTP_BAD_REQUEST;
+            $this->response(array(
+                'msg' => 'Gagal Melakukan Registrasi',
+                'status' => $status
+            ),$status);
+        }
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function hello_get()
@@ -143,8 +419,6 @@ class Auth extends REST_Controller {
     private function verify_request()
     {
         //get all the headers 
-        
-
         try{
             $headers = $this->input->request_headers();
             $token   = $headers['X-API-KEY'];
@@ -170,21 +444,9 @@ class Auth extends REST_Controller {
             $res    = ['status' => $status, 'msg' => 'Unauthorized access!'];
             $this->response($res, $status);
         }
-
-
     }
 
-    function show_get()
-    {
-        $where_login['email']    = 'wahyualfarisi30@gmail.com';
-        // $where_login['password'] = $password;
-
-        $data = $this->m_core->get_where($this->t_petugas, $where_login);
-        $this->response(array(
-            'data' => $data->result()
-        ), parent::HTTP_OK);
-    }
-
+ 
 
 
 }

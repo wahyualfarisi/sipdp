@@ -22,4 +22,11 @@ class User extends CI_Controller {
     {
         $this->load->view('users/pages/v_profile.html');
     }
+
+    public function buatpengaduan()
+    {
+        $this->load->view('users/pages/v_buat_pengaduan.html');
+    }
+
+   
 }

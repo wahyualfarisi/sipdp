@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+    <!-- Title Page-->
+    <title>Verifikasi Akun</title>
+    <!-- Fontfaces CSS-->
+     <link href="<?= base_url('assets/css/font-face.css') ?> " rel="stylesheet" media="all">
+     <link href="<?= base_url('assets/vendor/font-awesome-4.7/css/font-awesome.min.css') ?>" rel="stylesheet" media="all">
+     <link href="<?= base_url('assets/vendor/font-awesome-5/css/fontawesome-all.min.css') ?> " rel="stylesheet" media="all">
+     <link href="<?= base_url('assets/vendor/mdi-font/css/material-design-iconic-font.min.css') ?> " rel="stylesheet" media="all">
+     <!-- Bootstrap CSS-->
+     <link href="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.css') ?> " rel="stylesheet" media="all">
+     <!-- Vendor CSS-->
+     <link href="<?= base_url('assets/vendor/animsition/animsition.min.css') ?> " rel="stylesheet" media="all">
+     <link href="<?= base_url('assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') ?> " rel="stylesheet" media="all">
+     <link href="<?= base_url('assets/vendor/wow/animate.css') ?> " rel="stylesheet" media="all">
+     <link href="<?= base_url('assets/vendor/css-hamburgers/hamburgers.min.css') ?> " rel="stylesheet" media="all">
+     <link href="<?= base_url('assets/vendor/slick/slick.css') ?> " rel="stylesheet" media="all">
+     <link href="<?= base_url('assets/vendor/select2/select2.min.css') ?> " rel="stylesheet" media="all">
+     <link href="<?= base_url('assets/vendor/perfect-scrollbar/perfect-scrollbar.css') ?> " rel="stylesheet" media="all">
+     <!-- Main CSS-->
+     <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+        <div class="page-content--bge5">
+            <div class="container">
+                <div class="login-wrap">
+                    <div class="login-content">
+                        <div class="login-logo">
+                            
+                        </div>
+                        <h4 class="text-center">Masukan Kode Verifikasi</h4>
+                        <div class="login-form">
+                            <form id="form-kode-verifikasi">
+                                <div class="form-group">
+                                    <label>Kode Verifikasi</label>
+                                    <input class="au-input au-input--full" type="text" name="kode_verifikasi" id="kode_verifikasi" placeholder="Kode Verifikasi">
+                                </div>
+                                <input type="hidden" id="id_terdaftar" name="id_terdaftar">
+                                <input type="hidden" id="email" name="email" >
+                                <input type="hidden" id="password" name="password" >
+                                <input type="hidden" id="alamat" name="alamat" >
+                                <input type="hidden" id="nama_depan" name="nama_depan" >
+                                <input type="hidden" id="nama_belakang" name="nama_belakang" >
+
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Konfirmasi</button>
+                                <a href="<?= base_url('register-akun') ?>"></a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var BASE_URL = '<?= base_url() ?>';
+    </script>
+      <!-- Jquery JS-->
+    <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js') ?> "></script>
+    <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
+     <!-- Bootstrap JS-->
+     <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js') ?> "></script>
+     <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js') ?>"></script>
+     <!-- Vendor JS       -->
+     <script src="<?= base_url('assets/js/notify.min.js') ?>" ></script>
+     <script src="<?= base_url('assets/vendor/slick/slick.min.js') ?> ">
+     </script>
+     <script src="<?= base_url('assets/vendor/wow/wow.min.js') ?> "></script>
+     <script src="<?= base_url('assets/vendor/animsition/animsition.min.js') ?> "></script>
+     <script src="<?= base_url('assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') ?> ">
+     </script>
+     <script src="<?= base_url('assets/vendor/counter-up/jquery.waypoints.min.js') ?> "></script>
+     <script src="<?= base_url('assets/vendor/counter-up/jquery.counterup.min.js') ?> ">
+     </script>
+     <script src="<?= base_url('assets/vendor/circle-progress/circle-progress.min.js') ?> "></script>
+     <script src="<?= base_url('assets/vendor/perfect-scrollbar/perfect-scrollbar.js') ?> "></script>
+     <script src="<?= base_url('assets/vendor/chartjs/Chart.bundle.min.js') ?>"></script>
+     <script src="<?= base_url('assets/vendor/select2/select2.min.js') ?> "></script>
+     <script src="<?= base_url('assets/js/main.js') ?>"></script>
+     <script>
+
+         var getStoreData = JSON.parse(localStorage.getItem('newUsers'))
+         $('#email').val(getStoreData.data.email)
+         $('#password').val(getStoreData.data.password)
+         $('#nama_depan').val(getStoreData.data.nama_depan)
+         $('#nama_belakang').val(getStoreData.data.nama_belakang)
+         $('#id_terdaftar').val(getStoreData.data.id_terdaftar)
+         $('#alamat').val(getStoreData.data.alamat)
+         
+
+         $('#form-kode-verifikasi').validate({
+             rules: {
+                 kode_verifikasi: {
+                     required: true 
+                 }
+             },
+             messages: {
+                 kode_verifikasi: {
+                     required: 'Silahkan Masukan Kode Verifikasi'
+                 }
+             },
+             errorPlacement: function(error,element){
+                 error.css('color','red')
+                 error.insertBefore(element)
+             },
+             submitHandler: function(form){
+                 var kode_verifikasi = parseInt($('#kode_verifikasi').val()) 
+                 var myCode = parseInt(getStoreData.data.id_terdaftar) 
+                 console.log('mycode', myCode)
+                 if(kode_verifikasi !== myCode) return $.notify('Kode Verifikasi Salah', 'info')
+
+                 $.ajax({
+                     url: `${BASE_URL}api/Auth/insertnewusers`,
+                     type: 'post',
+                     data: $(form).serialize(),
+                     beforeSend: function(xhr){
+                         xhr.setRequestHeader('Authorization', 'Basic '+ btoa('adminsipdp', '1234') )
+                     },
+                     success: function(data){
+                         if(data.status === 200){
+                             $.notify('Konfirmasi Berhasil, Silahkan Login', 'success')
+                             setTimeout(() => {
+                                 location.href = `${BASE_URL}`
+                             }, 1500)
+                             localStorage.clear()
+                         }
+                     }
+                 })
+             }
+         })
+
+
+     </script>
+</body>
+
+</html>
+<!-- end document-->

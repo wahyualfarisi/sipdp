@@ -5,7 +5,7 @@ class Myapp extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->login = true;
+        $this->login = false;
         if($this->login == true){
             redirect(base_url('User/'));
         }
@@ -14,6 +14,17 @@ class Myapp extends CI_Controller {
 
     public function index()
     {
-        echo "hallo";
+        $this->load->view('auth/v_login.html');
     }
+
+    public function register()
+    {
+        $this->load->view('auth/v_registrasi.html');
+    }
+
+    public function verifications()
+    {
+        $this->load->view('users/pages/v_verifications.html');
+    }
+
 }

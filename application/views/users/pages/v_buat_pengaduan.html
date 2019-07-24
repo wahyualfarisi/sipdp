@@ -1,0 +1,70 @@
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">Buat Pengaduan Baru</div>
+          <div class="card-body">
+            <hr />
+            <form action="" id="form-profile">
+              <div class="form-group">
+                <label>Nama Perusahaan PERS</label>
+                <input
+                  type="text"
+                  name="nama_pers"
+                  id="nama_pers"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label>Judul Berita</label>
+                <input
+                  type="text"
+                  name="judul_berita"
+                  id="judul_berita"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label>Edisi Penerbitan</label>
+                <input
+                  type="text"
+                  name="alamat"
+                  id="alamat"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label>Catatan</label><br />
+                <textarea
+                  name="catatan"
+                  id="catatan"
+                  cols="20"
+                  rows="10"
+                ></textarea>
+              </div>
+
+              <div class="buktipengaduan">
+                <table class="table table-bordered" id="item_lampiran">
+                    <tr>
+                        <th>Upload Bukti Pengaduan</th>
+                        <th> <button type="button" class="btn btn-info btn__add__lampiran" ><i class="fa fa-plus"></i></button>  </th>
+                    </tr>
+                    <tr>
+                        <td><input type="file" name="lampiran[]" id="lampiran" class="form-control item-lampiran"> </td>
+                    </tr>
+                </table>
+              </div>
+
+              <div class="container text-center" style="margin-top: 16px;" >
+                <button class="btn btn-success" >Ajukan Permohonan</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="<?= base_url('public/users/buatpengaduan.js') ?>" ></script>
