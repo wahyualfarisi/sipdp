@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -27,7 +26,9 @@
      <link href="<?= base_url('assets/vendor/perfect-scrollbar/perfect-scrollbar.css') ?> " rel="stylesheet" media="all">
      <!-- Main CSS-->
      <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
-
+     <script>
+         var BASE_URL = '<?= base_url() ?>';
+     </script>
 </head>
 
 <body class="animsition">
@@ -43,7 +44,7 @@
                         </div>
                         <h4 class="text-center">LOGIN PETUGAS</h4>
                         <div class="login-form">
-                            <form action="" method="post">
+                            <form id="form-login-petugas">
                                 <div class="form-group">
                                     <label>Email</label>
                                     <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
@@ -52,19 +53,17 @@
                                     <label>Password</label>
                                     <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <button class="au-btn au-btn--block au-btn--blue m-b-20">Login Sebagai Petugas</button>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Akses</label>
+                                    <select name="akses" id="akses" class="form-control">
+                                        <option value=""> -- Pilih Akses --  </option>
+                                        <option value="TU"> TU </option>
+                                        <option value="KETUA"> KETUA </option>
+                                        <option value="KOMISI"> KOMISI </option>
+                                    </select>
                                 </div>
+                                <button class="au-btn au-btn--block au-btn--green m-b-20" id="btn__login" type="submit">Login</button>
                             </form>
-                            <div class="register-link">
-                                <p>
-                                    Belum Punya akun ?
-                                    <a href="<?= base_url('registrasi-akun') ?>">Daftar Akun</a>
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -73,12 +72,13 @@
     </div>
 
       <!-- Jquery JS-->
-      <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js') ?> "></script>
+     <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js') ?> "></script>
+     <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
      <!-- Bootstrap JS-->
      <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js') ?> "></script>
      <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js') ?>"></script>
      <!-- Vendor JS       -->
-     
+     <script src="<?= base_url('assets/js/notify.min.js') ?>" ></script>
      <script src="<?= base_url('assets/vendor/slick/slick.min.js') ?> ">
      </script>
      <script src="<?= base_url('assets/vendor/wow/wow.min.js') ?> "></script>
@@ -93,6 +93,7 @@
      <script src="<?= base_url('assets/vendor/chartjs/Chart.bundle.min.js') ?>"></script>
      <script src="<?= base_url('assets/vendor/select2/select2.min.js') ?> "></script>
      <script src="<?= base_url('assets/js/main.js') ?>"></script>
+     <script src="<?= base_url('public/auth/petugas.js') ?>" ></script>
 </body>
 
 </html>

@@ -32,6 +32,17 @@
  
      <!-- Main CSS-->
      <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
+     <script>
+            var session = JSON.parse(localStorage.getItem('token_adm')) 
+            if(!session){
+                window.location.replace('<?= base_url("petugas") ?>');
+            }else{
+                if(session.akses !== "KOMISI"){
+                   window.location.replace('<?= base_url("petugas") ?>');
+                }
+            }
+        
+        </script>
 
 </head>
 

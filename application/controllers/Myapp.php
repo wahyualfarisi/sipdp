@@ -27,4 +27,9 @@ class Myapp extends CI_Controller {
         $this->load->view('users/pages/v_verifications.html');
     }
 
+    public function petugas_login()
+    {
+        $this->load->view('auth/petugas/v_login.html');
+    }
+
 }

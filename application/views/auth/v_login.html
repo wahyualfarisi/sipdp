@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -54,12 +53,13 @@
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" id="btn__login">LOGIN</button>
                             </form>
-                            <div class="register-link">
+                            <div class="register-link" style="margin-top: 40px; margin-bottom: 40px;">
                                 <p>
                                     Belum Punya akun ?
                                     <a href="<?= base_url('registrasi-akun') ?>">Daftar Akun</a>
                                 </p>
                             </div>
+                            <a href="<?= base_url('petugas') ?>" class="au-btn au-btn--block au-btn--blue m-b-20 text-center">LOGIN PETUGAS</a>
                         </div>
                     </div>
                 </div>
@@ -91,6 +91,7 @@
      <script src="<?= base_url('assets/vendor/chartjs/Chart.bundle.min.js') ?>"></script>
      <script src="<?= base_url('assets/vendor/select2/select2.min.js') ?> "></script>
      <script src="<?= base_url('assets/js/main.js') ?>"></script>
+     <script src="<?= base_url('public/users/auth.js') ?>" ></script>
      <script src="<?= base_url('public/users/login.js') ?>"></script>
 </body>
 

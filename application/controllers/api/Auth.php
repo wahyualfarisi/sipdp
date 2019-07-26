@@ -86,20 +86,21 @@ class Auth extends REST_Controller {
         $akses    = $this->input->post('akses');
 
         $where_login = array(
-            'email' => $email
+            'email' => $email,
+            'password' => $password,
+            'akses' => $akses
         );
 
         /**
          * cek email and password if empty
          */
 
-        if(empty($email) || empty($password) ){
+        if(empty($email) || empty($password) || empty($akses) ){
             $this->response(array(
                 'msg' => 'Email, Password , dan akses Tidak Boleh Kosong'
             ), parent::HTTP_NOT_FOUND);
             return;
         }
-
 
         /**
          *  cek to database if email anda password exists 
@@ -110,8 +111,7 @@ class Auth extends REST_Controller {
 
             foreach($cek->result() as $k)
             {
-                if(password_verify($password, $k->password ))
-                {
+                
                     $token = array(
                         'email'        => $k->email,
                         'nama_lengkap' => $k->nama_depan.' '.$k->nama_belakang,
@@ -124,17 +124,10 @@ class Auth extends REST_Controller {
 
                     $this->response(array(
                         'status' => $status,
-                        'token'  => $generateToken
+                        'token'  => $generateToken,
+                        'akses'   => $akses
                     ));
-
-                }else{
-                    $status = parent::HTTP_NOT_FOUND;
-
-                    $this->response(array(
-                        'status' => $status,
-                        'msg' => 'Password Salah, Silahkan Ulangi Kembali'
-                    ));
-                }
+                
             }    
         }else{
             $status = parent::HTTP_NOT_FOUND;
@@ -316,6 +309,20 @@ class Auth extends REST_Controller {
             ),$status);
         }
         
+    }
+
+    public function who_i_m_get()
+    {
+        $data   = $this->verify_request();
+        if(count($data) > 0){
+            $status = parent::HTTP_OK;
+            $respose = ['status' => $status, 'msg' => $data];
+            $this->response($respose , $status);
+        }else{
+            $this->response(array(
+                'msg' => 'no data'
+            ), parent::HTTP_NOT_FOUND);
+        }
     }
 
 

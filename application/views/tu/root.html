@@ -10,7 +10,9 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>TU | SPW</title>
+    <title>TU | SPW
+        
+    </title>
 
      <!-- Fontfaces CSS-->
      <link href="<?= base_url('assets/css/font-face.css') ?> " rel="stylesheet" media="all">
@@ -32,6 +34,21 @@
  
      <!-- Main CSS-->
      <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
+     <script>
+         var BASE_URL = '<?= base_url() ?>';
+        
+         var session = JSON.parse(localStorage.getItem('token_adm'))         
+            if(!session){
+                window.location.replace('<?= base_url("petugas") ?>');
+            }else{
+                if(session.akses !== "TU"){
+                window.location.replace('<?= base_url("Tu/") ?>');
+                }
+            }
+
+         
+     
+     </script>
 
 </head>
 
@@ -49,7 +66,7 @@
                     <div class="image img-cir img-120">
                         <img src="<?= base_url('assets/img/user.png') ?>" alt="John Doe" />
                     </div>
-                    <h4 class="name">Meyda - TU</h4>
+                    <h4 class="name" id="desc__profile">Meyda - TU</h4>
                     <a href="#">Sign out</a>
                     <p>TU</p>
                 </div>
@@ -280,6 +297,7 @@
      <script src="<?= base_url('assets/vendor/chartjs/Chart.bundle.min.js') ?>"></script>
      <script src="<?= base_url('assets/vendor/select2/select2.min.js') ?> "></script>
      <script src="<?= base_url('assets/js/main.js') ?> "></script>
+     
      <script>
         $(document).ready(function() {
             const loadContent = function(href){
@@ -291,8 +309,6 @@
                     location.hash = '#/dashboard'
                 }
             }
-
-
             $(window).on('hashchange', function() {
                 var href = location.hash.substr(2)
                 loadContent(href)
@@ -304,10 +320,9 @@
             }else{
                 location.hash = '#/dashboard'
             }
-
         })
      </script>
-     
+     <script src="<?= base_url('public/Authentication.js') ?>" ></script>
 </body>
 
 </html>
