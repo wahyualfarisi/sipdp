@@ -89,7 +89,10 @@
                         },
                         error: function(error){
                             console.log(error)
-                            $.notify(error.responseJSON.msg, 'info')
+                            if(error){
+                                $.notify(error.responseJSON.msg, 'info')
+                            }
+                            
                         },
                         complete: function(){
                             console.log('complete')

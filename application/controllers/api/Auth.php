@@ -96,7 +96,7 @@ class Auth extends REST_Controller {
         $akses    = $this->input->post('akses');
 
         $where_login = array(
-            'email' => $email,
+            'email_petugas' => $email,
             'password' => $password,
             'akses' => $akses
         );
@@ -123,7 +123,7 @@ class Auth extends REST_Controller {
             {
                 
                     $token = array(
-                        'email'        => $k->email,
+                        'email'        => $k->email_petugas,
                         'nama_lengkap' => $k->nama_depan.' '.$k->nama_belakang,
                         'akses'        => $k->akses,
                     );
