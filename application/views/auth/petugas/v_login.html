@@ -27,7 +27,24 @@
      <!-- Main CSS-->
      <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
      <script>
+         var loc;
          var BASE_URL = '<?= base_url() ?>';
+         var session = JSON.parse(localStorage.getItem('token_adm')) 
+            // if(session === null){
+                
+            //     window.location.replace('<?= base_url("petugas") ?>');
+                
+            // }else{
+            //     // if(session.akses === 'TU'){
+            //     //     window.location.replace(`${BASE_URL}Tu/`);
+            //     // }else if(session.akses === 'KETUA'){
+            //     //     window.location.replace(`${BASE_URL}Ketua/`);
+            //     // }else if(session.akses === 'KOMISI'){
+            //     //     window.location.replace(`${BASE_URL}Komisi/`);
+            //     // }else{
+            //     //     window.location.replace(`${BASE_URL}Petugas`);
+            //     // }
+            // }
      </script>
 </head>
 

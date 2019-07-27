@@ -66,12 +66,18 @@
                         $(dom.btn_login).attr('disabled',true).html("<i class='fa fa-spinner fa-spin'> </i>")
                        },
                        success: function(data){
+                           console.log(data)
                            if(data.status === 200){
-                                localStorage.setItem('token', data.token);
+                                localStorage.setItem('token', JSON.stringify(data));
                                 location.href = `${BASE_URL}user/`
                            }
                        },
                        error: function(err){
+                           console.log(err.responseJSON)
+                           if(err.responseJSON.status === 409){
+                               return $.notify(err.responseJSON.msg, 'info')
+                           }
+                           
                            $.notify('Periksa Kembali Email Dan Password Anda', 'error')
                        },
                        complete: function(){

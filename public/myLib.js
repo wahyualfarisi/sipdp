@@ -1,33 +1,64 @@
-var getResource = (url, query, callback) => {
+var getResource = (url, query, resSuccess, resError) => {
     $.ajax({
         url, 
-        method: 'post',
+        type: 'GET',
         data: {query: query},
-        dataType: 'json',
-        success: function(data){
-            callback(data);
-        }
-    })
-}
-
-
-var postResource = (url, form, waiting, resolve, reject ) => {
-    $.ajax({
-        url,
-        method: 'post',
-        data: new FormData(form),
-        processData: false,
-        contentType: false,
-        async: false,
-        cache: false,
-        success: function(data){
-            resolve(data)
+        beforeSend: function(xhr){
+            xhr.setRequestHeader('X-API-KEY', SESSION.token);
+        },
+        success: function(res){
+            resSuccess(res)
         },
         error: function(error){
-            reject(error)
+            resError(error)
+        }    
+    })
+}
+
+var postResource = (url, form, dom, resSuccess, resError, domComplete) => {
+    $.ajax({
+        url,
+        type: 'POST',
+        data: $(form).serialize(),
+        beforeSend: function(xhr){
+            xhr.setRequestHeader('X-API-KEY', SESSION.token);
+            $(dom).attr('disabled', true).html('<i class="fa fa-spinner fa-spin"></i>')
+        },
+        success: function(res){
+            resSuccess(res)
+        },
+        error: function(error){
+            resError(error)
+        },
+        complete: function(){
+            $(dom).attr('disabled', false).text(domComplete);
+        }
+
+    })
+}
+
+var deleteResource = (url,form, dom, resSuccess, resError, domComplete ) => {
+    $.ajax({
+        url,
+        type: 'DELETE',
+        data: $(form).serialize(),
+        beforeSend: function(xhr){
+            xhr.setRequestHeader('X-API-KEY', SESSION.token);
+            $(dom).attr('disabled', true).html('<i class="fa fa-spinner fa-spin"></i>')
+        },
+        success: function(res){
+            resSuccess(res)
+        },
+        error: function(error){
+            resError(error)
+        },
+        complete: function(){
+            $(dom).attr('disabled', false).text(domComplete);
         }
     })
 }
+
+
 
 var formatRupiah = function(angka, prefix){
     var numberString = angka.replace(/[^,\d]/g, '').toString()

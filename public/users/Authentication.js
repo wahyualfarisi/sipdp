@@ -1,4 +1,4 @@
-var SESSION = JSON.parse(localStorage.getItem('token_adm')) 
+var SESSION = JSON.parse(localStorage.getItem('token')) 
 
 $.ajax({
     url: `${BASE_URL}api/Auth/who_i_m`,
@@ -8,15 +8,16 @@ $.ajax({
 
     },
     success: function(data){
-        // console.log(data)
-        if(data.status === 200){
-            $('#desc__profile').text(`${data.msg.nama_lengkap} - ${data.msg.akses}`   )
-        }
+        var obj = data.msg.payload[0];
+        $('.greating_namadepan').text(obj.nama_depan)
+        $('.greating_email').text(obj.email)
+        $('.profile-content').text(obj.nama_depan)
         
+        console.log()  
     },
     error: function(error){
         // console.log(error)
-        window.location.replace(`${BASE_URL}petugas`);
+        window.location.replace(`${BASE_URL}`);
         localStorage.clear()
     },
     complete: function(){

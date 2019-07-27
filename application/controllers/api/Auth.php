@@ -64,7 +64,17 @@ class Auth extends REST_Controller {
         
 
         $check_account = $this->m_core->get_where($this->t_user, $where);
-        if($check_account->num_rows() > 0){
+        if($check_account->num_rows() === 1){
+
+            if($check_account->result()[0]->status === 'false'){
+                $status = parent::HTTP_CONFLICT;
+                $res['msg'] = 'Maaf, Akun anda Di nonaktifkan';
+                $res['status'] = $status;
+                $this->response($res, $status);
+                return;
+            }
+
+
             $token = AUTHORIZATION::generateToken(array(
                 'payload' => $check_account->result()
             ));

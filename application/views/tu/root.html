@@ -72,7 +72,7 @@
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
-                        <li>
+                        <li >
                             <a href="#/dashboard">
                                 <i class="fas fa-chart-bar"></i>Dashboard</a>
                             <!-- <span class="inbox-num">3</span> -->
@@ -97,7 +97,7 @@
                                 <i class="fas fa-chart-bar"></i>Penugasan</a>
                             <!-- <span class="inbox-num">3</span> -->
                         </li>
-                        <li>
+                        <li id="linkpetugas">
                             <a href="#/petugas">
                                 <i class="fas fa-chart-bar"></i>Kelola Petugas</a>
                             <!-- <span class="inbox-num">3</span> -->
@@ -278,11 +278,12 @@
 
      <!-- Jquery JS-->
      <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js') ?> "></script>
+     <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
      <!-- Bootstrap JS-->
      <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js') ?> "></script>
      <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js') ?>"></script>
      <!-- Vendor JS       -->
-     
+     <script src="<?= base_url('assets/js/notify.min.js') ?>" ></script>
      <script src="<?= base_url('assets/vendor/slick/slick.min.js') ?> ">
      </script>
      <script src="<?= base_url('assets/vendor/wow/wow.min.js') ?> "></script>
@@ -320,6 +321,9 @@
             }else{
                 location.hash = '#/dashboard'
             }
+            
+           
+
         })
      </script>
      <script src="<?= base_url('public/Authentication.js') ?>" ></script>
