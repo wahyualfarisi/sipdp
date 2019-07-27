@@ -37,6 +37,32 @@ var postResource = (url, form, dom, resSuccess, resError, domComplete) => {
     })
 }
 
+var postResourceFormData = (url, form, dom, resSuccess, resError, domComplete) => {
+    $.ajax({
+        url,
+        type: 'POST',
+        data: new FormData(form),
+        processData: false,
+        contentType: false,
+        async: false,
+        cache: false,
+        beforeSend: function(xhr){
+            xhr.setRequestHeader('X-API-KEY', SESSION.token);
+            $(dom).attr('disabled', true).html('<i class="fa fa-spinner fa-spin"></i>')
+        },
+        success: function(res){
+            resSuccess(res)
+        },
+        error: function(error){
+            resError(error)
+        },
+        complete: function(){
+            $(dom).attr('disabled', false).text(domComplete);
+        }
+
+    })
+}
+
 var deleteResource = (url,form, dom, resSuccess, resError, domComplete ) => {
     $.ajax({
         url,

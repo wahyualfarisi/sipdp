@@ -9,7 +9,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Selamat datang</title>
+    <title>Sistem Pengaduan Wartawan</title>
 
      <!-- Fontfaces CSS-->
      <link href="<?= base_url('assets/css/font-face.css') ?> " rel="stylesheet" media="all">
@@ -48,7 +48,7 @@
     <div class="page-wrapper">
         <!-- HEADER DESKTOP-->
         <header class="header-desktop4">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="header4-wrap">
                     <div class="header__logo">
                         <a href="#">
@@ -103,8 +103,34 @@
         </header>
         <!-- END HEADER DESKTOP -->
 
+        <section class="welcome2 p-t-40 p-b-55 area-change" style="background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);">
+                <div class="container">
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <div class="au-breadcrumb3" >
+                                        <div class="au-breadcrumb-left">
+                                            <span class="au-breadcrumb-span" style="color: #fff">You are here:</span>
+                                            <ul class="list-unstyled list-inline au-breadcrumb__list" style="color: #fff">
+                                                <li class="list-inline-item active">
+                                                    <a href="#" style="color: #fff">Home</a>
+                                                </li>
+                                                <li class="list-inline-item seprate">
+                                                    <span>/</span>
+                                                </li>
+                                                <li class="list-inline-item" style="color: #fff">Dashboard</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <button class="show-menu">
+                                <i class="fa fa-angle-double-down custom" ></i>
+                        </button>
+                </div>
+         </section>
+
         <!-- WELCOME-->
-        <section class="welcome2 p-t-40 p-b-55" style="background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);">
+        <section class="welcome2 p-t-40 p-b-55 area_welcome" style="background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -131,6 +157,9 @@
                                 <h1 class="title-6">Hi
                                     <span class="greating_namadepan" ></span>, Selamat Datang Kembali</h1>
                                     <p class="greating_email"></p>
+                                    <button class="hidden-menu">
+                                        <i class="fa fa-angle-double-up custom" ></i>
+                                    </button>
                             </div>
                             <form class="form-header form-header2" action="" method="post">
                                 <input class="au-input au-input--w435" type="text" name="search" placeholder="Search for datas &amp; reports...">
@@ -150,7 +179,7 @@
            
             <section>
             <br>
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-3">
                             <!-- MENU SIDEBAR-->
@@ -202,11 +231,12 @@
      <!-- Jquery JS-->
      
      <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js') ?> "></script>
+     <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
      <!-- Bootstrap JS-->
      <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js') ?> "></script>
      <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js') ?>"></script>
      <!-- Vendor JS       -->
-     
+     <script src="<?= base_url('assets/js/notify.min.js') ?>" ></script>
      <script src="<?= base_url('assets/vendor/slick/slick.min.js') ?> ">
      </script>
      <script src="<?= base_url('assets/vendor/wow/wow.min.js') ?> "></script>
@@ -247,6 +277,17 @@
             }else{
                 location.hash = '#/dashboard'
             }
+
+            $('.area-change').css('display','none')
+            $('.hidden-menu').on('click', function() {
+                $('.area_welcome').hide(1000, () => $('.area-change').css('display','block') );
+            })
+
+            $('.show-menu').on('click', function() {
+                // $('.area_welcome').show(1000, () => $('.area-change').css('display','none'))
+                $('.area-change').css('display','none')
+                $('.area_welcome').show(1000);
+            })
         })
      </script>
      <script src="<?= base_url('assets/js/main.js') ?>"></script>

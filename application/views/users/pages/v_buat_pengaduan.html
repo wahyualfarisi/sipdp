@@ -10,12 +10,12 @@
           <div class="card-header">Buat Pengaduan Baru</div>
           <div class="card-body">
             <hr />
-            <form action="" id="form-profile">
+            <form id="form-create-pengaduan">
               <div class="form-group">
                 <label>Nama Perusahaan PERS</label>
                 <input
                   type="text"
-                  name="nama_pers"
+                  name="nama_perusahaan"
                   id="nama_pers"
                   class="form-control"
                 />
@@ -33,8 +33,8 @@
                 <label>Edisi Penerbitan</label>
                 <input
                   type="text"
-                  name="alamat"
-                  id="alamat"
+                  name="edisi_penerbitan"
+                  id="edisi"
                   class="form-control"
                 />
               </div>
@@ -45,6 +45,7 @@
                   id="catatan"
                   cols="20"
                   rows="10"
+                  class="form-control"
                 ></textarea>
               </div>
 
@@ -61,7 +62,7 @@
               </div>
 
               <div class="container text-center" style="margin-top: 16px;" >
-                <button class="btn btn-success" >Ajukan Permohonan</button>
+                <button type="submit" class="btn btn-success" id="btn__ajukan__pengaduan" >Ajukan Permohonan</button>
               </div>
 
             </form>
@@ -71,4 +72,6 @@
     </div>
   </div>
 </section>
+<script defer src="<?= base_url('public/users/Authentication.js') ?>" ></script>
+<script defer src="<?= base_url('public/myLib.js') ?>" ></script>
 <script src="<?= base_url('public/users/buatpengaduan.js') ?>" ></script>

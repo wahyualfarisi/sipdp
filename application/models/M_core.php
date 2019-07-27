@@ -34,11 +34,11 @@ class M_core extends CI_Model{
     return $this->db->insert($table, $data);
   }
 
-  function getMaxNumber($table, $field)
-  {
-    $query = $this->db->query("SELECT max($field) as maxKode FROM $table ");
-    return $query;
-  }
+  function autoNumber($field, $table)
+    {
+        $query = "SELECT MAX($field) as maxKode FROM $table ";
+        return $this->db->query($query);
+    }
 
   function get_order($table, $field, $method)
   {
