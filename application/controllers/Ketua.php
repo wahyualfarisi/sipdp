@@ -8,4 +8,9 @@ class Ketua extends CI_Controller {
         $this->load->view('ketua/root.html');
     }
 
+    public function dashboard()
+    {
+        $this->load->view('ketua/pages/v_dashboard.html');
+    }
+
 }

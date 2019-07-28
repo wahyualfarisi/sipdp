@@ -58,7 +58,6 @@
         
         const eventListener = function(){
 
-
         }
 
         const load_new_pengaduan = () => getResource(url.getNotif, undefined, res => {

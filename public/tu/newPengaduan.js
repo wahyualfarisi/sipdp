@@ -166,9 +166,10 @@
                 submitHandler: function(form){
                     postResource(url.postDisposisi, form, dom.btn.onSaveDisposisi, res => {
                         if(res.status === 200){
-                            ModalAction(dom.modal.disposisi, 'hide')
-                            location.hash = '#/dashboard';
+                            console.log(res)
+                            // ModalAction(dom.modal.disposisi, 'hide')
                             $.notify(res.msg, 'success')
+                            location.hash = '#/dashboard';
                         }
                     }, error => console.log(error), 'SIMPAN' )
                 }

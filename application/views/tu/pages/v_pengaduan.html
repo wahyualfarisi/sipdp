@@ -1,105 +1,225 @@
-<!-- BREADCRUMB-->
 <section class="au-breadcrumb m-t-75">
-  <div class="section__content section__content--p30">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="au-breadcrumb-content">
-            <div class="au-breadcrumb-left">
-              <span class="au-breadcrumb-span">You are here:</span>
-              <ul class="list-unstyled list-inline au-breadcrumb__list">
-                <li class="list-inline-item active">
-                  <a href="#">Dashboard</a>
-                </li>
-                <li class="list-inline-item seprate">
-                  <span>/</span>
-                </li>
-                <li class="list-inline-item">Pengaduan</li>
-              </ul>
+    <div class="section__content section__content--p30">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="au-breadcrumb-content">
+              <div class="au-breadcrumb-left">
+                <span class="au-breadcrumb-span">You are here:</span>
+                <ul class="list-unstyled list-inline au-breadcrumb__list">
+                  <li class="list-inline-item active">
+                    <a href="#">Dashboard</a>
+                  </li>
+                  <li class="list-inline-item seprate">
+                    <span>/</span>
+                  </li>
+                  <li class="list-inline-item">Daftar Pengaduan</li>
+                </ul>
+              </div>
             </div>
-           
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- END BREADCRUMB-->
-
-<div class="container-fluid" style="margin-top: 50px;">
-  <div style="margin-top: 16px; margin-bottom: 16px;">
-    <h4>DAFTAR PENGADUAN</h4>
-  </div>
-
-  <div class="" style="margin-top: 100px;">
-    <input
-      type="text"
-      name="search_pengaduan"
-      id="search_pengaduan"
-      class="form-control"
-      placeholder="Cari Data Pengaduan "
-    />
-  </div>
-
-  <div class="row" style="margin-top: 50px;">
-    <div class="col-md-12">
-      <!-- DATA TABLE-->
-      <div class="table-responsive m-b-40">
-        <table class="table table-borderless table-data3">
-          <thead>
-            <tr
-              style="background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);"
-            >
-              <th>ID Pengaduan</th>
-              <th>Nama Perusahaan PERS</th>
-              <th>Judul Berita</th>
-              <th>Edisi Terbit</th>
-              <th>Catatan</th>
-              <th>Status Disposisi</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>2019/001</td>
-              <td>KOMPAS TV</td>
-              <td>Mobile</td>
-              <td>2019</td>
-              <td class="process">Processed</td>
-              <td>$999.00</td>
-              <td>
-                <button class="btn btn-danger">Hapus</button>
-                <button class="btn btn-info">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td>2019/002</td>
-              <td>DETIK</td>
-              <td>Mobile</td>
-              <td>2018</td>
-              <td class="process">Processed</td>
-              <td>$756.00</td>
-              <td>
-                <button class="btn btn-danger">Hapus</button>
-                <button class="btn btn-info">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td>2019/003</td>
-              <td>TRIBUSNEWS</td>
-              <td>Game</td>
-              <td>2019</td>
-              <td class="denied">Denied</td>
-              <td>$22.00</td>
-              <td>
-                <button class="btn btn-danger">Hapus</button>
-                <button class="btn btn-info">Edit</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  </section>
+  <!-- END BREADCRUMB-->
+  <div class="container-fluid" style="margin-top: 50px;">
+    <div style="margin-top: 16px; margin-bottom: 16px;">
+      <h4>DAFTAR PENGADUAN</h4>
+    </div>
+    <div class="" style="margin-top: 50px;">
+      <input
+        type="text"
+        name="search_pengaduan"
+        id="search_pengaduan"
+        class="form-control"
+        placeholder="Cari Data Pengaduan "
+      />
+    </div>
+  
+    <div class="row" style="margin-top: 100px;">
+      <div class="col-md-12" style="margin-bottom: 530px;">
+        <div class="table-data__tool">
+          <div class="table-data__tool-left">
+           
+          </div>
+          <div class="table-data__tool-right"></div>
+        </div>
+        <div class="table-responsive table-responsive-data2">
+          <table class="table table-data2">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>No.Pengaduan</th>
+                <th>Nama Pengadu</th>
+                <th>Nama Perusaan Pers</th>
+                <th>Judul Berita</th>
+                <th>Edisi Penerbitan</th>
+                <th>Status Pengaduan</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="show__list__pengaduan"></tbody>
+          </table>
+        </div>
+        <!-- END DATA TABLE -->
       </div>
-      <!-- END DATA TABLE                  -->
     </div>
   </div>
-</div>
+  
+  <div
+    class="modal fade"
+    id="modalAdd"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalKaryawan">Tambah Penugasan</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="content-modal">
+          <form id="form-add">
+            <div class="form-group">
+              <label>Bagian Penugasan</label>
+              <input
+                type="text"
+                name="bagian"
+                class="form-control"
+                id="bagian"
+              />
+            </div>
+  
+            <button
+              type="submit"
+              class="au-btn au-btn-icon au-btn--blue au-btn--small"
+              id="btn__addOnModal"
+            >
+              SIMPAN
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div
+    class="modal fade"
+    id="modalDelete"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalKaryawan">Konfirmasi</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="content-modal">
+          <form id="form-delete">
+            <input type="hidden" name="id_petugas" class="form-control id_petugas" />
+            <button
+              class="au-btn au-btn-icon au-btn--blue au-btn--small btn-block"
+              id="btn__deleteOnModal"
+            >
+              DELETE
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div
+    class="modal fade"
+    id="modalEdit"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalKaryawan">Edit Penugasan</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="content-modal">
+          <form id="form-update">
+            <div class="form-group">
+              <label></label>
+              <input
+                type="hidden"
+                name="id_petugas"
+                class="form-control"
+                id="id_petugas_edit"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label>Bagian Penugasan</label>
+              <input
+                type="text"
+                name="bagian"
+                class="form-control"
+                id="bagian_edit"
+              />
+            </div>
+          
+            <button
+              type="submit"
+              class="au-btn au-btn-icon au-btn--blue au-btn--small"
+              id="btn__updateOnModal"
+            >
+              UPDATE
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script defer src="<?= base_url('public/Authentication.js') ?>"></script>
+  <script defer src="<?= base_url('public/myLib.js') ?>"></script>
+  <script defer src="<?= base_url('public/tu/pengaduan.js') ?>" ></script>

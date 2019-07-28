@@ -23,6 +23,26 @@ class Pengaduan extends REST_Controller {
     {
         if($this->token)
         {
+            $data_token     = $this->token;
+            if($data_token->akses)
+            {
+                try{
+                    $query = '';
+                    if($this->input->get('query') ){
+                        $query = $this->input->get('query');
+                    }
+                    $data_pengaduan = $this->m_pengaduan->show_pengaduan($query);
+                    $status = parent::HTTP_OK;
+                    $res['data']   = $data_pengaduan->result();
+                    $res['status'] = $status;
+                    $this->response($res, $status);
+                }catch(Exception $e){
+                    $status = parent::HTTP_INTERNAL_SERVER_ERROR;
+                    $res['msg'] = 'Server Bermasalah';
+                    $res['status'] = $status;
+                    $this->response($res, $status);
+                }
+            }
             
         }
     }

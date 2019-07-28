@@ -25,7 +25,27 @@ class Disposisi extends REST_Controller {
 
     public function index_get()
     {
-        echo "great";
+        if($this->token){
+            $data = $this->token;
+            if($data->akses){
+                try{
+                    $query = '';
+                    if($this->input->get('query') ){
+                        $query = $this->input->get('query');
+                    }
+                    $data_disposisi = $this->m_disposisi->show_disposisi($query);
+                    $status = parent::HTTP_OK;
+                    $res['status']  = $status;
+                    $res['data']    = $data_disposisi->result();
+                    $this->response($res, $status);
+                }catch(Exception $e){
+                    $status = parent::HTTP_INTERNAL_SERVER_ERROR;
+                    $res['msg'] = 'Server Bermasalah';
+                    $res['status'] = $status;
+                    $this->response($res, $status);
+                }
+            }
+        }
     }
 
     public function index_post()
@@ -90,8 +110,13 @@ class Disposisi extends REST_Controller {
 
             $create_disposisi = $this->m_core->add_data($this->t_disposisi, $data_disposisi);
             if($create_disposisi){
-                $where_update = array($this->t_pengaduan_pri => $data_disposisi['id_pengaduan']);
-                $data_update  = array('status_pengaduan' => 'diterima');
+                $where_update = array(
+                    $this->t_pengaduan_pri => $data_disposisi['id_pengaduan']
+                );
+                $data_update  = array(
+                    'status_pengaduan' => 'diterima',
+                    'deskripsi_status' => 'Permohonan Pengaduan Di terima, dan akan di tindak lanjuti '
+                );
                 $update_status_pengaduan = $this->m_core->update_table($this->t_pengaduan, $data_update, $where_update );
                     if($update_status_pengaduan){
                         $status = parent::HTTP_OK;
