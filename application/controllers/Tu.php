@@ -43,6 +43,13 @@ class Tu extends CI_Controller {
         $this->load->view('tu/pages/v_pengadu.html');
     }
 
+    public function pengaduanbaru()
+    {
+        if(isset($_GET['number_secret']) ){
+            $this->load->view('tu/pages/v_pengaduanbaru.html');
+        }
+    }
+
     
 
 }

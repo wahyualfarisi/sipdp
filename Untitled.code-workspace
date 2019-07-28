@@ -1,6 +1,8 @@
 {
 	"folders": [],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "ResumeIO"
+		"liveServer.settings.multiRootWorkspaceName": "gradient-design",
+		"git.ignoreLimitWarning": true,
+		"liveServer.settings.port": 5501
 	}
 }

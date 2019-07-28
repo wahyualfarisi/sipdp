@@ -155,11 +155,6 @@ class Pengaduan extends REST_Controller {
         return $newID;
     }
 
-
-
-
-
-
     private function verify_request()
     {
         //get all the headers 

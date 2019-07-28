@@ -10,7 +10,6 @@
 
     <!-- Title Page-->
     <title>Sistem Pengaduan Wartawan</title>
-
      <!-- Fontfaces CSS-->
      <link href="<?= base_url('assets/css/font-face.css') ?> " rel="stylesheet" media="all">
      <link href="<?= base_url('assets/vendor/font-awesome-4.7/css/font-awesome.min.css') ?>" rel="stylesheet" media="all">
@@ -32,15 +31,11 @@
      <!-- Main CSS-->
      <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
      <script>
-         var BASE_URL = '<?= base_url() ?>';
-        
+          var BASE_URL = '<?= base_url() ?>';
           var session = JSON.parse(localStorage.getItem('token') );
           if(!session){
               window.location.replace(`${BASE_URL}`)
           }
-         
-
-
      </script>
 </head>
 
@@ -176,7 +171,6 @@
 
         <!-- PAGE CONTENT-->
         <div class="page-container3">
-           
             <section>
             <br>
                 <div class="container-fluid">
@@ -191,6 +185,10 @@
                                                 <i class="fas fa-shopping-basket"></i>Dashboard</a>
                                         </li>
                                         <li>
+                                            <a href="#/buatpengaduan">
+                                                <i class="fas fa-shopping-basket"></i>Buat Pengaduan</a>
+                                        </li>
+                                        <li>
                                                 <a href="#/listpengaduan">
                                                     <i class="fas fa-shopping-basket"></i>Data Pengaduan</a>
                                                     <span class="inbox-num">3</span>
@@ -201,10 +199,7 @@
                                             <a href="#/listkeputusan">
                                                 <i class="fas fa-shopping-basket"></i>Keputusan</a>
                                         </li>
-                                        <li>
-                                                <a href="#/buatpengaduan">
-                                                    <i class="fas fa-shopping-basket"></i>Buat Pengaduan</a>
-                                        </li>
+                                       
                                     </ul>
                                 </nav>
                             </aside>
