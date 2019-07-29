@@ -14,6 +14,7 @@ class Pengaduan extends REST_Controller {
         $this->t_pengaduan = 'tbl_pengaduan';
         $this->primary = 'id_pengaduan';
         $this->load->model('m_core');
+        $this->load->model('m_pengaduan');
         $this->load->helper(['jwt', 'authorization']);
         $this->token = $this->verify_request();
     }
@@ -135,10 +136,58 @@ class Pengaduan extends REST_Controller {
                 $res['status'] = $status;
                 $this->response($res, $status);
             }
-
-          
         }
+    }
 
+    public function index_get()
+    {
+        if($this->token)
+        {
+            $data = $this->token;
+            try{
+                $yourID = $data->payload[0]->id_terdaftar;
+                $query  = '';
+                        if($this->input->get('query') )
+                        {
+                            $query = $this->input->get('query');
+                        }
+                        $data_pengaduan      = $this->m_pengaduan->show_pengaduan_user($yourID, $query);
+                        $status              = parent::HTTP_OK;
+                        $res['status']       = $status;
+                        $res['jumlah']       = $data_pengaduan->num_rows();
+                        $res['id_terdaftar'] = $yourID;
+                        $res['data']         = $data_pengaduan->result();
+                        $this->response($res, $status);
+            }catch(Exception $e){
+                        $status = parent::HTTP_INTERNAL_SERVER_ERROR;
+                        $res['msg'] = 'something wrong';
+                        $res['status'] = $status;
+                        $this->response($res, $status);
+            }
+        }
+    }
+
+    public function showNotifPengaduan_get()
+    {
+        if($this->token)
+        {
+            try{
+                $data     = $this->token;
+                $yourID   = $data->payload[0]->id_terdaftar;
+                $getNotif = $this->m_pengaduan->get_unread_pengaduan_user($yourID);
+                $status   = parent::HTTP_OK;
+                $res['data']   = $getNotif->result();
+                $res['jumlah'] = $getNotif->num_rows();
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }catch(Exception $e)
+            {
+                $status = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg'] = 'something wrong';
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }
+        }
     }
 
     

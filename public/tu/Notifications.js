@@ -35,7 +35,7 @@
                     `;
                 })
             }else{
-                
+                $(domString.html.panelNotification).removeClass('has-noti')
                 $(domString.html.titleNotif).html(`<p>Tidak ada data pengaduan baru </p>`)
             }
             $(domString.html.contentNotif).html(html);

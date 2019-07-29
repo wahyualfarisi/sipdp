@@ -5,7 +5,6 @@ $.ajax({
     type: 'GET',
     beforeSend: function(xhr){
         xhr.setRequestHeader('X-API-KEY', SESSION.token);
-
     },
     success: function(data){
         var obj = data.msg.payload[0];
@@ -16,7 +15,6 @@ $.ajax({
         console.log()  
     },
     error: function(error){
-        // console.log(error)
         window.location.replace(`${BASE_URL}`);
         localStorage.clear()
     },

@@ -13,4 +13,19 @@ class Ketua extends CI_Controller {
         $this->load->view('ketua/pages/v_dashboard.html');
     }
 
+    public function disposisi()
+    {
+        $this->load->view('ketua/pages/v_disposisi.html');
+    }
+
+    public function keputusan()
+    {
+        $this->load->view('ketua/pages/v_keputusan.html');
+    }
+
+    public function pengaduan()
+    {
+        $this->load->view('ketua/pages/v_pengaduan.html');
+    }
+
 }

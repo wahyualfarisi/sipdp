@@ -24,7 +24,7 @@ class Pengaduan extends REST_Controller {
         if($this->token)
         {
             $data_token     = $this->token;
-            if($data_token->akses)
+            if(isset($data_token->akses) )
             {
                 try{
                     $query = '';
@@ -42,8 +42,12 @@ class Pengaduan extends REST_Controller {
                     $res['status'] = $status;
                     $this->response($res, $status);
                 }
+            }else{
+                $status = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg'] = 'Akses Tidak Di izinkan';
+                $res['status'] = $status;
+                $this->response($res, $status);
             }
-            
         }
     }
 
@@ -52,7 +56,8 @@ class Pengaduan extends REST_Controller {
 
     }
 
-    public function index_delete(){
+    public function index_delete()
+    {
 
     }
 
@@ -90,7 +95,7 @@ class Pengaduan extends REST_Controller {
     {
         if($this->token){
             $data = $this->token;
-            if($data->akses)
+            if($data)
             {
                 if($this->get('id') ){
                     try{
@@ -133,7 +138,6 @@ class Pengaduan extends REST_Controller {
             }else{
                 return $data;
             }
-
         }catch(Exception $e){
             $status = parent::HTTP_UNAUTHORIZED;
             $res    = ['status' => $status, 'msg' => 'Unauthorized access!'];

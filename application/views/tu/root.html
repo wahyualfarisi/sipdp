@@ -11,48 +11,50 @@
 
     <!-- Title Page-->
     <title>TU | SPW
-        
+
     </title>
 
-     <!-- Fontfaces CSS-->
-     <link href="<?= base_url('assets/css/font-face.css') ?> " rel="stylesheet" media="all">
-     <link href="<?= base_url('assets/vendor/font-awesome-4.7/css/font-awesome.min.css') ?>" rel="stylesheet" media="all">
-     <link href="<?= base_url('assets/vendor/font-awesome-5/css/fontawesome-all.min.css') ?> " rel="stylesheet" media="all">
-     <link href="<?= base_url('assets/vendor/mdi-font/css/material-design-iconic-font.min.css') ?> " rel="stylesheet" media="all">
- 
-     <!-- Bootstrap CSS-->
-     <link href="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.css') ?> " rel="stylesheet" media="all">
- 
-     <!-- Vendor CSS-->
-     <link href="<?= base_url('assets/vendor/animsition/animsition.min.css') ?> " rel="stylesheet" media="all">
-     <link href="<?= base_url('assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') ?> " rel="stylesheet" media="all">
-     <link href="<?= base_url('assets/vendor/wow/animate.css') ?> " rel="stylesheet" media="all">
-     <link href="<?= base_url('assets/vendor/css-hamburgers/hamburgers.min.css') ?> " rel="stylesheet" media="all">
-     <link href="<?= base_url('assets/vendor/slick/slick.css') ?> " rel="stylesheet" media="all">
-     <link href="<?= base_url('assets/vendor/select2/select2.min.css') ?> " rel="stylesheet" media="all">
-     <link href="<?= base_url('assets/vendor/perfect-scrollbar/perfect-scrollbar.css') ?> " rel="stylesheet" media="all">
- 
-     <!-- Main CSS-->
-     <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
-     <script>
-         var BASE_URL = '<?= base_url() ?>';
-        
-         var session = JSON.parse(localStorage.getItem('token_adm'))         
-            if(!session){
-                window.location.replace('<?= base_url("petugas") ?>');
-            }else{
-                if(session.akses !== "TU"){
-                window.location.replace('<?= base_url("Tu/") ?>');
-                }
-            }
+    <!-- Fontfaces CSS-->
+    <link href="<?= base_url('assets/css/font-face.css') ?> " rel="stylesheet" media="all">
+    <link href="<?= base_url('assets/vendor/font-awesome-4.7/css/font-awesome.min.css') ?>" rel="stylesheet" media="all">
+    <link href="<?= base_url('assets/vendor/font-awesome-5/css/fontawesome-all.min.css') ?> " rel="stylesheet" media="all">
+    <link href="<?= base_url('assets/vendor/mdi-font/css/material-design-iconic-font.min.css') ?> " rel="stylesheet"
+        media="all">
 
-         
-     
-     </script>
+    <!-- Bootstrap CSS-->
+    <link href="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.css') ?> " rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="<?= base_url('assets/vendor/animsition/animsition.min.css') ?> " rel="stylesheet" media="all">
+    <link href="<?= base_url('assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') ?> " rel="stylesheet"
+        media="all">
+    <link href="<?= base_url('assets/vendor/wow/animate.css') ?> " rel="stylesheet" media="all">
+    <link href="<?= base_url('assets/vendor/css-hamburgers/hamburgers.min.css') ?> " rel="stylesheet" media="all">
+    <link href="<?= base_url('assets/vendor/slick/slick.css') ?> " rel="stylesheet" media="all">
+    <link href="<?= base_url('assets/vendor/select2/select2.min.css') ?> " rel="stylesheet" media="all">
+    <link href="<?= base_url('assets/vendor/perfect-scrollbar/perfect-scrollbar.css') ?> " rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
+    <script>
+        var BASE_URL = '<?= base_url() ?>';
+
+        var session = JSON.parse(localStorage.getItem('token_adm'))
+        if (!session) {
+            window.location.replace('<?= base_url("petugas") ?>');
+        } else {
+            if (session.akses !== "TU") {
+                window.location.replace('<?= base_url("petugas") ?>');
+            }
+        }
+
+
+
+    </script>
 
 </head>
 
-<body class="animsition">
+<body class="">
     <div class="page-wrapper">
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar2">
@@ -72,7 +74,7 @@
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
-                        <li >
+                        <li>
                             <a href="#/dashboard">
                                 <i class="fas fa-chart-bar"></i>Dashboard</a>
                             <!-- <span class="inbox-num">3</span> -->
@@ -107,10 +109,10 @@
                                 <i class="fas fa-chart-bar"></i>Kelola Pengadu</a>
                             <!-- <span class="inbox-num">3</span> -->
                         </li>
-                       
-                     
-                     
-                       
+
+
+
+
                     </ul>
                 </nav>
             </div>
@@ -134,14 +136,15 @@
                                     <i class="zmdi zmdi-search"></i>
                                     <div class="search-dropdown js-dropdown">
                                         <form action="">
-                                            <input class="au-input au-input--full au-input--h65" type="text" placeholder="Search for datas &amp; reports..." />
+                                            <input class="au-input au-input--full au-input--h65" type="text"
+                                                placeholder="Search for datas &amp; reports..." />
                                             <span class="search-dropdown__icon">
                                                 <i class="zmdi zmdi-search"></i>
                                             </span>
                                         </form>
                                     </div>
                                 </div>
-                                <div class="header-button-item js-item-menu" id="panel-notification" >
+                                <div class="header-button-item js-item-menu" id="panel-notification">
                                     <i class="zmdi zmdi-notifications"></i>
                                     <div class="notifi-dropdown js-dropdown">
                                         <div class="notifi__title"></div>
@@ -151,7 +154,7 @@
                                             </div>
                                             <div class="content"></div>
                                         </div>
-                                      
+
                                         <!-- <div class="notifi__footer">
                                             <a href="#">Lihat Semua Daftar Pengaduan</a>
                                         </div> -->
@@ -250,14 +253,8 @@
                 </div>
             </aside>
             <!-- END HEADER DESKTOP-->
-
-            <div id="content">
-
-           
-
-            <!-- END PAGE CONTAINER-->
-           </div>
-           <!-- <section>
+            <div id="content"></div>
+            <section>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
@@ -267,63 +264,65 @@
                         </div>
                     </div>
                 </div>
-            </section> -->
- 
-    </div>
+            </section>
+        </div>
 
-     <!-- Jquery JS-->
-     <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js') ?> "></script>
-     <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
-     <!-- Bootstrap JS-->
-     <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js') ?> "></script>
-     <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js') ?>"></script>
-     <!-- Vendor JS       -->
-     <script src="<?= base_url('assets/js/notify.min.js') ?>" ></script>
-     <script src="<?= base_url('assets/vendor/slick/slick.min.js') ?> ">
-     </script>
-     <script src="<?= base_url('assets/vendor/wow/wow.min.js') ?> "></script>
-     <script src="<?= base_url('assets/vendor/animsition/animsition.min.js') ?> "></script>
-     <script src="<?= base_url('assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') ?> ">
-     </script>
-     <script src="<?= base_url('assets/vendor/counter-up/jquery.waypoints.min.js') ?> "></script>
-     <script src="<?= base_url('assets/vendor/counter-up/jquery.counterup.min.js') ?> ">
-     </script>
-     <script src="<?= base_url('assets/vendor/circle-progress/circle-progress.min.js') ?> "></script>
-     <script src="<?= base_url('assets/vendor/perfect-scrollbar/perfect-scrollbar.js') ?> "></script>
-     <script src="<?= base_url('assets/vendor/chartjs/Chart.bundle.min.js') ?>"></script>
-     <script src="<?= base_url('assets/vendor/select2/select2.min.js') ?> "></script>
-     <script src="<?= base_url('assets/js/main.js') ?> "></script>
-     
-     <script>
-        $(document).ready(function() {
-            const loadContent = function(href){
-                if(href){
-                    $.get(`<?= base_url().'Tu/' ?>${href}`, content => {
-                        $('#content').html(content);
-                    })
-                }else{
+        <!-- Jquery JS-->
+        <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js') ?> "></script>
+        <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
+        <!-- Bootstrap JS-->
+        <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js') ?> "></script>
+        <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js') ?>"></script>
+        <!-- Vendor JS       -->
+        <script src="<?= base_url('assets/js/notify.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/slick/slick.min.js') ?> ">
+
+        </script>
+        <script src="<?= base_url('assets/vendor/wow/wow.min.js') ?> "></script>
+        <script src="<?= base_url('assets/vendor/animsition/animsition.min.js') ?> "></script>
+        <script src="<?= base_url('assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') ?> ">
+
+        </script>
+        <script src="<?= base_url('assets/vendor/counter-up/jquery.waypoints.min.js') ?> "></script>
+        <script src="<?= base_url('assets/vendor/counter-up/jquery.counterup.min.js') ?> ">
+
+        </script>
+        <script src="<?= base_url('assets/vendor/circle-progress/circle-progress.min.js') ?> "></script>
+        <script src="<?= base_url('assets/vendor/perfect-scrollbar/perfect-scrollbar.js') ?> "></script>
+        <script src="<?= base_url('assets/vendor/chartjs/Chart.bundle.min.js') ?>"></script>
+        <script src="<?= base_url('assets/vendor/select2/select2.min.js') ?> "></script>
+        <script src="<?= base_url('assets/js/main.js') ?> "></script>
+
+        <script>
+            $(document).ready(function () {
+                const loadContent = function (href) {
+                    if (href) {
+                        $.get(`<?= base_url().'Tu/' ?>${href}`, content => {
+                            $('#content').html(content);
+                        })
+                    } else {
+                        location.hash = '#/dashboard'
+                    }
+                }
+                $(window).on('hashchange', function () {
+                    var href = location.hash.substr(2)
+                    loadContent(href)
+                })
+
+                if (location.href) {
+                    var href = location.hash.substr(2);
+                    loadContent(href);
+                } else {
                     location.hash = '#/dashboard'
                 }
-            }
-            $(window).on('hashchange', function() {
-                var href = location.hash.substr(2)
-                loadContent(href)
+
+
+
             })
-
-            if(location.href){
-                var href = location.hash.substr(2);
-                loadContent(href);
-            }else{
-                location.hash = '#/dashboard'
-            }
-            
-           
-
-        })
-     </script>
-     <script src="<?= base_url('public/Authentication.js') ?>" ></script>
-     <script src="<?= base_url('public/myLib.js') ?>" ></script>
-     <script src="<?= base_url('public/tu/Notifications.js') ?>" ></script>
+        </script>
+        <script src="<?= base_url('public/Authentication.js') ?>"></script>
+        <script src="<?= base_url('public/myLib.js') ?>"></script>
+        <script src="<?= base_url('public/tu/Notifications.js') ?>"></script>
 </body>
 
 </html>

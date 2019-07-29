@@ -28,6 +28,28 @@ class M_pengaduan extends CI_Model {
         return $this->db->query($query);
     }
 
+    public function show_pengaduan_user($id_terdaftar, $query)
+    {
+        $query = "SELECT a.id_pengaduan, a.id_terdaftar,  a.nama_perusahaan_pers, a.judul_berita, a.edisi_penerbitan, a.catatan, a.status_pengaduan, a.deskripsi_status, a.dilihat,
+                         b.nomor_disposisi, b.tgl_disposisi, b.jenis_tugas, b.catatan_disposisi, b.status_disposisi, 
+                         c.id_petugas, c.bagian
+                  FROM tbl_pengaduan a LEFT JOIN tbl_disposisi b ON a.id_pengaduan = b.id_pengaduan 
+                                       LEFT JOIN tbl_penugasan c ON b.id_petugas = c.id_petugas 
+                  WHERE a.status_pengaduan != 'terkirim' AND a.nama_perusahaan_pers LIKE '%$query%'
+                  AND a.id_terdaftar = '$id_terdaftar'                    
+        ";
+        return $this->db->query($query);
+    }
+
+    public function get_unread_pengaduan_user($id_terdaftar)
+    {
+        $query = "SELECT * FROM tbl_pengaduan 
+                           WHERE id_terdaftar = '$id_terdaftar'
+                           AND dilihat = 'belum'
+        ";
+        return $this->db->query($query);
+    }
+
     
 
 

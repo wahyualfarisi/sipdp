@@ -6,27 +6,35 @@
   <input type="text" class="form-control" id="search_pengaduan" placeholder="Cari Data Pengaduan">
 </div>
 
-
-<div class="row" style="margin-top: 30px;">
-  <div class="col-md-12" style="margin-bottom: 300px;">
-    <!-- DATA TABLE-->
-    <div class="table-responsive m-b-40">
-      <table class="table table-borderless table-data3">
-        <thead>
-          <tr
-            style="background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);"
-          >
-            <th>Nama Perusahaan PERS</th>
-            <th>Judul Berita</th>
-            <th>Edisi Terbit</th>
-            <th>Catatan</th>
-            <th>Status</th>
-            <th>Detail Status Pengaduan</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+<div class="row" style="margin-top: 80px;">
+    <div class="col-md-12" style="margin-bottom: 430px;">
+      <div class="table-data__tool">
+        <div class="table-data__tool-left">
+         
+        </div>
+        <div class="table-data__tool-right"></div>
+      </div>
+      <div class="table-responsive table-responsive-data2">
+        <table class="table table-data2">
+          <thead>
+            <tr>
+              <th>No Pengaduan</th>
+              <th>Nama Perusahaan Pers</th>
+              <th>Judul Berita</th>
+              <th>Edisi Penerbitan</th>
+              <th>Status Pengaduan</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="show__list__pengaduan__user"></tbody>
+        </table>
+      </div>
+      <!-- END DATA TABLE -->
     </div>
-    <!-- END DATA TABLE                  -->
   </div>
 </div>
+<script defer src="<?= base_url('public/users/Authentication.js') ?>"></script>
+<script defer src="<?= base_url('public/myLib.js') ?>" ></script>
+<script defer src="<?= base_url('public/users/Notif.js') ?>" ></script>
+<script defer src="<?= base_url('public/users/pengaduan.js') ?>" ></script>
+

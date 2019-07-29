@@ -1,0 +1,145 @@
+<section class="au-breadcrumb m-t-75">
+        <div class="section__content section__content--p30">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="au-breadcrumb-content">
+                  <div class="au-breadcrumb-left">
+                    <span class="au-breadcrumb-span">You are here:</span>
+                    <ul class="list-unstyled list-inline au-breadcrumb__list">
+                      <li class="list-inline-item active">
+                        <a href="#/listpengaduan">List Pengaduan</a>
+                      </li>
+                      <li class="list-inline-item seprate">
+                        <span>/</span>
+                      </li>
+                      <li class="list-inline-item">Detail Pengaduan</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END BREADCRUMB-->
+      <div class="container-fluid" style="margin-top: 4px;">
+     
+                    <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-12">
+                              <div class="table-data__tool">
+                                <div class="table-data__tool-left">
+                                    <h4>No. Pengaduan : <?= $_GET['id_secret'] ?> </h4>
+                                </div>
+                                <div class="table-data__tool-right">
+                                  <button
+                                    class="au-btn au-btn-icon au-btn--green au-btn--small btn__buat__disposisi"
+                                  >
+                                    <i class="zmdi zmdi-plus"></i>Tandai Sudah Di Di lihat
+                                  </button>
+                                </div>
+                              </div>
+                              <div class="table-responsive table-responsive-data2">
+                                <table class="table table-data2">
+                                  <thead>
+                                    <tr>
+                                      <th>No. Pengaduan</th>
+                                      <th>No. Disposisi</th>
+                                      <th>Nama Perusahaan PERS</th>
+                                      <th>Judul Berita</th>
+                                      <th>Edisi Penerbitan</th>
+                                      <th>Catatan</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody id="show__list__detail"></tbody>
+                                </table>
+                              </div>
+                              <!-- END DATA TABLE -->
+                            </div>
+                          </div>
+
+          
+        
+      
+        <div class="row container-fluid" style="margin-top: 25px;">
+          <div class="col-md-12" style="margin-bottom: 630px;">
+            <h4>BUKTI PENGADUAN</h4>
+            <div class="row buktipengaduan" style="margin-top: 30px;"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div
+        class="modal fade"
+        id="modalDisposisi"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content ">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalKaryawan">Buat Disposisi</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="content-modal">
+              <form id="form-add-disposisi">
+                <div class="form-group">
+                  <label>No. Pengaduan</label>
+                  <input
+                    type="text"
+                    name="id_pengaduan"
+                    class="form-control id_pengaduan"
+                    value="<?= $_GET['id_secret'] ?>"
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Petugas</label>
+                   <select name="id_petugas" class="form-control petugas" id="show_petugas">
+                       
+                   </select>
+                </div>
+                <div class="form-group">
+                      <label>Jenis Tugas</label>
+                       <select name="jenis_tugas" class="form-control" id="show_jenis_tugas">
+                       </select>
+                </div>
+                <div class="form-group">
+                    <label>Catatan</label>
+                    <textarea name="catatan_disposisi" class="form-control catatan-disposisi" cols="30" rows="10"></textarea>
+                </div>
+              
+                <button
+                  type="submit"
+                  class="au-btn au-btn-icon au-btn--blue au-btn--small"
+                  id="btn__on__save"
+                >
+                  SIMPAN
+                </button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-info" data-dismiss="modal">
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <script>
+        var NUMBER_SECRET = '<?= $_GET["id_secret"] ?>';
+      </script>
+      <script defer src="<?= base_url('public/myLib.js') ?>"></script>
+      <script defer src="<?= base_url('public/users/overviewpengaduan.js') ?>" ></script>

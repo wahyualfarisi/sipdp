@@ -167,9 +167,11 @@
                     postResource(url.postDisposisi, form, dom.btn.onSaveDisposisi, res => {
                         if(res.status === 200){
                             console.log(res)
-                            // ModalAction(dom.modal.disposisi, 'hide')
+                            ModalAction(dom.modal.disposisi, 'hide')
                             $.notify(res.msg, 'success')
-                            location.hash = '#/dashboard';
+                            load__pengaduan_user()
+                            location.href = `${BASE_URL}Tu/`
+                            // location.hash = '#/dashboard';
                         }
                     }, error => console.log(error), 'SIMPAN' )
                 }

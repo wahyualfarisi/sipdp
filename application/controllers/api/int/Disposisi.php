@@ -11,8 +11,8 @@ class Disposisi extends REST_Controller {
 
     public function __construct($config = 'rest'){
         parent::__construct($config);
-        $this->t_disposisi = 'tbl_disposisi';
-        $this->primary = 'nomor_disposisi';
+        $this->t_disposisi     = 'tbl_disposisi';
+        $this->primary         = 'nomor_disposisi';
 
         $this->t_pengaduan     = 'tbl_pengaduan';
         $this->t_pengaduan_pri = 'id_pengaduan';
@@ -39,8 +39,8 @@ class Disposisi extends REST_Controller {
                     $res['data']    = $data_disposisi->result();
                     $this->response($res, $status);
                 }catch(Exception $e){
-                    $status = parent::HTTP_INTERNAL_SERVER_ERROR;
-                    $res['msg'] = 'Server Bermasalah';
+                    $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
+                    $res['msg']    = 'Server Bermasalah';
                     $res['status'] = $status;
                     $this->response($res, $status);
                 }
@@ -98,14 +98,14 @@ class Disposisi extends REST_Controller {
             }
 
             $data_disposisi = array(
-                'nomor_disposisi' => $this->generateCodeDisposisi(),
-                'id_pengaduan'    => $this->input->post('id_pengaduan'),
-                'tgl_disposisi'   => date('Y-m-d'),
-                'id_petugas'      => $this->input->post('id_petugas'),
-                'jenis_tugas'     => $this->input->post('jenis_tugas'),
+                'nomor_disposisi'   => $this->generateCodeDisposisi(),
+                'id_pengaduan'      => $this->input->post('id_pengaduan'),
+                'tgl_disposisi'     => date('Y-m-d'),
+                'id_petugas'        => $this->input->post('id_petugas'),
+                'jenis_tugas'       => $this->input->post('jenis_tugas'),
                 'catatan_disposisi' => $this->input->post('catatan_disposisi'),
-                'status_disposisi' => 'tindaklanjuti',
-                'email_petugas'   => $data->email
+                'status_disposisi'  => 'proses',
+                'email_petugas'     => $data->email
             );
 
             $create_disposisi = $this->m_core->add_data($this->t_disposisi, $data_disposisi);
@@ -115,7 +115,8 @@ class Disposisi extends REST_Controller {
                 );
                 $data_update  = array(
                     'status_pengaduan' => 'diterima',
-                    'deskripsi_status' => 'Permohonan Pengaduan Di terima, dan akan di tindak lanjuti '
+                    'deskripsi_status' => 'Permohonan Pengaduan Di terima, dan akan di tindak lanjuti',
+                    'dilihat'          => 'belum'
                 );
                 $update_status_pengaduan = $this->m_core->update_table($this->t_pengaduan, $data_update, $where_update );
                     if($update_status_pengaduan){
@@ -150,15 +151,15 @@ class Disposisi extends REST_Controller {
     {
         if($this->token){
             try{
-                $data = $this->token;
-                $jenis_tugas = $this->m_disposisi->get_jenistugas();
-                $status = parent::HTTP_OK;
-                $res['data'] = $jenis_tugas;
+                $data          = $this->token;
+                $jenis_tugas   = $this->m_disposisi->get_jenistugas();
+                $status        = parent::HTTP_OK;
+                $res['data']   = $jenis_tugas;
                 $res['status'] = $status;
                 $this->response($res, $status);
             }catch(Exception $e){
-                $status = parent::HTTP_INTERNAL_SERVER_ERROR;
-                $res['msg'] = 'Server Bermasalah';
+                $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg']    = 'Server Bermasalah';
                 $res['status'] = $status;
                 $this->response($res, $status);
             }   
