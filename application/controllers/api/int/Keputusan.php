@@ -108,7 +108,6 @@ class Keputusan extends REST_Controller {
             }
 
             try{
-                echo "great";
                 $data_keputusan = array(
                     'no_surat_keputusan' => $this->generateCodeKeputusan(),
                     'nomor_disposisi'    => $this->input->post('nomor_disposisi'),

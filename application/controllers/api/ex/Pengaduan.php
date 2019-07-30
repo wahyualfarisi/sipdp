@@ -190,6 +190,37 @@ class Pengaduan extends REST_Controller {
         }
     }
 
+    public function readPengaduan_post()
+    {
+        if($this->token)
+        {
+            try{
+                $where_update['id_pengaduan'] = $this->input->post('id_pengaduan');
+                $data_update['dilihat'] = 'sudah';
+                $update_table = $this->m_core->update_table('tbl_pengaduan', $data_update, $where_update);
+                if($update_table)
+                {
+                    $status = parent::HTTP_OK;
+                    $res['msg'] = 'Berhasil Menandai';
+                    $res['status'] = $status;
+                    $this->response($res, $status);
+                }
+                else{
+                    $status = parent::HTTP_BAD_REQUEST;
+                    $res['msg'] = 'Gagal Mendandai';
+                    $res['status'] = $status;
+                    $this->response($res, $status);
+                }
+            }catch(Exception $e)
+            {
+                $status = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg'] = 'something wrong';
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }
+        }
+    }
+
     
 
     private function generateCodePengaduan()

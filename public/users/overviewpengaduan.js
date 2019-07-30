@@ -5,6 +5,7 @@
         const urlString = {
             getPengaduan: `${BASE_URL}api/ex/Pengaduan`,
             reqBuktiPengaduan: `${BASE_URL}api/int/Pengaduan/requestBuktiPengaduan`,
+            tandaiPengaduan: `${BASE_URL}api/ex/Pengaduan/readPengaduan`
         }
         return {
             getURL: () => urlString
@@ -16,22 +17,38 @@
         const domString = {
             html: {
                 listDetail: '#show__list__detail',
-                listBukti: '.buktipengaduan'
+                listBukti: '.buktipengaduan',
+                tandaiBtn: '.button-tandai'
+            },
+            btn: {
+                onTandai: '.btn__on__tandai'
             }
         }
 
         const renderDetail = data => {
+            console.log(data)
             let html = ''
             data.forEach(item => {
+                const { 
+                    id_pengaduan, 
+                    nomor_disposisi,
+                    nama_perusahaan_pers, 
+                    judul_berita, 
+                    edisi_penerbitan,
+                    catatan
+                } = item;
+
+                item.dilihat === 'sudah' ? $(domString.html.tandaiBtn).css('display', 'none') : ''
+
                 html += `
                     <tr class="spacer"> </tr>
                     <tr class="tr-shadow">
-                        <td> ${item.id_pengaduan} </td>
-                        <td> ${item.nomor_disposisi} </td>
-                        <td> ${item.nam_perusahaan_pers} </td>
-                        <td> ${item.judul_berita} </td>
-                        <td> ${item.edisi_penerbitan} </td>
-                        <td> ${item.catatan} </td>
+                        <td> ${id_pengaduan} </td>
+                        <td> ${nomor_disposisi} </td>
+                        <td> ${nama_perusahaan_pers} </td>
+                        <td> ${judul_berita} </td>
+                        <td> ${edisi_penerbitan} </td>
+                        <td> ${catatan} </td>
                     </tr>
                 `;
             })
@@ -57,7 +74,6 @@
         return {
             getDOM: () => domString,
             retrieveDetail: data => {
-                console.log(data)
                 renderDetail(data)
             },
             retrieveBukti: data => renderBukti(data)
@@ -73,6 +89,15 @@
         
         const eventListener = function(){
 
+            $('#form-tandai').submit(function(e) {
+                e.preventDefault()
+                postResource(url.tandaiPengaduan, this, dom.btn.onTandai, res => {
+                    if(res.status === 200){
+                        $(dom.html.tandaiBtn).css('display','none')
+                    }
+                }, err => console.log(err), 'TANDAI')
+            })
+            
 
         }
 
@@ -85,7 +110,6 @@
         }, error => console.log(res))
 
         const load_bukti_pengaduan = (id_pengaduan) => getResource(`${url.reqBuktiPengaduan}?id=${id_pengaduan}`, undefined, res => {
-            console.log(res)
             if(res.status === 200){
                 UI.retrieveBukti(res.data)
             }
@@ -94,8 +118,8 @@
 
         return {
             init: () => {
-                console.log('init ')
                 load_overview_pengaduan()
+                eventListener()
                 
             }
         }

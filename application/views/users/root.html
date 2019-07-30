@@ -32,10 +32,11 @@
      <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
      <script>
           var BASE_URL = '<?= base_url() ?>';
-          var session = JSON.parse(localStorage.getItem('token') );
-          if(!session){
+          var SESSION = JSON.parse(localStorage.getItem('token') );
+          if(!SESSION){
               window.location.replace(`${BASE_URL}`)
           }
+
      </script>
 </head>
 
@@ -79,15 +80,11 @@
                                         <div class="account-dropdown__item">
                                             <a href="#/profile">
                                                 <i class="zmdi zmdi-account"></i>Profil</a>
-                                        </div>
-                                        <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-settings"></i>Ubah Password</a>
-                                        </div>
+                                        </div>                                       
                                     </div>
                                     <div class="account-dropdown__footer">
-                                        <a href="#">
-                                            <i class="zmdi zmdi-power"></i>Logout</a>
+                                        <button class="btn btn-danger btn-block btn__signout">
+                                            <i class="zmdi zmdi-power"></i> Logout</button>
                                     </div>
                                 </div>
                             </div>
@@ -284,12 +281,22 @@
                 $('.area-change').css('display','none')
                 $('.area_welcome').show(1000);
             })
+
+            $('.btn__signout').click(function() {
+                localStorage.clear()
+                location.reload()
+            })
+
+            
+
+
         })
      </script>
      <script defer src="<?= base_url('assets/js/main.js') ?>"></script>
      <script defer src="<?= base_url('public/users/Authentication.js') ?>"></script>
      <script defer src="<?= base_url('public/myLib.js') ?>" ></script>
      <script defer src="<?= base_url('public/users/Notif.js') ?>" ></script>
+    
 </body>
 
 </html>

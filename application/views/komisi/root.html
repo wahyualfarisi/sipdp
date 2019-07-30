@@ -121,7 +121,7 @@
               />
             </div>
             <h4 class="name" id="desc__profile">Meyda - Komisi</h4>
-            <a href="#">Sign out</a>
+            <button class="btn btn-danger btn__signout" >Keluar</button>
             <p>KOMISI</p>
           </div>
           <nav class="navbar-sidebar2">
@@ -170,6 +170,7 @@
             </div>
           </div>
         </header>
+        
         <aside class="menu-sidebar2 js-right-sidebar d-block d-lg-none">
           <!-- <div class="logo">
             <a href="#">
@@ -381,11 +382,12 @@
 
     <!-- Jquery JS-->
     <script src="<?= base_url('assets/vendor/jquery-3.2.1.min.js') ?> "></script>
+    <script src="<?= base_url('assets/js/jquery.validate.min.js') ?>"></script>
     <!-- Bootstrap JS-->
     <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js') ?> "></script>
     <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js') ?>"></script>
     <!-- Vendor JS       -->
-
+    <script src="<?= base_url('assets/js/notify.min.js') ?>"></script>
     <script src="<?= base_url('assets/vendor/slick/slick.min.js') ?> "></script>
     <script src="<?= base_url('assets/vendor/wow/wow.min.js') ?> "></script>
     <script src="<?= base_url('assets/vendor/animsition/animsition.min.js') ?> "></script>
@@ -420,6 +422,12 @@
         } else {
           location.hash = "#/dashboard";
         }
+
+        $('.btn__signout').click(function() {
+         localStorage.clear()
+         location.reload()
+        })
+
       });
     </script>
     <script src="<?= base_url('public/Authentication.js') ?>"></script>
@@ -435,6 +443,7 @@
             success: function(res){
               if(res.status === 200){
                 $('#linkdashboard').append(`<span class="inbox-num">${res.jumlah}</span>`)
+                
               }
             },
             error: function(error){

@@ -69,7 +69,7 @@
                         <img src="<?= base_url('assets/img/user.png') ?>" alt="John Doe" />
                     </div>
                     <h4 class="name" id="desc__profile"></h4>
-                    <a href="#">Sign out</a>
+                    <button class="btn btn-danger btn__signout ">SIGN OUT</button>
                     <p>TU</p>
                 </div>
                 <nav class="navbar-sidebar2">
@@ -316,6 +316,10 @@
                     location.hash = '#/dashboard'
                 }
 
+            $('.btn__signout').click(function() {
+                localStorage.clear()
+                location.reload()
+            })
 
 
             })

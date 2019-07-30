@@ -61,7 +61,7 @@
                         <img src="<?= base_url('assets/img/user.png') ?>" alt="John Doe" />
                     </div>
                     <h4 class="name" id="desc__profile">Meyda - Ketua</h4>
-                    <a href="#">Sign out</a>
+                    <button class="btn btn-danger btn-signout">Sign Out</button>
                     <p>KETUA</p>
                 </div>
                 <nav class="navbar-sidebar2">
@@ -390,6 +390,12 @@
                 }else{
                     location.hash = '#/dashboard'
                 }
+
+
+                $('.btn-signout').click(function() {
+                    localStorage.clear()
+                    location.reload()
+                })
             })
          </script>
          <script defer src="<?= base_url('public/Authentication.js') ?>" ></script>

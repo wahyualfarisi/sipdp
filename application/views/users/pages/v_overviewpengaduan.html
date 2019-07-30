@@ -31,12 +31,13 @@
                                 <div class="table-data__tool-left">
                                     <h4>No. Pengaduan : <?= $_GET['id_secret'] ?> </h4>
                                 </div>
-                                <div class="table-data__tool-right">
-                                  <button
-                                    class="au-btn au-btn-icon au-btn--green au-btn--small btn__buat__disposisi"
-                                  >
-                                    <i class="zmdi zmdi-plus"></i>Tandai Sudah Di Di lihat
-                                  </button>
+                                <div class="table-data__tool-right  button-tandai" >
+                                  <form id="form-tandai">
+                                    <input type="hidden" name="id_pengaduan" value="<?= $_GET['id_secret'] ?>" >
+                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small btn__on__tandai">
+                                        <i class="zmdi zmdi-plus"></i>Tandai Sudah Di Di lihat
+                                      </button>
+                                  </form>
                                 </div>
                               </div>
                               <div class="table-responsive table-responsive-data2">
@@ -143,3 +144,4 @@
       </script>
       <script defer src="<?= base_url('public/myLib.js') ?>"></script>
       <script defer src="<?= base_url('public/users/overviewpengaduan.js') ?>" ></script>
+      <script defer src="<?= base_url('public/users/Notif.js') ?>" ></script>

@@ -121,7 +121,7 @@
 
 <div
   class="modal fade"
-  id="modalTindakLanjut"
+  id="modalKeputusan"
   tabindex="-1"
   role="dialog"
   aria-labelledby="exampleModalLabel"
@@ -141,11 +141,11 @@
         </button>
       </div>
       <div class="modal-body" id="content-modal">
-        <h5 class="text-center">Konfirmasi Tindak Lanjut Disposisi</h5>
+        <h5 class="text-center">Buat Keputusan</h5>
 
-        <form id="form-tindaklanjut" style="margin-top: 20px;">
+        <form id="form-keputusan" style="margin-top: 20px;">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div class="form-group">
                 <label>No. Pengaduan</label>
                 <input
@@ -156,43 +156,6 @@
                 />
               </div>
               <div class="form-group">
-                <label>Nama Perusahaan Pers</label>
-                <input
-                  type="text"
-                  id="perusahaan_pers"
-                  class="form-control perusahaan_pers"
-                  readonly
-                />
-              </div>
-              <div class="form-group">
-                <label>Judul Berita</label>
-                <input
-                  type="text"
-                  id="judul_berita"
-                  class="form-control judul_berita"
-                  readonly
-                />
-              </div>
-              <div class="form-group">
-                <label>Edisi Penerbiatan</label>
-                <input
-                  type="text"
-                  class="form-control edisi_penerbitan"
-                  readonly
-                />
-              </div>
-              <div class="form-group">
-                <label>Catatan Pengaduan</label>
-                <textarea
-                  id="catatan_pengaduan"
-                  class="form-control catatan_pengaduan"
-                  cols="30"
-                  rows="10"
-                ></textarea>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
                 <label>Nomor Disposisi</label>
                 <input
                   type="text"
@@ -202,46 +165,39 @@
                 />
               </div>
               <div class="form-group">
-                <label>Tanggal Disposisi</label>
+                <label>Lampiran</label>
                 <input
                   type="text"
-                  id="tgl_disposisi"
-                  class="form-control"
-                  readonly
+                  name="lampiran"
+                  class="form-control lampiran"
+               
                 />
               </div>
               <div class="form-group">
-                <label>Penugasan</label>
+                <label>Perihal</label>
                 <input
                   type="text"
-                  id="penugasan"
-                  class="form-control"
-                  readonly
+                  name="perihal"
+                  class="form-control perihal"
+                  
                 />
               </div>
               <div class="form-group">
-                <label>Jenis Tugas</label>
-                <input
-                  type="text"
-                  id="jenis_tugas"
-                  class="form-control"
-                  readonly
-                />
-              </div>
-              <div class="form-group">
-                <label>Catatan Disposisi</label>
+                <label>Isi Agenda</label>
                 <textarea
-                  id="catatan_disposisi"
-                  class="form-control"
+                  id="catatan_pengaduan"
+                  name="isi_agenda"
+                  class="form-control isi_agenda"
                   cols="30"
                   rows="10"
                 ></textarea>
               </div>
             </div>
+
             <div class="col-md-12">
               <div class="text-center">
                 <button type="submit" id="btn_on_save" class="btn btn-danger">
-                  TINDAK LANJUT
+                  BUAT KEPUTUSAN
                 </button>
               </div>
             </div>

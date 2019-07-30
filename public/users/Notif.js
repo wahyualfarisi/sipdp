@@ -20,9 +20,10 @@
 
 
         const renderNotif = data => {
-            console.log(data)
             if(data.jumlah > 0){
                 $(domString.html.notif).append(`<span class="inbox-num">${data.jumlah}</span>`)
+            }else{
+                $(domString.html.notif).append(``)
             }
 
         }
