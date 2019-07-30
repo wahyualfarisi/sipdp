@@ -34,11 +34,11 @@
      <link href="<?= base_url('assets/css/theme.css') ?>" rel="stylesheet" media="all">
      <script>
             var BASE_URL = '<?= base_url() ?>';
-            var session = JSON.parse(localStorage.getItem('token_adm')) 
-            if(!session){
+            var SESSION = JSON.parse(localStorage.getItem('token_adm')) 
+            if(!SESSION){
                 window.location.replace('<?= base_url("petugas") ?>');
             }else{
-                if(session.akses !== "KETUA"){
+                if(SESSION.akses !== "KETUA"){
                    window.location.replace('<?= base_url("petugas") ?>');
                 }
             }
@@ -62,29 +62,29 @@
                     </div>
                     <h4 class="name" id="desc__profile">Meyda - Ketua</h4>
                     <a href="#">Sign out</a>
-                    <p>TU</p>
+                    <p>KETUA</p>
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
                         <li>
-                            <a href="#/dashboard">
+                            <a href="#/dashboard" id="linkdashboard">
                                 <i class="fas fa-chart-bar"></i>Dashboard</a>
-                            <span class="inbox-num">3</span>
+                            <!-- <span class="inbox-num">3</span> -->
                         </li>
                         <li>
                             <a href="#/pengaduan">
                                 <i class="fas fa-chart-bar"></i>Pengaduan</a>
-                            <!-- <span class="inbox-num">3</span> -->
+                            
                         </li>
                         <li>
                             <a href="#/disposisi">
                                 <i class="fas fa-chart-bar"></i>Disposisi</a>
-                            <!-- <span class="inbox-num">3</span> -->
+                            
                         </li>
                         <li>
                             <a href="#/keputusan">
                                 <i class="fas fa-chart-bar"></i>Keputusan</a>
-                            <!-- <span class="inbox-num">3</span> -->
+                            
                         </li>
                     </ul>
                 </nav>
@@ -116,27 +116,7 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="header-button-item has-noti js-item-menu">
-                                    <i class="zmdi zmdi-notifications"></i>
-                                    <div class="notifi-dropdown js-dropdown">
-                                        <div class="notifi__title">
-                                            <p>Anda mempunya 3 permohonan baru</p>
-                                        </div>
-                                        <div class="notifi__item">
-                                            <div class="bg-c1 img-cir img-40">
-                                                <i class="zmdi zmdi-email-open"></i>
-                                            </div>
-                                            <div class="content">
-                                                <p>Permohonan Pengaduan</p>
-                                                <span class="date">April 12, 2018 06:50</span>
-                                            </div>
-                                        </div>
-                                      
-                                        <div class="notifi__footer">
-                                            <a href="#">All notifications</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="header-button-item mr-0 js-sidebar-btn">
                                     <i class="zmdi zmdi-menu"></i>
                                 </div>
@@ -412,7 +392,29 @@
                 }
             })
          </script>
-         <script src="<?= base_url('public/Authentication.js') ?>" ></script>
+         <script defer src="<?= base_url('public/Authentication.js') ?>" ></script>
+         <script defer src="<?= base_url('public/myLib.js') ?>" ></script>
+         <script>
+             function LOAD_NOTIF(){
+                $.ajax({
+                    url: `${BASE_URL}api/int/Disposisi/show_disposisi_proses`,
+                    type: 'GET',
+                    beforeSend:  function(xhr){
+                        xhr.setRequestHeader('X-API-KEY', SESSION.token);
+                    },
+                    success: function(res){
+                        if(res.status === 200){
+                            $('#linkdashboard').append(`<span class="inbox-num">${res.jumlah}</span>`)
+                        }
+                    },
+                    error: function(error){
+                        console.log(error)
+                    }
+                })
+             }
+
+             LOAD_NOTIF()
+         </script>
 </body>
 
 </html>

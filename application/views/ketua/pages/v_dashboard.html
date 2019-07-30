@@ -17,9 +17,7 @@
                 <li class="list-inline-item">Dashboard</li>
               </ul>
             </div>
-            <button class="au-btn au-btn-icon au-btn--green">
-              <i class="zmdi zmdi-plus"></i>add item
-            </button>
+           
           </div>
         </div>
       </div>
@@ -28,44 +26,56 @@
 </section>
 <!-- END BREADCRUMB-->
 
+<div class="container" style="margin-top: 30px;" >
+  <div class="row">
+      <div class="col-md-6">
+          <div class="au-card">
+              <div class="au-card-inner">
+                  <h3 class="title-2 m-b-40">Pengaduan</h3>
+                  <canvas id="pengaduanChart"></canvas>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-6">
+          <div class="au-card">
+              <div class="au-card-inner">
+                  <h3 class="title-2 m-b-40">Disposisi</h3>
+                  <canvas id="disposisiChart"></canvas>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 <!-- STATISTIC-->
 <section class="statistic">
   <div class="section__content section__content--p30">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6 col-lg-3">
+      <div class="col-md-6 col-lg-4">
           <div class="statistic__item">
-            <h2 class="number">10</h2>
-            <span class="desc" style="color:black">Permohonan Pengaduan</span>
+            <h2 class="number" id="total__permintaan__disposisi"></h2>
+            <span class="desc" style="color:black">Permintaan Disposisi</span>
             <div class="icon">
               <i class="zmdi zmdi-account-o"></i>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-4">
           <div class="statistic__item">
-            <h2 class="number">3</h2>
-            <span class="desc" style="color:black">Daftar Pengadu</span>
+            <h2 class="number" id="total__pengaduan"></h2>
+            <span class="desc" style="color:black">Permohonan Pengaduan Proses</span>
             <div class="icon">
-              <i class="zmdi zmdi-shopping-cart"></i>
+              <i class="zmdi zmdi-account-o"></i>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
+        <div class="col-md-6 col-lg-4">
           <div class="statistic__item">
-            <h2 class="number">15</h2>
+            <h2 class="number" id="total__keputusan"></h2>
             <span class="desc" style="color: black">Keputusan Pengaduan</span>
             <div class="icon">
               <i class="zmdi zmdi-calendar-note"></i>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="statistic__item">
-            <h2 class="number">6</h2>
-            <span class="desc">Penugasan</span>
-            <div class="icon">
-              <i class="zmdi zmdi-money"></i>
             </div>
           </div>
         </div>
@@ -75,94 +85,263 @@
 </section>
 <!-- END STATISTIC-->
 
-
-
 <section>
-        <div class="section__content section__content--p30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-xl-8">
-                        <!-- RECENT REPORT 2-->
-                        <div class="recent-report2">
-                            <h3 class="title-3">recent reports</h3>
-                            <div class="chart-info">
-                                <div class="chart-info__left">
-                                    <div class="chart-note">
-                                        <span class="dot dot--blue"></span>
-                                        <span>products</span>
-                                    </div>
-                                    <div class="chart-note">
-                                        <span class="dot dot--green"></span>
-                                        <span>Services</span>
-                                    </div>
-                                </div>
-                                <div class="chart-info-right">
-                                    <div class="rs-select2--dark rs-select2--md m-r-10">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">All Properties</option>
-                                            <option value="">Products</option>
-                                            <option value="">Services</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                    <div class="rs-select2--dark rs-select2--sm">
-                                        <select class="js-select2 au-select-dark" name="time">
-                                            <option selected="selected">All Time</option>
-                                            <option value="">By Month</option>
-                                            <option value="">By Day</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="recent-report__chart">
-                                <canvas id="recent-rep2-chart"></canvas>
-                            </div>
-                        </div>
-                        <!-- END RECENT REPORT 2             -->
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-7">
+          <div
+            class="au-card au-card--no-shadow au-card--no-pad m-b-40 au-card--border"
+          >
+            <div class="au-card-title">
+              <div class="bg-overlay bg-overlay--blue"></div>
+              <h3><i class="zmdi zmdi-account-calendar"></i>Permintaan Disposisi</h3>
+              <span class="inbox-num"></span>
+            </div>
+            <div class="au-task js-list-load au-task--border">
+              <div class="au-task__title">
+                <p>Daftar Permintaan Disposisi</p>
+              </div>
+              <div class="au-task-list js-scrollbar3 show-proses-disposisi">
+                
+               
+                
+                <!-- <div class="au-task__item au-task__item--success">
+                  <div class="au-task__item-inner">
+                    <h5 class="task">
+                      <a href="#">Create new task for Dashboard</a>
+                    </h5>
+                    <span class="time">03:30 PM</span>
+                  </div>
+                </div> -->
+
+                
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-5">
+          <!-- TASK PROGRESS-->
+          <div class="task-progress">
+            <h3 class="title-3">Pengaduan Proses</h3>
+            <div class="au-skill-container show-pengaduan-proses">
+              
+              <!-- <div class="au-progress">
+                <span class="au-progress__title">HTML5/CSS3</span>
+                <div class="au-progress__bar">
+                  <div
+                    class="au-progress__inner js-progressbar-simple"
+                    role="progressbar"
+                    data-transitiongoal="85"
+                  >
+                    <span class="au-progress__value js-value"></span>
+                  </div>
+                </div>
+              </div> -->
+              
+            </div>
+          </div>
+          <!-- END TASK PROGRESS-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div
+    class="modal fade"
+    id="modalTindakLanjut"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalKaryawan"></h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="content-modal">
+            <h5 class="text-center">Konfirmasi Tindak Lanjut Disposisi</h5>
+
+            <form id="form-tindaklanjut" style="margin-top: 20px;">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>No. Pengaduan</label>
+                    <input type="text" name="id_pengaduan" class="form-control id_pengaduan" readonly>
+                  </div>
+                  <div class="form-group">
+                      <label>Nama Perusahaan Pers</label>
+                      <input type="text" id="perusahaan_pers" class="form-control perusahaan_pers" readonly>
+                  </div>
+                  <div class="form-group">
+                      <label>Judul Berita</label>
+                      <input type="text" id="judul_berita" class="form-control judul_berita" readonly>
+                  </div>
+                  <div class="form-group">
+                      <label>Edisi Penerbiatan</label>
+                      <input type="text"  class="form-control edisi_penerbitan" readonly>
+                  </div>
+                  <div class="form-group">
+                      <label>Catatan Pengaduan</label>
+                      <textarea id="catatan_pengaduan" class="form-control catatan_pengaduan" cols="30" rows="10"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nomor Disposisi</label>
+                        <input type="text" name="nomor_disposisi" class="form-control nomor_disposisi" readonly>
                     </div>
-                    <div class="col-xl-4">
-                        <!-- TASK PROGRESS-->
-                        <div class="task-progress">
-                            <h3 class="title-3">task progress</h3>
-                            <div class="au-skill-container">
-                                <div class="au-progress">
-                                    <span class="au-progress__title">Web Design</span>
-                                    <div class="au-progress__bar">
-                                        <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="90">
-                                            <span class="au-progress__value js-value"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="au-progress">
-                                    <span class="au-progress__title">HTML5/CSS3</span>
-                                    <div class="au-progress__bar">
-                                        <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="85">
-                                            <span class="au-progress__value js-value"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="au-progress">
-                                    <span class="au-progress__title">WordPress</span>
-                                    <div class="au-progress__bar">
-                                        <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="95">
-                                            <span class="au-progress__value js-value"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="au-progress">
-                                    <span class="au-progress__title">Support</span>
-                                    <div class="au-progress__bar">
-                                        <div class="au-progress__inner js-progressbar-simple" role="progressbar" data-transitiongoal="95">
-                                            <span class="au-progress__value js-value"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END TASK PROGRESS-->
+                    <div class="form-group">
+                        <label>Tanggal Disposisi</label>
+                        <input type="text" id="tgl_disposisi" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Penugasan</label>
+                        <input type="text" id="penugasan" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Jenis Tugas</label>
+                        <input type="text" id="jenis_tugas" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Catatan Disposisi</label>
+                        <textarea id="catatan_disposisi" class="form-control" cols="30" rows="10"></textarea>
                     </div>
                 </div>
-            </div>
+                <div class="col-md-12">
+                  <div class="text-center" >
+                      <button type="submit" id="btn_on_save" class="btn btn-danger">TINDAK LANJUT</button>
+                  </div>
+                </div>
+                 
+              </div>
+            </form>
+
+
         </div>
-    </section>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script defer src="<?= base_url('public/Authentication.js') ?>" ></script>
+<script defer src="<?= base_url('public/myLib.js') ?>" ></script>
+<script defer src="<?= base_url('public/ketua/dashboard.js') ?>" ></script>
+<script>
+try {
+
+//pie chart
+var ctx = document.getElementById("pengaduanChart");
+if (ctx) {
+  ctx.height = 200;
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      datasets: [{
+        data: [45, 25, 20, 10],
+        backgroundColor: [
+          "rgba(0, 123, 255,0.9)",
+          "rgba(0, 123, 255,0.7)",
+          "rgba(0, 123, 255,0.5)",
+          "rgba(0,0,0,0.07)"
+        ],
+        hoverBackgroundColor: [
+          "rgba(0, 123, 255,0.9)",
+          "rgba(0, 123, 255,0.7)",
+          "rgba(0, 123, 255,0.5)",
+          "rgba(0,0,0,0.07)"
+        ]
+
+      }],
+      labels: [
+        "Green",
+        "Green",
+        "Green"
+      ]
+    },
+    options: {
+      legend: {
+        position: 'top',
+        labels: {
+          fontFamily: 'Poppins'
+        }
+
+      },
+      responsive: true
+    }
+  });
+}
+
+
+} catch (error) {
+console.log(error);
+}
+
+
+try {
+
+//pie chart
+var ctx = document.getElementById("disposisiChart");
+if (ctx) {
+  ctx.height = 200;
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      datasets: [{
+        data: [45, 25, 20, 10],
+        backgroundColor: [
+          "rgba(0, 123, 255,0.9)",
+          "rgba(0, 123, 255,0.7)",
+          "rgba(0, 123, 255,0.5)",
+          "rgba(0,0,0,0.07)"
+        ],
+        hoverBackgroundColor: [
+          "rgba(0, 123, 255,0.9)",
+          "rgba(0, 123, 255,0.7)",
+          "rgba(0, 123, 255,0.5)",
+          "rgba(0,0,0,0.07)"
+        ]
+
+      }],
+      labels: [
+        "Green",
+        "Green",
+        "Green"
+      ]
+    },
+    options: {
+      legend: {
+        position: 'top',
+        labels: {
+          fontFamily: 'Poppins'
+        }
+
+      },
+      responsive: true
+    }
+  });
+}
+
+
+} catch (error) {
+console.log(error);
+}
+
+</script>

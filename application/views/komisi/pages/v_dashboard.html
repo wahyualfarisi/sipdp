@@ -1,0 +1,261 @@
+<!-- BREADCRUMB-->
+<section class="au-breadcrumb m-t-75">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="au-breadcrumb-content">
+            <div class="au-breadcrumb-left">
+              <span class="au-breadcrumb-span">You are here:</span>
+              <ul class="list-unstyled list-inline au-breadcrumb__list">
+                <li class="list-inline-item active">
+                  <a href="#">Home</a>
+                </li>
+                <li class="list-inline-item seprate">
+                  <span>/</span>
+                </li>
+                <li class="list-inline-item">Dashboard</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END BREADCRUMB-->
+
+<!-- STATISTIC-->
+<section class="statistic">
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6 col-lg-6">
+          <div class="statistic__item">
+            <h2 class="number" id="total_keputusan"></h2>
+            <span class="desc" style="color:black">Surat Keputusan</span>
+            <div class="icon">
+              <i class="zmdi zmdi-account-o"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <div class="statistic__item">
+            <h2 class="number" id="pengaduan_selesai"></h2>
+            <span class="desc" style="color:black">Pengaduan Selesai</span>
+            <div class="icon">
+              <i class="zmdi zmdi-account-o"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END STATISTIC-->
+
+<section>
+  <div class="section__content section__content--p30">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-6">
+          <div
+            class="au-card au-card--no-shadow au-card--no-pad m-b-40 au-card--border"
+          >
+            <div class="au-card-title">
+              <div class="bg-overlay bg-overlay--blue"></div>
+              <h3>
+                <i class="zmdi zmdi-account-calendar"></i>Buat Surat Keputusan
+              </h3>
+              <span class="inbox-num" id="jumlah_menunggu_keputusan"></span>
+            </div>
+            <div class="au-task js-list-load au-task--border">
+              <div class="au-task__title">
+                <p>Daftar Menunggu Keputusan</p>
+              </div>
+              <div class="au-task-list js-scrollbar3 show-tindaklanjut-disposisi">
+                <!-- <div class="au-task__item au-task__item--success">
+                        <div class="au-task__item-inner">
+                          <h5 class="task">
+                            <a href="#">Create new task for Dashboard</a>
+                          </h5>
+                          <span class="time">03:30 PM</span>
+                        </div>
+                      </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <div
+            class="au-card au-card--no-shadow au-card--no-pad m-b-40 au-card--border"
+          >
+            <div class="au-card-title">
+              <div class="bg-overlay bg-overlay--blue"></div>
+              <h3>
+                <i class="zmdi zmdi-account-calendar"></i>Pengaduan Selesai
+              </h3>
+              <span class="inbox-num"></span>
+            </div>
+            <div class="au-task js-list-load au-task--border">
+              <div class="au-task__title">
+                <p>Daftar Pengaduan Selesai</p>
+              </div>
+              <div class="au-task-list js-scrollbar3 show-pengaduan-selesai">
+                <!-- <div class="au-task__item au-task__item--success">
+                        <div class="au-task__item-inner">
+                          <h5 class="task">
+                            <a href="#">Create new task for Dashboard</a>
+                          </h5>
+                          <span class="time">03:30 PM</span>
+                        </div>
+                      </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div
+  class="modal fade"
+  id="modalTindakLanjut"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalKaryawan"></h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="content-modal">
+        <h5 class="text-center">Konfirmasi Tindak Lanjut Disposisi</h5>
+
+        <form id="form-tindaklanjut" style="margin-top: 20px;">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>No. Pengaduan</label>
+                <input
+                  type="text"
+                  name="id_pengaduan"
+                  class="form-control id_pengaduan"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label>Nama Perusahaan Pers</label>
+                <input
+                  type="text"
+                  id="perusahaan_pers"
+                  class="form-control perusahaan_pers"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label>Judul Berita</label>
+                <input
+                  type="text"
+                  id="judul_berita"
+                  class="form-control judul_berita"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label>Edisi Penerbiatan</label>
+                <input
+                  type="text"
+                  class="form-control edisi_penerbitan"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label>Catatan Pengaduan</label>
+                <textarea
+                  id="catatan_pengaduan"
+                  class="form-control catatan_pengaduan"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Nomor Disposisi</label>
+                <input
+                  type="text"
+                  name="nomor_disposisi"
+                  class="form-control nomor_disposisi"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label>Tanggal Disposisi</label>
+                <input
+                  type="text"
+                  id="tgl_disposisi"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label>Penugasan</label>
+                <input
+                  type="text"
+                  id="penugasan"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label>Jenis Tugas</label>
+                <input
+                  type="text"
+                  id="jenis_tugas"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+              <div class="form-group">
+                <label>Catatan Disposisi</label>
+                <textarea
+                  id="catatan_disposisi"
+                  class="form-control"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="text-center">
+                <button type="submit" id="btn_on_save" class="btn btn-danger">
+                  TINDAK LANJUT
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script defer src="<?= base_url('public/myLib.js') ?>"></script>
+<script defer src="<?= base_url('public/komisi/dashboard.js') ?>" ></script>

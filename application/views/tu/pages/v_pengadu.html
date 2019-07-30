@@ -30,8 +30,8 @@
     <div class="" style="margin-top: 50px;">
       <input
         type="text"
-        name="search_petugas"
-        id="search_petugas"
+        name="search_pengadu"
+        id="search_pengadu"
         class="form-control"
         placeholder="Cari Data Pengadu berdasarkan nama "
       />
@@ -83,7 +83,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content ">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalKaryawan">Konfirmasi Non Aktif Akun</h5>
+          <h5 class="modal-title" id="modalKaryawan">Konfirmasi Hapus</h5>
           <button
             type="button"
             class="close"
@@ -95,12 +95,58 @@
         </div>
         <div class="modal-body" id="content-modal">
           <form id="form-delete-petugas">
-            <input type="hidden" name="email" class="form-control" id="email" />
+            <input type="hidden" name="id_terdaftar" class="form-control id_terdaftar "  />
             <button
               class="au-btn au-btn-icon au-btn--blue au-btn--small btn-block"
               id="btn__delete__petugas"
             >
               DELETE
+            </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div
+    class="modal fade"
+    id="modalUpdateAkun"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalKaryawan">Edit Status Akun</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="content-modal">
+          <form id="form-akun">
+            <input type="hidden" name="id_terdaftar" class="form-control id_terdaftar "  />
+            <select name="status_akun" id="" class="form-control status_akun" style="margin-bottom: 16px;">
+              <option value="true">AKTIF</option>
+              <option value="false">TIDAK AKTIF</option>
+            </select>
+            <button
+              class="au-btn au-btn-icon au-btn--blue au-btn--small btn-block"
+              id="btn_update_status"
+            >
+              UPDATE STATUS AKUN
             </button>
           </form>
         </div>

@@ -166,6 +166,125 @@ class Disposisi extends REST_Controller {
         }
     }
 
+    public function show_disposisi_proses_get()
+    {
+        if($this->token){
+            try{
+                $data_disposisi = $this->m_disposisi->show_disposisi_by_status('proses');
+                $status         = parent::HTTP_OK;
+                $res['status']  = $status;
+                $res['data']    = $data_disposisi->result();
+                $res['jumlah']  = $data_disposisi->num_rows();
+                $this->response($res, $status);
+            }catch(Exception $e){
+                $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg']    = 'Server Bermasalah';
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }
+        }
+    }
+
+    public function show_disposisi_tindaklanjuti_get()
+    {
+        if($this->token)
+        {
+            try{
+                $data_disposisi = $this->m_disposisi->show_disposisi_by_status('tindaklanjuti');
+                $status         = parent::HTTP_OK;
+                $res['status']  = $status;
+                $res['data']    = $data_disposisi->result();
+                $res['jumlah']  = $data_disposisi->num_rows();
+                $this->response($res, $status);
+            }catch(Exception $e)
+            {
+                $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg']    = 'Server Bermasalah';
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }
+        }
+    }
+
+    public function tindak_lanjut_disposisi_post()
+    {
+        if($this->token)
+        {
+            try{
+                
+                $config = array(
+                    array(
+                        'field' => 'nomor_disposisi',
+                        'label' => 'nomor_disposisi',
+                        'rules' => 'required',
+                        'errors' => array(
+                            'required' => 'Nomor Disposisi Tidak Boleh Kosong'
+                        )
+                        ),
+                    array(
+                        'field' => 'id_pengaduan',
+                        'label' => 'id_pengaduan',
+                        'rules' => 'required',
+                        'errors' => array(
+                            'required' => 'ID Pengaduan Tidak Boleh Kosong'
+                        )
+                    )
+                );
+                $this->form_validation->set_rules($config);
+                if($this->form_validation->run() === FALSE)
+                {
+                    $errors['erros'] = $this->form_validation->error_array();
+                    $status = parent::HTTP_BAD_REQUEST;
+                    $this->response($errors, $status);
+                    return;
+                }
+                //update tbl disposisi ---------------------------
+                $data_update_disposisi = array('status_disposisi' => 'tindaklanjuti' );
+                $where_update_disposisi = array('nomor_disposisi' => $this->input->post('nomor_disposisi'));
+                $update_disposisi = $this->m_core->update_table($this->t_disposisi, $data_update_disposisi, $where_update_disposisi );
+                //-------------------------------------------------
+
+                    if($update_disposisi)
+                    {
+                        //update table pengaduan ------------------------
+                        $where_update_pengaduan = array('id_pengaduan' => $this->input->post('id_pengaduan'));
+                        $data_update_pengaduan = array(
+                            'status_pengaduan' => 'proses',
+                            'deskripsi_status' => 'Pengaduan Sedang Di Tindak Lanjuti'
+                        );
+                        $update_pengaduan = $this->m_core->update_table($this->t_pengaduan, $data_update_pengaduan, $where_update_pengaduan);
+                        //------------------------------------------------
+
+                            if($update_pengaduan){
+                                $status = parent::HTTP_OK;
+                                $res['status'] = $status;
+                                $res['msg']    = 'Berhasil Melakukan Disposisi';
+                                $this->response($res, $status);
+                            }else{
+                                $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
+                                $res['msg']    = 'Server Bermasalah';
+                                $res['status'] = $status;
+                                $this->response($res, $status);
+                            }
+
+                    }else{
+                        $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
+                        $res['msg']    = 'Server Bermasalah';
+                        $res['status'] = $status;
+                        $this->response($res, $status);
+                    }
+
+
+            }catch(Exception $e)
+            {
+                $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg']    = 'Server Bermasalah';
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }
+        }
+    }
+
 
     private function generateCodeDisposisi()
     {

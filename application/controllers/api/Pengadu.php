@@ -22,7 +22,12 @@ class Pengadu extends REST_Controller {
     {
         if($this->token){
             try{
-                $data   = $this->m_core->get_all($this->t_pengadu);
+                $query = "";
+                if($this->input->get('query') )
+                {
+                    $query = $this->input->get('query');
+                }
+                $data   = $this->m_core->gettablesearch($query,  $this->t_pengadu, 'nama_depan');
                 $status = parent::HTTP_OK;
                 $res['data'] = $data->result();
                 $res['status'] = $status;
@@ -36,119 +41,7 @@ class Pengadu extends REST_Controller {
         }
     }
 
-    public function nonactive_account_post()
-    {
-        if($this->token){
-            $config = array(
-                array(
-                    'field' => 'email',
-                    'label' => 'email',
-                    'rules' => 'required',
-                    'errors' => array(
-                        'required' => 'Email Tidak Boleh Kosong'
-                    )
-                )
-            );
-            $this->form_validation->set_rules($config);
-            if($this->form_validation->run() === FALSE){
-                $errors['errors'] = $this->form_validation->error_array();
-                $status = parent::HTTP_BAD_REQUEST;
-                $this->response($errors, $status);
-                return;
-            }
-
-            try{
-                $where['email'] = $this->input->post('email');
-                $data['status'] = 'false';
-
-                $chek_email = $this->m_core->get_where($this->t_pengadu, $where);
-                if($chek_email->num_rows() > 0){
-                    $updateaccount = $this->m_core->update_table($this->t_pengadu, $data, $where );
-                        if($updateaccount){
-                            $status = parent::HTTP_OK;
-                            $res['msg'] = 'Berhasil Meng NonAktifkan Pengadu';
-                            $res['status'] = $status;
-                            $this->response($res, $status);
-                        }else{
-                            $status = parent::HTTP_NOT_FOUND;
-                            $res['msg'] = 'Terjadi Masalah';
-                            $res['status'] = $status;
-                            $this->response($res, $status);
-                        }
-                }else{
-                    $status = parent::HTTP_NOT_FOUND;
-                    $res['msg'] = 'Email Tidak Di temukan';
-                    $res['status'] = $status;
-                    $this->response($res, $status);
-                }
-            }catch(Exception $e){
-                $status = parent::HTTP_INTERNAL_SERVER_ERROR;
-                $res['msg'] = 'something wrong';
-                $res['status'] = $status;
-                $this->response($res, $status);
-            }
-
-
-        }
-    }
-
-
-    public function inactive_account_post()
-    {
-        if($this->token){
-            $config = array(
-                array(
-                    'field' => 'email',
-                    'label' => 'email',
-                    'rules' => 'required',
-                    'errors' => array(
-                        'required' => 'Email Tidak Boleh Kosong'
-                    )
-                )
-            );
-            $this->form_validation->set_rules($config);
-            if($this->form_validation->run() === FALSE){
-                $errors['errors'] = $this->form_validation->error_array();
-                $status = parent::HTTP_BAD_REQUEST;
-                $this->response($errors, $status);
-                return;
-            }
-
-            try{
-                $where['email'] = $this->input->post('email');
-                $data['status'] = 'true';
-
-                $chek_email = $this->m_core->get_where($this->t_pengadu, $where);
-                if($chek_email->num_rows() > 0){
-                    $updateaccount = $this->m_core->update_table($this->t_pengadu, $data, $where );
-                        if($updateaccount){
-                            $status = parent::HTTP_OK;
-                            $res['msg'] = 'Berhasil Mengaktifkan Akun Pengadu';
-                            $res['status'] = $status;
-                            $this->response($res, $status);
-                        }else{
-                            $status = parent::HTTP_NOT_FOUND;
-                            $res['msg'] = 'Terjadi Masalah';
-                            $res['status'] = $status;
-                            $this->response($res, $status);
-                        }
-                }else{
-                    $status = parent::HTTP_NOT_FOUND;
-                    $res['msg'] = 'Email Tidak Di temukan';
-                    $res['status'] = $status;
-                    $this->response($res, $status);
-                }
-            }catch(Exception $e){
-                $status = parent::HTTP_INTERNAL_SERVER_ERROR;
-                $res['msg'] = 'something wrong';
-                $res['status'] = $status;
-                $this->response($res, $status);
-            }
-
-
-        }
-    }
-
+  
     public function index_delete($id = null)
     {   
         if($this->token){
@@ -181,6 +74,39 @@ class Pengadu extends REST_Controller {
                 $res['status'] = $status;
                 $this->response($res, $status);
            }
+        }
+    }
+
+    public function update_status_akun_post()
+    {
+        if($this->token)
+        {
+            try{
+                $where_id = array(
+                    'id_terdaftar' => $this->input->post('id_terdaftar')
+                );
+                $data_update = array(
+                    'status' => $this->input->post('status_akun')
+                );
+                $update = $this->m_core->update_table($this->t_pengadu, $data_update, $where_id);
+                if($update){
+                    $status = parent::HTTP_OK;
+                    $res['msg'] = 'Berhasil Merubah Status Akun';
+                    $res['status'] = $status;
+                    $this->response($res, $status);
+                }else{
+                    $status = parent::HTTP_BAD_REQUEST;
+                    $res['msg'] = 'Gagal Update Akun';
+                    $res['status'] = $status;
+                    $this->response($res, $status);
+                }
+            }catch(Exception $e)
+            {
+                $status = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg'] = 'something wrong';
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }
         }
     }
 

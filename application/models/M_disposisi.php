@@ -26,5 +26,20 @@ class M_disposisi extends CI_Model{
         return $this->db->query($query);
     }
 
+    public function show_disposisi_by_status($status)
+    {
+        $query = "SELECT a.nomor_disposisi, a.tgl_disposisi, a.jenis_tugas, a.catatan_disposisi, a.status_disposisi, 
+                         b.id_petugas , b.bagian ,
+                         c.id_pengaduan, c.nama_perusahaan_pers, c.judul_berita, c.edisi_penerbitan, c.catatan, c.status_pengaduan,
+                         d.id_terdaftar, d.email, CONCAT(d.nama_depan, ' ', d.nama_belakang) as nama_pengadu
+                  FROM tbl_disposisi a LEFT JOIN tbl_penugasan b ON a.id_petugas = b.id_petugas 
+                                       LEFT JOIN tbl_pengaduan c ON a.id_pengaduan = c.id_pengaduan 
+                                       LEFT JOIN tbl_user d ON c.id_terdaftar = d.id_terdaftar
+                                       WHERE a.status_disposisi = '$status'
+                                       ORDER BY a.tgl_disposisi ASC
+        ";
+        return $this->db->query($query);
+    }
+
 
 }

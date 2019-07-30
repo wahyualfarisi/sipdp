@@ -1,5 +1,4 @@
 var SESSION = JSON.parse(localStorage.getItem('token_adm')) 
-
 $.ajax({
     url: `${BASE_URL}api/Auth/who_i_m`,
     type: 'GET',
@@ -10,6 +9,7 @@ $.ajax({
     success: function(data){
         // console.log(data)
         if(data.status === 200){
+            console.log(data.msg.nama_lengkap)
             $('#desc__profile').text(`${data.msg.nama_lengkap} - ${data.msg.akses}`   )
         }
         

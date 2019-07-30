@@ -5,8 +5,7 @@
         const urlString = {
             getPengadu: `${BASE_URL}api/Pengadu`,
             deletePengadu: `${BASE_URL}api/Pengadu`,
-            nonActiveUser: `${BASE_URL}api/Pengadu/nonactive_account`, //post method
-            inactiveUser: `${BASE_URL}api/Pengadu/inactive_account`
+            updateStatusAkun: `${BASE_URL}api/Pengadu/update_status_akun`
         }
         return {
             getURL: () => urlString
@@ -18,6 +17,23 @@
         const domString = {
             html: {
                 list: '#show__list__pengadu'
+            },
+            field: {
+                searchPengadu: '#search_pengadu'
+            },
+            btn: {
+                edit: '.btn__edit',
+                hapus: '.btn__delete',
+                onDelete: '#btn__delete__petugas',
+                onUpdate: '#btn_update_status'
+            },
+            modal: {
+                delete: '#modalDelete',
+                akun: '#modalUpdateAkun'
+            },
+            form: {
+                delete: '#form-delete-petugas',
+                akun: '#form-akun'
             }
         }
 
@@ -43,6 +59,21 @@
                             <td>${nama_depan} ${nama_belakang} </td>
                             <td>${tgl_terdaftar} </td>
                             <td>${statusAccount} </td>
+                            <td>
+                            <div class="table-data-feature">
+                                <button class="item btn__edit" 
+                                    data-status_akun="${status}"
+                                    data-id_terdaftar="${id_terdaftar}"
+                                    data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <i class="zmdi zmdi-edit"></i>
+                                </button>
+                                <button class="item btn__delete" 
+                                    data-id_terdaftar="${id_terdaftar}"
+                                    data-toggle="tooltip" data-placement="top" title="Delete">
+                                    <i class="zmdi zmdi-delete"></i>
+                                </button>
+                            </div>
+                        </td>
                         </tr>
                     `;
                 });
@@ -65,6 +96,53 @@
         
         const eventListener = function(){
 
+            $(dom.field.searchPengadu).on('keyup', function() {
+                if($(this).val() !== ""){
+                    getResource(url.getPengadu, $(this).val(), res => {
+                        res.status === 200 ? UI.retrieveData(res.data) : false
+                    }, error => console.log(error))
+                }else{
+                    load_pengadu()
+                }
+            })
+
+            $(dom.html.list).on('click', dom.btn.hapus, function() {
+                var id_terdaftar = $(this).data('id_terdaftar');
+                $('.id_terdaftar').val(id_terdaftar)
+                ModalAction(dom.modal.delete,'show')
+            })
+
+            $(dom.form.delete).submit(function(e) {
+                e.preventDefault()
+                var id = $('.id_terdaftar').val()
+                deleteResource(`${url.deletePengadu}/${id}`, this, dom.btn.onDelete, res => {
+                    console.log(res)
+                    if(res.status === 200){
+                        $.notify(res.msg, 'success')
+                        ModalAction(dom.modal.delete,'hide')
+                        load_pengadu()
+                    }
+                }, err => console.log(err), 'DELETE' )
+            })
+
+            $(dom.html.list).on('click', dom.btn.edit, function() {
+                var status = $(this).data('status_akun').toString()
+                var id_terdaftar = $(this).data('id_terdaftar');
+                $('.id_terdaftar').val(id_terdaftar)
+                $('.status_akun').val(status)
+                ModalAction(dom.modal.akun, 'show')
+            })
+
+            $(dom.form.akun).submit(function(e) {
+                e.preventDefault()
+                postResource(url.updateStatusAkun, this, dom.btn.onUpdate, res => {
+                    if(res.status === 200){
+                        $.notify(res.msg, 'success')
+                        ModalAction(dom.modal.akun,'hide')
+                        load_pengadu() 
+                    }
+                }, err => console.log(err), 'UPDATE STATUS AKUN')
+            })
 
         }
 
