@@ -22,33 +22,46 @@
         }
 
         const renderPengaduan = data => {
-            let html = '', labelDilihat;
+            let html = '', labelDilihat, labelStatus;
             if(data.length > 0)
             {
                 data.forEach(item => {
-                    if(item.dilihat === 'belum'){
+
+                    const { dilihat, status_pengaduan, id_pengaduan, nama_perusahaan_pers, judul_berita, edisi_penerbitan } = item;
+
+                    if(dilihat === 'belum'){
                         labelDilihat = `<span class="badge badge-danger">Baru</span> `
                     }else{
                         labelDilihat = ``;
                     }
+
+                    if(status_pengaduan === 'selesai'){
+                        labelStatus = `<span class="badge badge-success">${status_pengaduan}</span>`
+                    }else{
+                        labelStatus = status_pengaduan
+                    }
+
+
                     html += `
                         <tr class="spacer"></tr>
                         <tr class="tr-shadow">
-                            <td>${item.id_pengaduan} ${labelDilihat} </td>
-                            <td>${item.nama_perusahaan_pers} </td>
-                            <td>${item.judul_berita} </td>
-                            <td>${item.edisi_penerbitan} </td>
-                            <td>${item.status_pengaduan} </td>
+                            <td>${id_pengaduan} ${labelDilihat} </td>
+                            <td>${nama_perusahaan_pers} </td>
+                            <td>${judul_berita} </td>
+                            <td>${edisi_penerbitan} </td>
+                            <td>${labelStatus} </td>
                             <td>
                                 <div class="table-data-feature">
-                                    <a href="#/overviewpengaduan/?id_secret=${item.id_pengaduan}" class="item btn__edit" 
+                                    <a href="#/overviewpengaduan/?id_secret=${id_pengaduan}" class="item btn__edit" 
                                         data-toggle="tooltip" data-placement="top" title="Lihat Pengaduan">
                                         <i class="zmdi zmdi-mail-send"></i>
                                     </a>
                                 </div>
                             </td>
                         </tr>
+
                     `
+                    
                 })
             }
             $(domString.html.listPengaduan).html(html)
