@@ -24,5 +24,7 @@ class M_dashboard extends CI_Model{
         return $this->db->query($query);
     }
 
+    
+
 
 }
