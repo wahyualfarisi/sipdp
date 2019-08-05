@@ -37,7 +37,9 @@
 
                     if(status_pengaduan === 'selesai'){
                         labelStatus = `<span class="badge badge-success">${status_pengaduan}</span>`
-                    }else{
+                    }else if(status_pengaduan === 'diterima'){
+                        labelStatus = `<span class="badge badge-warning">${status_pengaduan}</span>`
+                    }else {
                         labelStatus = status_pengaduan
                     }
 
@@ -108,6 +110,7 @@
         return {
             init: () => {
                 console.log('init ')
+                window.scrollTo(500,250)
                 eventListener()
                 load_pengaduan()
             }

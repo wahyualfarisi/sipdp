@@ -22,14 +22,12 @@
 
         const renderNotification = res => {
             let html = ''
-            console.log(res);
             if(res.data.length > 0){
                 $(domString.html.panelNotification).addClass('has-noti')
                 $(domString.html.titleNotif).html(`<p> Anda Mempunya ${res.jumlah} Pengaduan Baru </p>`)
                 res.data.forEach(item => {
                     
                     html += `
-
                         <p> <a href="#/pengaduanbaru/?number_secret=${item.id_pengaduan} "> Dari ${item.email} </a> </p>
                         <span class="date">April 12, 2018 06:50</span>
                     `;
@@ -67,7 +65,6 @@
 
         return {
             init: () => {
-                console.log('init ')
                 load_new_pengaduan()
             }
         }

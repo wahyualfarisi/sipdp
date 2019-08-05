@@ -22,9 +22,20 @@
         }
 
         const renderPengaduan = (data) => {
-            let html = ""
+            console.log(data.length)
+            let html = "", labelStatus
             data.forEach(element => {
                 const { id_pengaduan, nama_perusahaan_pers, judul_berita, edisi_penerbitan, status_pengaduan } = element
+                
+                if(status_pengaduan === 'selesai'){
+                    labelStatus = `<span class="badge badge-success">${status_pengaduan}</span>`
+                }else if(status_pengaduan === 'diterima'){
+                    labelStatus = `<span class="badge badge-warning">${status_pengaduan}</span>`
+                }else {
+                    labelStatus = status_pengaduan
+                }
+               
+               
                 html += `
                     <tr class="spacer">
                     <tr class="tr-shadow">
@@ -32,7 +43,7 @@
                         <td> ${nama_perusahaan_pers} </td>
                         <td> ${judul_berita} </td>
                         <td> ${edisi_penerbitan} </td>
-                        <td> ${status_pengaduan} </td>
+                        <td> ${labelStatus} </td>
                     </tr>
                 `
             });
@@ -40,7 +51,22 @@
             $(domString.html.listPengaduan).html(html)
         } 
 
-        const renderDataEmpty = () => {}
+        const renderDataEmpty = () => {
+            let html = '';
+            html += `
+            <tr> 
+                <td> <td>
+                <td><div class="text-center">
+                <img src="${BASE_URL}assets/img/nodata.svg" width="150" />
+                <p> Tidak ada daftar pengaduan yang di proses </p>
+            </div> </td>
+                <td> </td>
+                <td> </td>
+            </tr>
+                
+            `
+            $(domString.html.listPengaduan).html(html)
+        }
 
         return {
             getDOM: () => domString,
@@ -76,7 +102,7 @@
 
         return {
             init: () => {
-                console.log('init ')
+                window.scrollTo(500,250)
                 eventListener()
                 load_keputusan()
                 load_pengaduan()

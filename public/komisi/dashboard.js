@@ -17,7 +17,9 @@
         const domString = {
            html: {
             listTindakLanjut: '.show-tindaklanjut-disposisi',
-            listPengaduanSelesai: '.show-pengaduan-selesai'
+            listPengaduanSelesai: '.show-pengaduan-selesai',
+            totalKeptusan: '#total_keputusan',
+            totalPengaduanSelesai: '.total_pengaduan_selesai'
            },
            btn: {
                addKeputusan: '.btn__add__keputusan',
@@ -66,6 +68,7 @@
                 html += `
                     <div class="text-center">
                         <img src="${BASE_URL}assets/img/nodata.svg" width="150" />
+                        <p> Tidak Ada Data </p>
                     </div>
                 `
             }
@@ -73,6 +76,7 @@
         }
 
         const renderPengaduanSelesai = data => {
+            $(domString.html.totalPengaduanSelesai).text(data.length)
             var html = ''
             if(data.length > 0 )
             {

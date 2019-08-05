@@ -35,6 +35,8 @@
                             <td>${judul_berita} </td>
                             <td>${nama_perusahaan_pers} </td>
                             <td>${status_pengaduan} </td>
+                            <td>Print </td>
+
                         </tr>
                     `
                 })
@@ -70,6 +72,7 @@
 
         return {
             init: () => {
+                window.scrollTo(500,250)
                 load_keputusan()
                 eventListener()
             }

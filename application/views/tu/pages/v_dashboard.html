@@ -28,7 +28,7 @@
 
 <div class="container" style="margin-top: 30px;" >
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 animated bounceIn">
             <div class="au-card">
                 <div class="au-card-inner">
                     <h3 class="title-2 m-b-40">Pengaduan</h3>
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 animated bounceIn">
             <div class="au-card">
                 <div class="au-card-inner">
                     <h3 class="title-2 m-b-40">Disposisi</h3>
@@ -49,14 +49,14 @@
 
 <div class="container-fluid">
   <!-- STATISTIC-->
-  <section class="statistic">
+  <section class="statistic animated fadeInLeft">
     <div class="section__content section__content--p30">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-6 col-lg-3">
             <div class="statistic__item">
-              <h2 class="number">10</h2>
-              <span class="desc" style="color:black">Permohonan Pengaduan</span>
+              <h2 class="number" id="total__pengaduan">10</h2>
+              <span class="desc" style="color:black">Daftar Pengaduan</span>
               <div class="icon">
                 <i class="zmdi zmdi-account-o"></i>
               </div>
@@ -64,7 +64,7 @@
           </div>
           <div class="col-md-6 col-lg-3">
             <div class="statistic__item">
-              <h2 class="number">3</h2>
+              <h2 class="number" id="total__pengadu">3</h2>
               <span class="desc" style="color:black">Daftar Pengadu</span>
               <div class="icon">
                 <i class="zmdi zmdi-shopping-cart"></i>
@@ -74,7 +74,7 @@
           <div class="col-md-6 col-lg-3">
             <div class="statistic__item">
               <h2 class="number">15</h2>
-              <span class="desc" style="color: black">Keputusan Pengaduan</span>
+              <span class="desc" style="color: black">Keputusan</span>
               <div class="icon">
                 <i class="zmdi zmdi-calendar-note"></i>
               </div>
@@ -124,19 +124,11 @@
                 <div
                   class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border"
                 >
-                  <select class="js-select2" name="property">
-                    <option selected="selected">All Properties</option>
-                    <option value="">Products</option>
-                    <option value="">Services</option>
-                  </select>
+                  
                   <div class="dropDownSelect2"></div>
                 </div>
                 <div class="rs-select2--dark rs-select2--sm rs-select2--border">
-                  <select class="js-select2 au-select-dark" name="time">
-                    <option selected="selected">All Time</option>
-                    <option value="">By Month</option>
-                    <option value="">By Day</option>
-                  </select>
+                  
                   <div class="dropDownSelect2"></div>
                 </div>
               </div>
@@ -144,26 +136,16 @@
                 <table class="table">
                   <thead>
                     <tr>
-                      <td>
-                        <label class="au-checkbox">
-                          <input type="checkbox" />
-                          <span class="au-checkmark"></span>
-                        </label>
-                      </td>
-                      <td>name</td>
-                      <td>role</td>
-                      <td>type</td>
+                      <td>No</td>
+                      <td>Nama</td>
+                      <td>Status</td>
+                      <td>Alamat</td>
                       <td></td>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <label class="au-checkbox">
-                          <input type="checkbox" />
-                          <span class="au-checkmark"></span>
-                        </label>
-                      </td>
+                   <tbody id="list__pengadu">
+                     
+                    <!-- <tr>
                       <td>
                         <div class="table-data__info">
                           <h6>lori lynch</h6>
@@ -176,201 +158,83 @@
                         <span class="role admin">admin</span>
                       </td>
                       <td>
-                        <div class="rs-select2--trans rs-select2--sm">
-                          <select class="js-select2" name="property">
-                            <option selected="selected">Full Control</option>
-                            <option value="">Post</option>
-                            <option value="">Watch</option>
-                          </select>
-                          <div class="dropDownSelect2"></div>
-                        </div>
+                        
                       </td>
                       <td>
                         <span class="more">
                           <i class="zmdi zmdi-more"></i>
                         </span>
                       </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <label class="au-checkbox">
-                          <input type="checkbox" checked="checked" />
-                          <span class="au-checkmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <div class="table-data__info">
-                          <h6>lori lynch</h6>
-                          <span>
-                            <a href="#">johndoe@gmail.com</a>
-                          </span>
-                        </div>
-                      </td>
-                      <td>
-                        <span class="role user">user</span>
-                      </td>
-                      <td>
-                        <div class="rs-select2--trans rs-select2--sm">
-                          <select class="js-select2" name="property">
-                            <option value="">Full Control</option>
-                            <option value="" selected="selected">Post</option>
-                            <option value="">Watch</option>
-                          </select>
-                          <div class="dropDownSelect2"></div>
-                        </div>
-                      </td>
-                      <td>
-                        <span class="more">
-                          <i class="zmdi zmdi-more"></i>
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <label class="au-checkbox">
-                          <input type="checkbox" />
-                          <span class="au-checkmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <div class="table-data__info">
-                          <h6>lori lynch</h6>
-                          <span>
-                            <a href="#">johndoe@gmail.com</a>
-                          </span>
-                        </div>
-                      </td>
-                      <td>
-                        <span class="role user">user</span>
-                      </td>
-                      <td>
-                        <div class="rs-select2--trans rs-select2--sm">
-                          <select class="js-select2" name="property">
-                            <option value="">Full Control</option>
-                            <option value="" selected="selected">Post</option>
-                            <option value="">Watch</option>
-                          </select>
-                          <div class="dropDownSelect2"></div>
-                        </div>
-                      </td>
-                      <td>
-                        <span class="more">
-                          <i class="zmdi zmdi-more"></i>
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <label class="au-checkbox">
-                          <input type="checkbox" />
-                          <span class="au-checkmark"></span>
-                        </label>
-                      </td>
-                      <td>
-                        <div class="table-data__info">
-                          <h6>lori lynch</h6>
-                          <span>
-                            <a href="#">johndoe@gmail.com</a>
-                          </span>
-                        </div>
-                      </td>
-                      <td>
-                        <span class="role member">member</span>
-                      </td>
-                      <td>
-                        <div class="rs-select2--trans rs-select2--sm">
-                          <select class="js-select2" name="property">
-                            <option selected="selected">Full Control</option>
-                            <option value="">Post</option>
-                            <option value="">Watch</option>
-                          </select>
-                          <div class="dropDownSelect2"></div>
-                        </div>
-                      </td>
-                      <td>
-                        <span class="more">
-                          <i class="zmdi zmdi-more"></i>
-                        </span>
-                      </td>
-                    </tr>
+                    </tr> -->
+                  
                   </tbody>
                 </table>
               </div>
               <div class="user-data__footer">
-                <button class="au-btn au-btn-load">load more</button>
+                <a href="#/pengadu" class="au-btn au-btn-load">Lihat Semua Pengadu</a>
               </div>
             </div>
             <!-- END USER DATA-->
           </div>
           <div class="col-xl-6">
-            <!-- MAP DATA-->
-            <div class="map-data m-b-40">
+            <div class="user-data m-b-40">
               <h3 class="title-3 m-b-30">
-                <i class="zmdi zmdi-map"></i>Pengaduan
+                <i class="zmdi zmdi-account-calendar"></i>Daftar Pengaduan
               </h3>
-              <div class="filters">
+              <div class="filters m-b-45">
                 <div
                   class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border"
                 >
-                  <select class="js-select2" name="property">
-                    <option selected="selected">All Worldwide</option>
-                    <option value="">Products</option>
-                    <option value="">Services</option>
-                  </select>
+                  
                   <div class="dropDownSelect2"></div>
                 </div>
                 <div class="rs-select2--dark rs-select2--sm rs-select2--border">
-                  <select class="js-select2 au-select-dark" name="time">
-                    <option selected="selected">All Time</option>
-                    <option value="">By Month</option>
-                    <option value="">By Day</option>
-                  </select>
+                  
                   <div class="dropDownSelect2"></div>
                 </div>
               </div>
-              <div class="map-wrap m-t-45 m-b-80">
-                <div id="vmap" style="height: 284px;"></div>
+              <div class="table-responsive table-data">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <td>No</td>
+                      <td>ID Pengaduan</td>
+                      <td>Judul Berita</td>
+                      <td>Perusahaan Pers</td>
+                      <td></td>
+                    </tr>
+                  </thead>
+                   <tbody id="list__pengaduan">
+                     
+                    <!-- <tr>
+                      <td>
+                        <div class="table-data__info">
+                          <h6>lori lynch</h6>
+                          <span>
+                            <a href="#">johndoe@gmail.com</a>
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="role admin">admin</span>
+                      </td>
+                      <td>
+                        
+                      </td>
+                      <td>
+                        <span class="more">
+                          <i class="zmdi zmdi-more"></i>
+                        </span>
+                      </td>
+                    </tr> -->
+                  
+                  </tbody>
+                </table>
               </div>
-              <div class="table-wrap">
-                <div class="table-responsive table-style1">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>United States</td>
-                        <td>$119,366.96</td>
-                      </tr>
-                      <tr>
-                        <td>Australia</td>
-                        <td>$70,261.65</td>
-                      </tr>
-                      <tr>
-                        <td>United Kingdom</td>
-                        <td>$46,399.22</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="table-responsive table-style1">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>Germany</td>
-                        <td>$20,366.96</td>
-                      </tr>
-                      <tr>
-                        <td>France</td>
-                        <td>$10,366.96</td>
-                      </tr>
-                      <tr>
-                        <td>Russian</td>
-                        <td>$5,366.96</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+              <div class="user-data__footer">
+                <a href="#/pengadu" class="au-btn au-btn-load">Lihat Semua Pengaduan</a>
               </div>
             </div>
-            <!-- END MAP DATA-->
           </div>
         </div>
       </div>

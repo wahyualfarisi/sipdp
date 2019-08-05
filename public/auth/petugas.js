@@ -29,7 +29,6 @@
 
     const PetugasController = (function(URL, UI) {
 
-
         const dom = UI.getDOM()
         const url = URL.getURL()
         

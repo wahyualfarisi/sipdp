@@ -117,6 +117,7 @@
         return {
             init: () => {
                 console.log('init ')
+                window.scrollTo(500,250)
                 eventListener()
             }
         }
