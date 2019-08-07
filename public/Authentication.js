@@ -7,15 +7,12 @@ $.ajax({
 
     },
     success: function(data){
-        // console.log(data)
         if(data.status === 200){
-            console.log(data.msg.nama_lengkap)
             $('#desc__profile').text(`${data.msg.nama_lengkap} - ${data.msg.akses}`   )
         }
         
     },
     error: function(error){
-        // console.log(error)
         window.location.replace(`${BASE_URL}petugas`);
         localStorage.clear()
     },

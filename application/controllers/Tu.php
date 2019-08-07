@@ -25,7 +25,12 @@ class Tu extends CI_Controller {
 
     public function keputusan()
     {
-        $this->load->view('tu/pages/v_surat_keputusan.html');
+        if(isset($_GET['id'])){
+            $this->load->view('tu/pages/v_detail_keputusan.html');
+        }else{
+            $this->load->view('tu/pages/v_surat_keputusan.html');
+        }
+        
     }
 
     public function penugasan()

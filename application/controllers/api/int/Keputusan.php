@@ -16,6 +16,7 @@ class Keputusan extends REST_Controller {
         $this->t_keputusan_pri = 'no_surat_keputusan';
 
         $this->load->model('m_core');
+        $this->load->model('m_keputusan');
         $this->load->helper(['jwt', 'authorization']);
         $this->token = $this->verify_request();
     }
@@ -160,6 +161,24 @@ class Keputusan extends REST_Controller {
 
             }catch(Exception $e)
             {
+                $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg']    = 'Server Bermasalah';
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }
+        }
+    }
+
+    public function index_get()
+    {
+        if($this->token){
+            try{
+                $data = $this->m_keputusan->show_keputusan();
+                $status = parent::HTTP_OK;
+                $res['data'] = $data->result();
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }catch(Exception $e){
                 $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
                 $res['msg']    = 'Server Bermasalah';
                 $res['status'] = $status;
