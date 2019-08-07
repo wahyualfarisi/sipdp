@@ -82,6 +82,7 @@
         return {
             init: () => {
                 console.log('initss ')
+                window.scrollTo(500, 0)
                 eventListener()
                 load_pengaduan()
             }

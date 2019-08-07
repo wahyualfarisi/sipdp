@@ -233,6 +233,7 @@
 
         return {
             init: () => { 
+              window.scrollTo(500, 0)
                load_total_disposisi()
                load_total_pengaduan()
                load_list_pengadu()

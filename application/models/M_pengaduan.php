@@ -23,7 +23,7 @@ class M_pengaduan extends CI_Model {
                   FROM tbl_pengaduan a LEFT JOIN tbl_user b ON a.id_terdaftar = b.id_terdaftar 
                                        LEFT JOIN tbl_disposisi c ON a.id_pengaduan = c.id_pengaduan 
                                        LEFT JOIN tbl_penugasan d ON c.id_petugas = d.id_petugas
-                  WHERE a.status_pengaduan != 'terkirim' AND a.id_pengaduan LIKE '%$query%' OR a.nama_perusahaan_pers LIKE '%$query%' OR b.nama_depan LIKE '%$query%' OR a.status_pengaduan LIKE '%$query%'
+                  WHERE a.status_pengaduan != 'terkirim' AND a.id_pengaduan LIKE '%$query%' OR a.nama_perusahaan_pers LIKE '%$query%' OR b.nama_depan LIKE '%$query%' OR a.status_pengaduan LIKE '%$query%' ORDER BY a.id_pengaduan DESC
         ";
         return $this->db->query($query);
     }

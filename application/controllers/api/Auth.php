@@ -152,7 +152,7 @@ class Auth extends REST_Controller {
 
     public function register_post()
     {
-        $id_terdaftar  = rand(0,500);
+        $id_terdaftar  = $this->generateIdTerdaftar();
         $email         = $this->input->post('email');
         $password      = $this->input->post('password');
         $alamat        = $this->input->post('alamat');
@@ -279,7 +279,7 @@ class Auth extends REST_Controller {
             $this->email->to($email);
             $this->email->from('pengaduanwartawan@gmail.com','Pengaduan Wartawan | Dewan Pers');
             $this->email->subject('Kode Konfirmasi');
-            $this->email->message('Silahkan Konfirmasi code ini'. $code);
+            $this->email->message('Silahkan Konfirmasi code ini '. $code);
 
             if($this->email->send() )
             {
@@ -333,6 +333,18 @@ class Auth extends REST_Controller {
                 'msg' => 'no data'
             ), parent::HTTP_NOT_FOUND);
         }
+    }
+
+    public function generateIdTerdaftar()
+    {
+        $data   = $this->m_core->autoNumber('id_terdaftar', 'tbl_user');
+        $kode   = $data->result()[0]->maxKode;
+        $nourut = (int) substr($kode, 9, 9);
+        $nourut++;
+        
+        $char  = 'PNG-'.date('Y').'-';
+        $newID = $char . sprintf('%05s', $nourut);
+        return $newID;
     }
 
 

@@ -112,10 +112,14 @@
                  error.insertBefore(element)
              },
              submitHandler: function(form){
-                 var kode_verifikasi = parseInt($('#kode_verifikasi').val()) 
-                 var myCode = parseInt(getStoreData.data.id_terdaftar) 
+                 var kode_verifikasi = $('#kode_verifikasi').val()
+                 var myCode = getStoreData.data.id_terdaftar
                  console.log('mycode', myCode)
-                 if(kode_verifikasi !== myCode) return $.notify('Kode Verifikasi Salah', 'info')
+                 
+                 console.log('type input', typeof kode_verifikasi)
+                 console.log('code type', typeof myCode)
+                 
+                 if(kode_verifikasi != myCode) return $.notify('Kode Verifikasi Salah', 'info')
 
                  $.ajax({
                      url: `${BASE_URL}api/Auth/insertnewusers`,

@@ -73,6 +73,7 @@
         return {
             init: () => {
                 console.log('initss ')
+                window.scrollTo(500, 0)
                 load_disposisi()
                 eventListener()
             }

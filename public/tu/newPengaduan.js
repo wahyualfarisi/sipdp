@@ -207,6 +207,7 @@
 
         return {
             init: () => {
+                window.scrollTo(500, 0)
                 load__pengaduan_user()
                 eventListener()
                 console.log('init ')
