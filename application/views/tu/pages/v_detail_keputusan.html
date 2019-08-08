@@ -37,18 +37,20 @@
                     </tr>
                     <tr>
                         <th>Tanggal Keputusan</th>
-                        <td></td>
+                        <td class="tgl_keputusan" ></td>
                     </tr>
                     <tr>
                         <th>Lampiran</th>
-                        <td></td>
+                        <td class="lampiran"></td>
                     </tr>
                     <tr>
                         <th>Perihal</th>
-                        <td></td>
+                        <td class="perihal"></td>
                     </tr>
+                   
                 </table>
             </div>
+            
         </div>
 
         <h4>Detail Pengaduan</h4>
@@ -58,31 +60,31 @@
                 <table class="table table-hover">
                     <tr>
                         <th>No. Pengaduan</th>
-                        <td></td>
+                        <td class="no_pengaduan"></td>
                     </tr>
                     <tr>
                         <th>Nama Perusahaan Pers</th>
-                        <td></td>
+                        <td class="nama_perusahaan_pers"></td>
                     </tr>
                     <tr>
                         <th>Judul Berita</th>
-                        <td></td>
+                        <td class="judul_berita"></td>
                     </tr>
                     <tr>
                         <th>Edisi Penerbitan</th>
-                        <td></td>
+                        <td class="edisi_penerbitan" ></td>
                     </tr>
                     <tr>
                         <th>Catatan</th>
-                        <td></td>
+                        <td class="catatan"></td>
                     </tr>
                     <tr>
                         <th>Nama Pengadu</th>
-                        <td></td>
+                        <td class="nama_pengadu"></td>
                     </tr>
                     <tr>
                         <th>Email Pengadu</th>
-                        <td></td>
+                        <td class="email_pengadu"></td>
                     </tr>
                 </table>
             </div>
@@ -96,6 +98,10 @@
           </div>
 
     </div>
-
-
  </div>
+
+ <script>
+     var ID = '<?= $_GET["id"] ?>';
+ </script>
+ <script defer src="<?= base_url('public/myLib.js') ?>" ></script>
+ <script defer src="<?= base_url('public/general/detail_keputusan.js') ?>"></script>
