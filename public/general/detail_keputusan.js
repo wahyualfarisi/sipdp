@@ -26,7 +26,8 @@
                 catatan: '.catatan',
                 nama_pengadu: '.nama_pengadu',
                 email_pengadu: '.email_pengadu',
-                listBukti: '.buktipengaduan'
+                listBukti: '.buktipengaduan',
+                mainDetail: '.main_detail'
             }
         }
 
@@ -99,6 +100,8 @@
                 })
 
                 load_bukti_pengaduan(id_pengaduan)
+            }else{
+                $(dom.html.mainDetail).css('display','none')
             }
  
         }, err => console.log(err) )

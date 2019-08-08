@@ -15,6 +15,24 @@ var getResource = (url, query, resSuccess, resError) => {
     })
 }
 
+
+var getSearchResource = (url, from, to, resSuccess, resError) => {
+    $.ajax({
+        url, 
+        type: 'GET',
+        data: {from: from, to: to},
+        beforeSend: function(xhr){
+            xhr.setRequestHeader('X-API-KEY', SESSION.token);
+        },
+        success: function(res){
+            resSuccess(res)
+        },
+        error: function(error){
+            resError(error)
+        }    
+    })
+}
+
 var postResource = (url, form, dom, resSuccess, resError, domComplete) => {
     $.ajax({
         url,

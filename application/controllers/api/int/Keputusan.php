@@ -173,7 +173,21 @@ class Keputusan extends REST_Controller {
     {
         if($this->token){
             try{
-                $data = $this->m_keputusan->show_keputusan();
+                $query = '';
+                $from  = '1990-01-01';
+                $to    = date('Y-m-d');
+                
+                if($this->input->get('query') ){
+                    $query = $this->input->get('query');
+                }else if($this->input->get('from') && $this->input->get('to') ){
+                    $from = $this->input->get('from');
+                    $to = $this->input->get('to');
+                }
+                /**
+                 *search berdasarkan nama depan
+                 *berdasrakan from adnd to
+                 */
+                $data = $this->m_keputusan->show_keputusan($query, $from, $to);
                 $status = parent::HTTP_OK;
                 $res['data'] = $data->result();
                 $res['status'] = $status;

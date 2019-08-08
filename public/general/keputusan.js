@@ -14,7 +14,17 @@
     const keputusanUI = (function() {
         const domString = {
             html: {
-                listKeputusan: '#show__list__keputusan'
+                listKeputusan: '#show__list__keputusan',
+                searchKeputusan: '#search_keputusan'
+            },
+            btn: {
+                byDate: '.btn_by_date'
+            },
+            modal: {
+                cari: '#ModalCari'
+            },
+            form: {
+                cariPertanggal: '#form-date'
             }
         }
 
@@ -49,7 +59,8 @@
 
         return {
             getDOM: () => domString,
-            retrieveKeputusan: data => renderKeputusan(data)
+            retrieveKeputusan: data => renderKeputusan(data),
+           
         }
     })()
 
@@ -62,10 +73,32 @@
         
         const eventListener = function(){
 
+            $(dom.html.searchKeputusan).on('keyup', function() {
+                if($(this).val() !== ''){
+                    return load_keputusan($(this).val())
+                }
+                load_keputusan()
+            })
+
+            $(dom.btn.byDate).on('click', () => ModalAction(dom.modal.cari, 'show') )
+
+            $(dom.form.cariPertanggal).on('submit', function(e) {
+                e.preventDefault()
+                getSearchResource(url.getKeputusan, $('.from').val(), $('.to').val(), res => {
+                    if(res.status === 200){
+                        if(res.data.length > 0){
+                            ModalAction(dom.modal.cari,'hide')
+                            UI.retrieveKeputusan(res.data)
+                        }else{
+                            $.notify('Data Tidak Ada', 'info')
+                        }
+                    }
+                }, err => console.log(err) )
+            })
 
         }
 
-        const load_keputusan = () => getResource(url.getKeputusan, undefined, res => {
+        const load_keputusan = (query = '') => getResource(url.getKeputusan, query, res => {
            res.status === 200 ? UI.retrieveKeputusan(res.data) : false;
         }, err => console.log(err) )
 

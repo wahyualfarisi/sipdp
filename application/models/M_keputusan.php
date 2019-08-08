@@ -15,7 +15,7 @@ class M_keputusan extends CI_Model{
         return $this->db->query($query);
     }
     
-    public function show_keputusan()
+    public function show_keputusan($query, $from, $to)
     {
         $query = "SELECT a.no_surat_keputusan, a.lampiran, a.perihal, a.isi_agenda, a.tgl_keputusan, a.status_surat,
                          b.nomor_disposisi, b.tgl_disposisi, b.jenis_tugas, b.catatan_disposisi as cat_dispo , b.status_disposisi,
@@ -26,6 +26,7 @@ class M_keputusan extends CI_Model{
                                              LEFT JOIN tbl_pengaduan c ON b.id_pengaduan = b.id_pengaduan 
                                              LEFT JOIN tbl_user d ON c.id_terdaftar = c.id_terdaftar 
                                              LEFT JOIN tbl_penugasan e ON b.id_petugas = e.id_petugas
+                                             WHERE a.no_surat_keputusan LIKE '%$query%' AND a.tgl_keputusan BETWEEN '$from' AND '$to'
                                              GROUP BY a.no_surat_keputusan   
         ";
         return $this->db->query($query);
