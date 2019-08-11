@@ -267,7 +267,7 @@
         return {
             init: () => {
                 console.log('init ')
-                
+                window.scrollTo(500, 0)
                 eventListener()
                 load_petugas()
             }

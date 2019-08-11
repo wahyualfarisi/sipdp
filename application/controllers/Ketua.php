@@ -20,7 +20,12 @@ class Ketua extends CI_Controller {
 
     public function keputusan()
     {
-        $this->load->view('ketua/pages/v_keputusan.html');
+        if(isset($_GET['id']) ){
+            $this->load->view('ketua/pages/v_detail_keputusan.html');
+        }else{
+            $this->load->view('ketua/pages/v_keputusan.html');
+        }
+        
     }
 
     public function pengaduan()

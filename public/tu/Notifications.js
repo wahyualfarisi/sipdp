@@ -65,6 +65,7 @@
 
         return {
             init: () => {
+                window.scrollTo(500, 0)
                 load_new_pengaduan()
             }
         }

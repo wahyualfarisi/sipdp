@@ -26,10 +26,12 @@
             },
             btn: {
                 tindaklanjut: '.btn__tindaklanjut',
-                onTindakLanjut: '#btn_on_save'
+                onTindakLanjut: '#btn_on_save',
+                btn_lihat_pengaduan: '.btn_lihat_pengaduan'
             },
             modal: {
-                tindakLanjut: '#modalTindakLanjut'
+                tindakLanjut: '#modalTindakLanjut',
+                detailPengaduan: '#modalDetailPengaduan'
             },
             form: {
                 tindaklanjut: '#form-tindaklanjut'
@@ -97,7 +99,19 @@
                         <p> ${item.judul_berita} </p>
                         <p  style="color: black"> ${item.nama_pengadu} </p>
                         <div style="margin-top: 16px;">
-                            <button class="btn btn-danger btn-block"> Lihat Pengaduan </button>
+                            <button class="btn btn-danger btn-block btn_lihat_pengaduan" 
+                                data-id_pengaduan="${item.id_pengaduan}" 
+                                data-nomor_disposisi="${item.nomor_disposisi}"
+                                data-catatan_pengaduan="${item.catatan}"
+                                data-perusahaan_pers=${item.nama_perusahaan_pers}
+                                data-judul_berita="${item.judul_berita}"
+                                data-edisi_penerbitan="${item.edisi_penerbitan}"
+                                data-bagian="${item.bagian}"
+                                data-jenis_tugas="${item.jenis_tugas}"
+                                data-catatan_disposisi="${item.catatan_disposisi}"
+                                data-tgl_disposisi="${item.tgl_disposisi}"
+
+                            > Lihat Pengaduan </button>
                         </div>
                         <div class="au-progress__bar">
                             <div
@@ -279,7 +293,36 @@
                         
                     }
                 }, err => console.log(err), 'TINDAK LANJUT')
+            })
 
+            $(dom.html.listPengaduan).on('click', dom.btn.btn_lihat_pengaduan, function() {
+                
+
+                var nomor_disposisi = $(this).data('nomor_disposisi')
+                var id_pengaduan    = $(this).data('id_pengaduan')
+                var perusahaan_pers = $(this).data('perusahaan_pers')
+                var judul_berita    = $(this).data('judul_berita')
+                var catatan_pengaduan = $(this).data('catatan_pengaduan')
+                var edisi_penerbitan = $(this).data('edisi_penerbitan')
+                var bagian          = $(this).data('bagian')
+                var jenis_tugas     = $(this).data('jenis_tugas')
+                var catatan_disposisi = $(this).data('catatan_disposisi')
+                var tgl_disposisi = $(this).data('tgl_disposisi')
+
+                $('.nomor_disposisi').val(nomor_disposisi)
+                $('#penugasan2').val(bagian)
+                $('#jenis_tugas2').val(jenis_tugas)
+                $('#catatan_disposisi2').val(catatan_disposisi)
+                $('#tgl_disposisi').val(tgl_disposisi)
+
+                $('.id_pengaduan').val(id_pengaduan)
+                $('.perusahaan_pers').val(perusahaan_pers)
+                $('.judul_berita').val(judul_berita)
+                $('.catatan_pengaduan').val(catatan_pengaduan)
+                $('.edisi_penerbitan').val(edisi_penerbitan)
+
+
+                ModalAction(dom.modal.detailPengaduan, 'show')
             })
 
         }
@@ -310,6 +353,8 @@
                 UI.retrieveChartDisposisi(res.data[0]);
             }
         }, err => console.log(err) )
+
+
 
      
 
