@@ -4,6 +4,7 @@
     const dashboardURL = (function() {
         const urlString = {
             getPengaduan: `${BASE_URL}api/int/Pengaduan`,
+            getKeputusan: `${BASE_URL}api/int/Keputusan`,
             getTindakLanjutDisposisi: `${BASE_URL}api/int/Disposisi/show_disposisi_tindaklanjuti`,
             buatKeputusan: `${BASE_URL}api/int/Keputusan`
         }
@@ -199,12 +200,20 @@
             }
         }, err => console.log(err) )
 
+        const load_total_keputusan = () => getResource(url.getKeputusan, undefined, res => {
+            if(res.status === 200){
+                res.data.length > 0 ? $(dom.html.totalKeptusan).text(res.data.length) : $(dom.html.totalKeputusan).text('0')
+            }
+        }, err => console.log(err) )
+
+
         return {
             init: () => {
                 console.log('init ')
                 eventListener()
                 load_tindak_lanjut_disposisi()
                 load_pengaduan_selesai()
+                load_total_keputusan()
             }
         }
     })(dashboardURL, dashboardUI)

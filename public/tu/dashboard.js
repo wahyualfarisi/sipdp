@@ -6,7 +6,9 @@
             totalPengaduan: `${BASE_URL}api/int/Dashboard/count_pengaduan_status`,
             totalDisposisi: `${BASE_URL}api/int/Dashboard/count_disposisi_status`,
             getPengadu: `${BASE_URL}api/Pengadu`,
-            getPengaduan: `${BASE_URL}api/int/Pengaduan`
+            getPengaduan: `${BASE_URL}api/int/Pengaduan`,
+            getKeputusan: `${BASE_URL}api/int/Keputusan`,
+            getPenugasan: `${BASE_URL}api/Penugasan`
         }
         return {
             getURL: () => urlString
@@ -20,6 +22,7 @@
             listPengadu: '#list__pengadu',
             totalPengadu: '#total__pengadu',
             totalPengaduan: '#total__pengaduan',
+            totalKeputusan: '#total__keputusan',
             listPengaduan: '#list__pengaduan'
           }
         }
@@ -230,7 +233,19 @@
           if(res.status === 200) return UI.retrievePengaduan(res.data)
         }, err => console.log(err) ) 
 
+        const load_keputusan = () => getResource(url.getKeputusan, undefined , res => {
+          if(res.status === 200){
+            $('#total__keputusan').text(res.data.length)
+          }
+        }, err => console.log(err) )
 
+        const load_penugasan = () => getResource(url.getPenugasan, undefined ,res => {
+          if(res.status === 200){
+            $('#total__penugasan').text(res.data.length)
+          }
+        }, err => console.log(err) )
+
+        
         return {
             init: () => { 
               window.scrollTo(500, 0)
@@ -238,7 +253,8 @@
                load_total_pengaduan()
                load_list_pengadu()
                load_pengaduan()
-                
+               load_keputusan()
+               load_penugasan()
             }
         }
     })(dashboardURL, dashboardUI)

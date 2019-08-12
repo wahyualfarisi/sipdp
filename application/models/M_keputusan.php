@@ -32,4 +32,21 @@ class M_keputusan extends CI_Model{
         return $this->db->query($query);
     }
 
+    public function show_keputusan_where($where = null)
+    {
+        $this->db->select('a.*')
+                 ->select('b.*')
+                 ->select('c.*')
+                 ->select('d.*')
+                 ->select('e.*')
+                 ->from('tbl_surat_keputusan a')
+                 ->join('tbl_disposisi b','b.nomor_disposisi = a.nomor_disposisi', 'left')
+                 ->join('tbl_penugasan c','c.id_petugas = b.id_petugas', 'left')
+                 ->join('tbl_pengaduan d', 'd.id_pengaduan = b.id_pengaduan', 'left')
+                 ->join('tbl_user e','e.id_terdaftar = d.id_terdaftar','left');
+       if($where !== null){
+           $this->db->where($where);
+       }
+       return $this->db->get();     
+    }
 }

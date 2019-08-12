@@ -15,7 +15,12 @@ class Komisi extends CI_Controller {
 
     public function keputusan()
     {
-        $this->load->view('komisi/pages/v_keputusan.html');
+        if(isset($_GET['id']) ){
+            $this->load->view('komisi/pages/v_detail_keputusan.html');    
+        }else{
+            $this->load->view('komisi/pages/v_keputusan.html');
+        }
+        
     }
 
     public function pengaduan()

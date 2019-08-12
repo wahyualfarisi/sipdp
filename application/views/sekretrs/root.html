@@ -92,7 +92,7 @@
       if (!SESSION) {
         window.location.replace('<?= base_url("petugas") ?>');
       } else {
-        if (SESSION.akses !== "KETUA") {
+        if (SESSION.akses !== "SEKRETARIS") {
           window.location.replace('<?= base_url("petugas") ?>');
         }
       }
@@ -133,23 +133,8 @@
                 <!-- <span class="inbox-num">3</span> -->
               </li>
               <li>
-                <a href="#/pengaduan">
-                  <i class="fas fa-chart-bar"></i>Pengaduan</a
-                >
-              </li>
-              <li>
-                <a href="#/disposisi">
-                  <i class="fas fa-chart-bar"></i>Disposisi</a
-                >
-              </li>
-              <li>
-                <a href="#/keputusan">
-                  <i class="fas fa-chart-bar"></i>Keputusan</a
-                >
-              </li>
-              <li>
                 <a href="#/laporan">
-                  <i class="fas fa-chart-bar"></i>Laporan</a
+                  <i class="fas fa-chart-bar"></i>Buat Laporan</a
                 >
               </li>
             </ul>
@@ -349,71 +334,7 @@
                     </li>
                   </ul>
                 </li>
-                <li class="has-sub">
-                  <a class="js-arrow" href="#">
-                    <i class="fas fa-desktop"></i>UI Elements
-                    <span class="arrow">
-                      <i class="fas fa-angle-down"></i>
-                    </span>
-                  </a>
-                  <ul class="list-unstyled navbar__sub-list js-sub-list">
-                    <li>
-                      <a href="button.html">
-                        <i class="fab fa-flickr"></i>Button</a
-                      >
-                    </li>
-                    <li>
-                      <a href="badge.html">
-                        <i class="fas fa-comment-alt"></i>Badges</a
-                      >
-                    </li>
-                    <li>
-                      <a href="tab.html">
-                        <i class="far fa-window-maximize"></i>Tabs</a
-                      >
-                    </li>
-                    <li>
-                      <a href="card.html">
-                        <i class="far fa-id-card"></i>Cards</a
-                      >
-                    </li>
-                    <li>
-                      <a href="alert.html">
-                        <i class="far fa-bell"></i>Alerts</a
-                      >
-                    </li>
-                    <li>
-                      <a href="progress-bar.html">
-                        <i class="fas fa-tasks"></i>Progress Bars</a
-                      >
-                    </li>
-                    <li>
-                      <a href="modal.html">
-                        <i class="far fa-window-restore"></i>Modals</a
-                      >
-                    </li>
-                    <li>
-                      <a href="switch.html">
-                        <i class="fas fa-toggle-on"></i>Switchs</a
-                      >
-                    </li>
-                    <li>
-                      <a href="grid.html">
-                        <i class="fas fa-th-large"></i>Grids</a
-                      >
-                    </li>
-                    <li>
-                      <a href="fontawesome.html">
-                        <i class="fab fa-font-awesome"></i>FontAwesome</a
-                      >
-                    </li>
-                    <li>
-                      <a href="typo.html">
-                        <i class="fas fa-font"></i>Typography</a
-                      >
-                    </li>
-                  </ul>
-                </li>
+                
               </ul>
             </nav>
           </div>
@@ -446,7 +367,6 @@
     <script src="<?= base_url('assets/vendor/bootstrap-4.1/popper.min.js') ?> "></script>
     <script src="<?= base_url('assets/vendor/bootstrap-4.1/bootstrap.min.js') ?>"></script>
     <!-- Vendor JS       -->
-
     <script src="<?= base_url('assets/vendor/slick/slick.min.js') ?> "></script>
     <script src="<?= base_url('assets/vendor/wow/wow.min.js') ?> "></script>
     <script src="<?= base_url('assets/vendor/animsition/animsition.min.js') ?> "></script>
@@ -463,7 +383,7 @@
       $(document).ready(function() {
         const loadContent = function(href) {
           if (href) {
-            $.get(`<?= base_url().'Ketua/' ?>${href}`, content => {
+            $.get(`<?= base_url().'sekret/' ?>${href}`, content => {
               $("#content").html(content);
             });
           } else {
@@ -486,33 +406,12 @@
           localStorage.clear();
           location.reload();
         });
+
+
       });
     </script>
     <script defer src="<?= base_url('public/Authentication.js') ?>"></script>
     <script defer src="<?= base_url('public/myLib.js') ?>"></script>
-    <script>
-      function LOAD_NOTIF() {
-        $.ajax({
-          url: `${BASE_URL}api/int/Disposisi/show_disposisi_proses`,
-          type: "GET",
-          beforeSend: function(xhr) {
-            xhr.setRequestHeader("X-API-KEY", SESSION.token);
-          },
-          success: function(res) {
-            if (res.status === 200) {
-              $("#linkdashboard").append(
-                `<span class="inbox-num">${res.jumlah}</span>`
-              );
-            }
-          },
-          error: function(error) {
-            console.log(error);
-          }
-        });
-      }
-
-      LOAD_NOTIF();
-    </script>
   </body>
 </html>
 <!-- end document-->

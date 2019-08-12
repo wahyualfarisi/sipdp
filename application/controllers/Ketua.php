@@ -33,4 +33,9 @@ class Ketua extends CI_Controller {
         $this->load->view('ketua/pages/v_pengaduan.html');
     }
 
+    public function laporan()
+    {
+        
+    }
+
 }

@@ -201,6 +201,26 @@ class Keputusan extends REST_Controller {
         }
     }
 
+    public function getKeputusanStatus_get()
+    {
+        if($this->token){
+            try{
+                $query = 'tidak';
+                if($this->input->get('query') ){
+                    $query = $this->input->get('query');
+                }
+                $where['status_surat'] = $query;
+                $data = $this->m_keputusan->show_keputusan_where($where);
+                $this->response($data->result(), parent::HTTP_OK);
+            }catch(Exception $e){
+                $status        = parent::HTTP_INTERNAL_SERVER_ERROR;
+                $res['msg']    = 'Server Error';
+                $res['status'] = $status;
+                $this->response($res, $status);
+            }
+        }
+    }
+
     private function generateCodeKeputusan()
     {
         $data   = $this->m_core->autoNumber($this->t_keputusan_pri, $this->t_keputusan);

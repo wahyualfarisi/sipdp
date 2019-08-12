@@ -5,6 +5,7 @@
         const urlString = {
             getNewProsesDisposisi: `${BASE_URL}api/int/Disposisi/show_disposisi_proses`,
             getPengaduan: `${BASE_URL}api/int/Pengaduan`,
+            getKeputusan: `${BASE_URL}api/int/Keputusan`,
             tindakLanjutDisposisi : `${BASE_URL}api/int/Disposisi/tindak_lanjut_disposisi`,
             totalPengaduan: `${BASE_URL}api/int/Dashboard/count_pengaduan_status`,
             totalDisposisi: `${BASE_URL}api/int/Dashboard/count_disposisi_status`,
@@ -74,7 +75,6 @@
                         </p>
                         </div>
                     </div> 
-                    
                     `
                 })
             }else{
@@ -354,6 +354,12 @@
             }
         }, err => console.log(err) )
 
+        const load_total_keputusan = () => getResource(url.getKeputusan, undefined, res => {
+            if(res.status === 200){
+                res.data.length > 0 ? $(dom.html.totalKeputusan).text(res.data.length) : $(dom.html.totalKeputusan).text('0')
+            }
+        }, err => console.log(err) )
+
 
 
      
@@ -367,6 +373,7 @@
                 load_pengaduan_proses()
                 load_total_pengaduan()
                 load_total_disposisi()
+                load_total_keputusan()
                 
             }
         }

@@ -121,7 +121,6 @@ class Auth extends REST_Controller {
 
             foreach($cek->result() as $k)
             {
-                
                     $token = array(
                         'email'        => $k->email_petugas,
                         'nama_lengkap' => $k->nama_depan.' '.$k->nama_belakang,
@@ -137,7 +136,6 @@ class Auth extends REST_Controller {
                         'token'  => $generateToken,
                         'akses'   => $akses
                     ));
-                
             }    
         }else{
             $status = parent::HTTP_NOT_FOUND;

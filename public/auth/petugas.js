@@ -81,6 +81,8 @@
                                     location.href = `${BASE_URL}Ketua/`
                                 }else if(data.akses === "KOMISI"){
                                     location.href = `${BASE_URL}Komisi/`
+                                }else if(data.akses === 'SEKRETARIS'){
+                                    location.href = `${BASE_URL}Sekret/`
                                 }else{
                                     return false;
                                 }
