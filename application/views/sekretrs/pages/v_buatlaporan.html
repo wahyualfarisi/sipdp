@@ -1,0 +1,66 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">Buat Laporan</div>
+      <div class="row" style="margin-top: 100px;">
+        <div class="col-md-12" style="margin-bottom: 530px;">
+          <div class="table-data__tool">
+            <div class="table-data__tool-left"></div>
+            <div class="table-data__tool-right">
+              <!-- <a href="#/buatlaporan" class="btn btn-danger" > Buat Laporan </a> -->
+            </div>
+          </div>
+          <div id="view-add-laporan"></div>
+
+           <!-- <form id="form-add-laporan">
+
+            <button type="submit" >Buat Laporan</button>
+           </form> -->
+
+          <!-- END DATA TABLE -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div
+    class="modal fade"
+    id="ModalBuatLaporan"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg"  style="width:2250px;" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCariTanggal">Buat Laporan</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="content-modal">
+          <form id="form-add-laporan">
+
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-info" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script defer src="<?= base_url('public/Authentication.js') ?>"></script>
+<script defer src="<?= base_url('public/myLib.js') ?>"></script>
+<script defer src="<?= base_url('public/sekret/buatlaporan.js') ?>"></script>

@@ -35,7 +35,9 @@
                             <td>${judul_berita} </td>
                             <td>${nama_perusahaan_pers} </td>
                             <td>${status_pengaduan} </td>
-                            <td>Print </td>
+                            <td> 
+                                <a href="#/suratkeputusan?id_surat=${no_surat_keputusan}" class="btn btn-info"> Lihat Keputusan </a>
+                            </td>
 
                         </tr>
                     `

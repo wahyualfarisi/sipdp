@@ -1,6 +1,3 @@
-// seperated file decision create
-// embed plugin tiniMCE on agenda fill 
-
 
 /**
     / secretary page 

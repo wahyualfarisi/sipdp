@@ -7,6 +7,7 @@ $.ajax({
         xhr.setRequestHeader('X-API-KEY', SESSION.token);
     },
     success: function(data){
+        localStorage.setItem('profile', JSON.stringify(data));
         var obj = data.msg.payload[0];
         $('.greating_namadepan').text(obj.nama_depan)
         $('.greating_email').text(obj.email)

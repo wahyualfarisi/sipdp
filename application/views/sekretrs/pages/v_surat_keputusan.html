@@ -27,7 +27,7 @@
     <div style="margin-top: 16px; margin-bottom: 16px;">
       <h4>Buat Laporan</h4>
     </div>
-    <div class="" style="margin-top: 50px;">
+    <!-- <div class="" style="margin-top: 50px;">
       <input
         type="text"
         name="search_keputusan"
@@ -35,7 +35,7 @@
         class="form-control"
         placeholder="Cari Berdasarkan Nama Pengadu "
       />
-    </div>
+    </div> -->
   
     <div class="row" style="margin-top: 100px;">
       <div class="col-md-12" style="margin-bottom: 530px;">
@@ -44,7 +44,7 @@
            
           </div>
           <div class="table-data__tool-right">
-            <button class="btn btn-danger btn_by_date" > Cari Berdasarkan Tanggal </button>
+            <a href="#/buatlaporan" class="btn btn-danger" > Buat Laporan </a>
           </div>
         </div>
         <div class="table-responsive table-responsive-data2">
@@ -52,16 +52,13 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>No. Surat Keputusan</th>
-                <th>No. Pengaduan</th>
-                <th>Tanggal Keputusan</th>
-                <th>Nama Pengadu</th>
-                <th>Judul Berita</th>
-                <th>Perusahaan Pers</th>
+                <th>No. Laporan </th>
+                <th>Tanggal Pembuatan</th>
+                <th>Jumlah Surat Keputusan</th>
                 <th></th>
               </tr>
             </thead>
-            <tbody id="show__list__keputusan"></tbody>
+            <tbody id="show__list__laporan"></tbody>
           </table>
         </div>
         <!-- END DATA TABLE -->
@@ -69,55 +66,7 @@
     </div>
   </div>
   
-  <div
-    class="modal fade"
-    id="ModalCari"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content ">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalCariTanggal">Cari Berdasarkan Tanggal</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" id="content-modal">
-          <form id="form-date">
-            <div class="form-group">
-              <label>Dari</label>
-              <input type="date" class="form-control from" name="from" >
-            </div>
-            <div class="form-group">
-                <label>Sampai</label>
-                <input type="date" class="form-control to" name="to" >
-            </div> 
   
-            <button
-              type="submit"
-              class="au-btn au-btn-icon au-btn--blue au-btn--small"
-              id="btn__addOnModal"
-            >
-              SIMPAN
-            </button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-info" data-dismiss="modal">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
   
   <script defer src="<?= base_url('public/Authentication.js') ?>"></script>
   <script defer src="<?= base_url('public/myLib.js') ?>"></script>

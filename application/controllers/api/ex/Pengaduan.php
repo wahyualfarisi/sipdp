@@ -63,6 +63,7 @@ class Pengaduan extends REST_Controller {
                 $this->form_validation->set_rules('lampiran[]', 'Lampiran', 'required');
             }
             $this->form_validation->set_rules($config);
+
             if($this->form_validation->run() === FALSE){
                 $errors['errors'] = $this->form_validation->error_array();
                 $status = parent::HTTP_BAD_REQUEST;
@@ -84,6 +85,7 @@ class Pengaduan extends REST_Controller {
                     'status_pengaduan' => 'terkirim',
                     'deskripsi_status' => 'Permohonan Pengaduan Terkirim'
                 );
+                
                 $insert = $this->m_core->add_data($this->t_pengaduan, $data_pengaduan);
                 
                 if($insert){

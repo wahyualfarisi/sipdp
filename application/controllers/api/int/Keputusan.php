@@ -129,6 +129,7 @@ class Keputusan extends REST_Controller {
                         {
                             $data_update_pengaduan['status_pengaduan'] = 'selesai';
                             $data_update_pengaduan['deskripsi_status'] = 'Pengaduan Telah Selesai';
+                            $data_update_pengaduan['dilihat'] = 'belum';
                             $where_update_pengaduan['id_pengaduan']    = $this->input->post('id_pengaduan');
 
                             $update_pengaduan = $this->m_core->update_table('tbl_pengaduan', $data_update_pengaduan, $where_update_pengaduan);

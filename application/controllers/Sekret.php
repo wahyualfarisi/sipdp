@@ -23,4 +23,9 @@ class Sekret extends CI_Controller {
         }
     }
 
+    public function buatlaporan()
+    {
+        $this->load->view('sekretrs/pages/v_buatlaporan.html');
+    }
+
 }

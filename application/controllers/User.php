@@ -43,5 +43,12 @@ class User extends CI_Controller {
         $this->load->view('users/pages/v_overviewpengaduan.html');
     }
 
+    public function suratkeputusan()
+    {
+        if(isset($_GET['id_surat']) ){
+            $this->load->view('users/pages/v_suratkeputusan.html');
+        }
+    }
+
    
 }
