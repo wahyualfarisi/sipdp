@@ -1,0 +1,98 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <a href="#/dashboard"> <i class="fa fa-arrow-left"></i> Kembali</a>
+
+    <div class="card" style="margin-top: 30px; padding: 30px; ">
+      <div class="card-header text-center"><h5>Buat Surat Keputusan</h5></div>
+
+      <form id="form-keputusan">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>No. Pengaduan</label>
+              <input
+                type="text"
+                name="id_pengaduan"
+                class="form-control id_pengaduan"
+                value="<?= $_GET['id_pgd'] ?>"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label>Nomor Disposisi</label>
+              <input
+                type="text"
+                name="nomor_disposisi"
+                class="form-control nomor_disposisi"
+                value="<?= $_GET['nmr_dispo'] ?>"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label>Lampiran</label>
+              <input
+                type="text"
+                name="lampiran"
+                class="form-control lampiran"
+              />
+            </div>
+            <div class="form-group">
+              <label>Perihal</label>
+              <input type="text" name="perihal" class="form-control perihal" />
+            </div>
+            <div class="form-group">
+              <label>Isi Agenda</label>
+              <textarea
+                id="catatan_pengaduan"
+                name="isi_agenda"
+                rows="10"
+                cols="30"
+                class="form-control"
+                required
+              ></textarea
+              ><br />
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <div class="text-center">
+              <button type="submit" id="btn_on_save" class="btn btn-danger">
+                BUAT KEPUTUSAN
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(function() {
+    // Fungsi untuk mengganti textarea dengan ckeditor style
+    CKEDITOR.replace("catatan_pengaduan", {
+      toolbar: [
+        [
+          "Bold",
+          "Italic",
+          "-",
+          "NumberedList",
+          "BulletedList",
+          "-",
+          "Link",
+          "Unlink",
+          "-"
+        ]
+      ]
+    });
+    for (instance in CKEDITOR.instances) {
+    CKEDITOR.instances[instance].updateElement();
+    }
+
+
+  });
+  
+  
+  
+</script>
+<script defer src="<?= base_url('public/myLib.js') ?>"></script>
+<script src="<?= base_url('public/komisi/buatsurat.js') ?>" ></script>

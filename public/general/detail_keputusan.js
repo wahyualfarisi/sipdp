@@ -45,6 +45,9 @@
                $(html.tgl_keputusan).text(tgl_keputusan)
                $(html.lampiran).text(lampiran)
                $(html.perihal).text(perihal)
+
+               $('.isi_agenda').html(item.isi_agenda)
+               
                $(html.no_pengaduan).text(id_pengaduan)
                $(html.nama_perusahaan_pers).text(nama_perusahaan_pers)
                $(html.judul_berita).text(judul_berita)

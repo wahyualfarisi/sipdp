@@ -28,4 +28,11 @@ class Komisi extends CI_Controller {
         $this->load->view('komisi/pages/v_pengaduan.html');
     }
 
+    public function buatsurat()
+    {
+        if(isset($_GET['id_pgd']) && isset($_GET['nmr_dispo'])){
+            $this->load->view('komisi/pages/v_buatsurat.html');
+        }
+    }
+
 }

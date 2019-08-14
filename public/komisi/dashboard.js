@@ -56,10 +56,11 @@
                             </h5>
                             <span class="time"> ${item.tgl_disposisi} </span>
                             <p> 
-                                <button class="btn btn-success btn__add__keputusan" 
+                                <a href="#/buatsurat?id_pgd=${item.id_pengaduan}&&nmr_dispo=${item.nomor_disposisi}" class="btn btn-success btn__add__keputusan" 
                                     data-id_pengaduan="${item.id_pengaduan}"
                                     data-nomor_disposisi="${item.nomor_disposisi}"
-                                    >Buat Surat Keputusan </button>
+                                    >Buat Surat Keputusan 
+                                </a>
                             </p>
                             </div>
                         </div> 
@@ -134,14 +135,14 @@
         
         const eventListener = function(){
 
-            $(dom.html.listTindakLanjut).on('click', dom.btn.addKeputusan, function() {
-                var id_pengaduan = $(this).data('id_pengaduan')
-                var nomor_disposisi = $(this).data('nomor_disposisi')
+            // $(dom.html.listTindakLanjut).on('click', dom.btn.addKeputusan, function() {
+            //     var id_pengaduan = $(this).data('id_pengaduan')
+            //     var nomor_disposisi = $(this).data('nomor_disposisi')
 
-                $('.id_pengaduan').val(id_pengaduan)
-                $('.nomor_disposisi').val(nomor_disposisi)
-                ModalAction(dom.modal.keputusan, 'show')
-            })
+            //     $('.id_pengaduan').val(id_pengaduan)
+            //     $('.nomor_disposisi').val(nomor_disposisi)
+            //     ModalAction(dom.modal.keputusan, 'show')
+            // })
 
             $(dom.form.keputusan).validate({
                 rules: {

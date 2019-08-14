@@ -1,0 +1,11 @@
+// seperated file decision create
+// embed plugin tiniMCE on agenda fill 
+
+
+/**
+    / secretary page 
+        1. dashboard 
+        2. create laporan
+        3. read file laporan where data keputusan with status_surat = 'tidak'
+        
+/
