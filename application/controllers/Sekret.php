@@ -10,7 +10,7 @@ class Sekret extends CI_Controller {
 
     public function dashboard()
     {
-
+        $this->load->view('sekretrs/pages/v_dashboard.html');
     }
 
 
@@ -20,6 +20,13 @@ class Sekret extends CI_Controller {
             $this->load->view('sekretrs/pages/v_detail_keputusan.html');
         }else{
             $this->load->view('sekretrs/pages/v_surat_keputusan.html');
+        }
+    }
+
+    public function lihatlaporan()
+    {
+        if(isset($_GET['id_laporan']) ){
+            $this->load->view('sekretrs/pages/v_lihatlaporan.html');
         }
     }
 

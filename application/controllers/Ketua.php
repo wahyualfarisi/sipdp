@@ -35,7 +35,21 @@ class Ketua extends CI_Controller {
 
     public function laporan()
     {
-        
+        $this->load->view('ketua/pages/v_laporan.html');
+    }
+
+    public function lihatlaporan()
+    {
+        if(isset($_GET['id_laporan']) ){
+            $this->load->view('ketua/pages/v_lihatlaporan.html');
+        }
+    }
+
+    public function lihatsurat()
+    {
+        if(isset($_GET['id_surat']) ){
+            $this->load->view('ketua/pages/v_lihatsurat.html');
+        }
     }
 
 }

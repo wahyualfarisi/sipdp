@@ -1,0 +1,73 @@
+<section class="au-breadcrumb m-t-75">
+        <div class="section__content section__content--p30">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="au-breadcrumb-content">
+                  <div class="au-breadcrumb-left">
+                    <span class="au-breadcrumb-span">You are here:</span>
+                    <ul class="list-unstyled list-inline au-breadcrumb__list">
+                      <li class="list-inline-item active">
+                        <a href="#">Dashboard</a>
+                      </li>
+                      <li class="list-inline-item seprate">
+                        <span>/</span>
+                      </li>
+                      <li class="list-inline-item">Daftar Keputusan</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- END BREADCRUMB-->
+      <div class="container-fluid" style="margin-top: 50px;">
+        <div style="margin-top: 16px; margin-bottom: 16px;">
+          <h4>Data Laporan</h4>
+        </div>
+        <!-- <div class="" style="margin-top: 50px;">
+          <input
+            type="text"
+            name="search_keputusan"
+            id="search_keputusan"
+            class="form-control"
+            placeholder="Cari Berdasarkan Nama Pengadu "
+          />
+        </div> -->
+      
+        <div class="row" style="margin-top: 100px;">
+          <div class="col-md-12" style="margin-bottom: 530px;">
+            <div class="table-data__tool">
+              <div class="table-data__tool-left">
+               
+              </div>
+              <div class="table-data__tool-right">
+                <!-- <a href="#/buatlaporan" class="btn btn-danger" > Buat Laporan </a> -->
+              </div>
+            </div>
+            <div class="table-responsive table-responsive-data2">
+              <table class="table table-data2">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>No. Laporan </th>
+                    <th>Tanggal Pembuatan</th>
+                    <th>Jumlah Surat Keputusan</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="show__list__laporan"></tbody>
+              </table>
+            </div>
+            <!-- END DATA TABLE -->
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <script defer src="<?= base_url('public/Authentication.js') ?>"></script>
+      <script defer src="<?= base_url('public/myLib.js') ?>"></script>
+      <script defer src="<?= base_url('public/ketua/laporan.js') ?>"></script>

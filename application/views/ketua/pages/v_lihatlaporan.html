@@ -1,0 +1,66 @@
+<div class="main-content">
+        <div class="container-fluid">
+            <button class="btn btn-danger" id="btn-print-surat">PRINT</button>
+        </div>
+    
+        <div class="container-fluid" id="area__surat">
+            <h4>Laporan</h4>
+            <div class="col-md-12" style="margin-top: 40px;">
+                <table class="table">
+                    <tr>
+                        <th>No. Laporan</th>
+                        <td class="no_laporan" ></td>
+                    </tr>
+                    <tr>
+                        <th>Tanggal Pembuatan</th>
+                        <td class="tgl_pembuatan" ></td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="row" style="margin-top: 40px;" id="surat-keputusan">
+                <div class="col-md-12" style="margin-bottom: 530px;">
+                  <div class="table-data__tool">
+                    <div class="table-data__tool-left">
+                     
+                    </div>
+                    <div class="table-data__tool-right">
+                      <!-- <a href="#/buatlaporan" class="btn btn-danger" > Buat Laporan </a> -->
+                    </div>
+                  </div>
+                  <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>No. Surat Keputusan </th>
+                          <th>Nomor Disposisi</th>
+                          <th>Lampiran</th>
+                          <th>Perihal</th>
+                          <th>Tanggal Keputusan</th>
+                          <th>Lihat Surat</th>
+                        </tr>
+                      </thead>
+                      <tbody id="show__list__surat__keputusan"></tbody>
+                    </table>
+                  </div>
+                  <!-- END DATA TABLE -->
+                </div>
+              </div>
+    
+              <div id="show-surat">
+                  
+              </div>
+            
+    
+    
+        </div>
+    </div>
+    
+    <script>
+        var ID = '<?= $_GET["id_laporan"] ?>';
+    </script>
+    <script src="<?= base_url('assets/js/printArea.js') ?>" ></script>
+    <script defer src="<?= base_url('public/Authentication.js') ?>"></script>
+    <script defer src="<?= base_url('public/myLib.js') ?>"></script>
+    <script defer src="<?= base_url('public/ketua/lihatlaporan.js') ?>"></script>
