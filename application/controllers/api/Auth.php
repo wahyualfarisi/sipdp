@@ -365,30 +365,6 @@ class Auth extends REST_Controller {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function hello_get()
     {
         $token_data = array(

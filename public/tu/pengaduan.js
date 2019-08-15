@@ -3,7 +3,8 @@
 
     const pengaduanURL = (function() {
         const urlString = {
-            getPengaduan: `${BASE_URL}api/int/Pengaduan`
+            getPengaduan: `${BASE_URL}api/int/Pengaduan`,
+            delete: `${BASE_URL}api/int/Pengaduan`
         }
         return {
             getURL: () => urlString
@@ -37,9 +38,8 @@
                             <td> ${item.edisi_penerbitan} </td>
                             <td> ${item.status_pengaduan} </td>
                             <td> 
-                            <button class="item btn__hapus" 
-                                data-toggle="tooltip" data-placement="top" title="Delete">
-                                <i class="zmdi zmdi-info"></i>
+                            <button class="btn btn-danger btn__hapus" data-id="${item.id_pengaduan}" >
+                                Hapus
                             </button>
                             </td>
                         </tr>
@@ -68,6 +68,23 @@
                 getResource(url.getPengaduan, $(this).val(), res => {
                     if(res.status === 200) UI.retrievePengaduan(res.data)
                 })
+            })
+
+            $(dom.html.listPengaduan).on('click', '.btn__hapus', function() {
+                let id = $(this).data('id');
+                $('.id_pengaduan').val(id)
+                ModalAction('#modalDelete', 'show')
+            })
+
+            $('#form-delete').submit(function(e) {
+                e.preventDefault();
+                var id = $('.id_pengaduan').val()
+                deleteResource(`${url.delete}?id=${id}`, this, '#btn_delete', res => {
+                    if(res.status === true){
+                        load_pengaduan()
+                        ModalAction('#modalDelete','hide')
+                    }
+                }, err => console.log(err)  )
             })
 
         }

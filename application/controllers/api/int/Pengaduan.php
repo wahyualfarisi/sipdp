@@ -58,7 +58,23 @@ class Pengaduan extends REST_Controller {
 
     public function index_delete()
     {
+        if(!$this->token) return $this->response(array('msg' => 'Authorized denied', 'status' => false ), parent::HTTP_BAD_REQUEST);
 
+        if(!$this->input->get('id')) return $this->response(array('msg' => 'Parameter ID is required !', 'status' => false), parent::HTTP_BAD_REQUEST);
+
+             $check_id = $this->m_core->get_where('tbl_pengaduan', array('id_pengaduan' => $this->input->get('id')) );
+   
+             if($check_id->num_rows() != 1) return $this->response(array('msg' => 'ID is not defined !', 'status' => false), parent::HTTP_BAD_REQUEST);
+
+             try{
+                $delete_pgd = $this->m_core->delete_rows('tbl_pengaduan', array('id_pengaduan' => $this->input->get('id')) );
+                if(!$delete_pgd) return $this->response(array('msg' => 'Gagal Menghapus data pengaduan', 'status' => false), parent::HTTP_BAD_REQUEST);
+
+                $this->response(array('msg' => 'Berhasil Menghapus Data Pengaduan', 'status' => true), parent::HTTP_OK);
+
+             }catch(Exception $e){
+                 $this->response(array('msg' => 'Internal Server Error', 'status' => false), parent::HTTP_BAD_REQUEST);
+             }
     }
 
     public function getNotif_get()
