@@ -253,31 +253,52 @@ class Auth extends REST_Controller {
     function sending_email_verification($email, $code)
     {
          // prosess kirim email
-        $config = [
-            'useragent' => 'CodeIgniter',
-            'protocol'  => 'smtp',
-            'mailpath'  => '/usr/sbin/sendmail',
-            'smtp_host' => 'ssl://smtp.gmail.com',
-            'smtp_user' => 'pengaduanwartawan@gmail.com',   // Ganti dengan email gmail Anda.
-            'smtp_pass' => 'wartawan123',             // Password gmail Anda.
-            'smtp_port' => 465,
-            'smtp_keepalive' => TRUE,
-            'smtp_crypto' => 'SSL',
-            'wordwrap'  => TRUE,
-            'wrapchars' => 80,
-            'mailtype'  => 'html',
-            'charset'   => 'utf-8',
-            'validate'  => TRUE,
-            'crlf'      => "\r\n",
-            'newline'   => "\r\n",
-        ];
+        // $config = [
+        //     'useragent' => 'CodeIgniter',
+        //     'protocol'  => 'smtp',
+        //     'mailpath'  => '/usr/sbin/sendmail',
+        //     'smtp_host' => 'ssl://smtp.gmail.com',
+        //     'smtp_user' => 'pengaduanwartawan@gmail.com',   // Ganti dengan email gmail Anda.
+        //     'smtp_pass' => 'wartawan123',             // Password gmail Anda.
+        //     'smtp_port' => 465,
+        //     'smtp_keepalive' => TRUE,
+        //     'smtp_crypto' => 'SSL',
+        //     'wordwrap'  => TRUE,
+        //     'wrapchars' => 80,
+        //     'mailtype'  => 'html',
+        //     'charset'   => 'utf-8',
+        //     'validate'  => TRUE,
+        //     'crlf'      => "\r\n",
+        //     'newline'   => "\r\n",
+        // ];
 
-            $this->load->library('email', $config);
-            $this->email->initialize($config);
-            $this->email->to($email);
-            $this->email->from('pengaduanwartawan@gmail.com','Pengaduan Wartawan | Dewan Pers');
-            $this->email->subject('Kode Konfirmasi');
-            $this->email->message('Silahkan Konfirmasi code ini '. $code);
+        // $this->load->library('email', $config);
+        // $this->email->initialize($config);
+        // $this->email->to($email);
+        // $this->email->from('pengaduanwartawan@gmail.com','Pengaduan Wartawan | Dewan Pers');
+        // $this->email->subject('Kode Konfirmasi');
+        // $this->email->message('Silahkan Konfirmasi code ini '. $code);
+        
+        $config = array(
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'posyanduslipijkt@gmail.com',
+            'smtp_pass' => 'slipi123123',
+            'mailtype'  => 'html',
+            'charset'   => 'utf-8'
+        );
+        
+        $this->email->initialize($config);
+        $this->email->set_mailtype("html");
+        $this->email->set_newline("\r\n");
+
+        $this->email->to($email);
+        $this->email->from('posyanduslipi@gmail.com','Dewan Pers | Dewan Pers');
+        $this->email->subject('Kode Konfirmasi');
+        $this->email->message('Silahkan Konfirmasi code ini  '.$code);
+      
+      
 
             if($this->email->send() )
             {
