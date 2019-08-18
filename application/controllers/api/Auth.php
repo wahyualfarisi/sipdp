@@ -252,7 +252,7 @@ class Auth extends REST_Controller {
 
     function sending_email_verification($email, $code)
     {
-         // prosess kirim email
+        // prosess kirim email
         // $config = [
         //     'useragent' => 'CodeIgniter',
         //     'protocol'  => 'smtp',
@@ -278,7 +278,7 @@ class Auth extends REST_Controller {
         // $this->email->from('pengaduanwartawan@gmail.com','Pengaduan Wartawan | Dewan Pers');
         // $this->email->subject('Kode Konfirmasi');
         // $this->email->message('Silahkan Konfirmasi code ini '. $code);
-        
+
         $config = array(
             'protocol'  => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -298,15 +298,13 @@ class Auth extends REST_Controller {
         $this->email->subject('Kode Konfirmasi');
         $this->email->message('Silahkan Konfirmasi code ini  '.$code);
       
-      
-
+    
             if($this->email->send() )
             {
                 return 1;
             }else{
                 return 0;
             }
-
     }
 
     public function insertnewusers_post()
