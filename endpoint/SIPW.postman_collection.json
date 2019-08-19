@@ -1,0 +1,1541 @@
+{
+	"info": {
+		"_postman_id": "045ecebb-8b49-4269-8961-a5a7d2d63039",
+		"name": "SIPW",
+		"description": "Sistem Pengaduan Karyawan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "penugasan",
+			"description": null,
+			"item": [
+				{
+					"name": "Penugasan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "bagian",
+									"value": "test bagian yoooo",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/sipdp/api/Penugasan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Penugasan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show penugasan",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjpbeyJpZF90ZXJkYWZ0YXIiOiIyMDE5XC8wMDEiLCJlbWFpbCI6InJhbWFAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0NSIsImFsYW1hdCI6ImpsLiBKYWthcnRhIFB1c2F0IiwibmFtYV9kZXBhbiI6IlJhbWEiLCJuYW1hX2JlbGFrYW5nIjoiQWRoaXN0YSIsInRnbF90ZXJkYWZ0YXIiOiIyMDE5LTA3LTE4Iiwic3RhdHVzIjoidHJ1ZSJ9XX0.ug_QhnEzuAdysqcJ_lmzkpQHDIAg7nI0cKyCmbQs1Gc"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost/sipdp/api/Penugasan/",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Penugasan",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete penugasan",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost/sipdp/api/Penugasan/14",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Penugasan",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Penugasan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id_petugas",
+									"value": "15",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "bagian",
+									"value": "Hyooo ini berjalan dengan baik",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/sipdp/api/Penugasan/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Penugasan",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "petugas",
+			"description": null,
+			"item": [
+				{
+					"name": "GET Petugas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost/sipdp/api/Petugas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Petugas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Petugas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "sudsi@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "nama_depan",
+									"value": "wahyu",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "nama_belakang",
+									"value": "alfarisi",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "akses",
+									"value": "lolo",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/sipdp/api/Petugas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Petugas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update petugas",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "nunung@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "nama_depan",
+									"value": "Nunung",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "nama_belakang",
+									"value": "Narkoba",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "akses",
+									"value": "tu",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/sipdp/api/Petugas/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Petugas",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE petugas",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost/sipdp/api/Petugas/sudi@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Petugas",
+								"sudi@gmail.com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pengadu / User",
+			"description": "",
+			"item": [
+				{
+					"name": "GET Pengadu / User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost/sipdp/api/Pengadu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Pengadu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE PENGADU",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost/sipdp/api/Pengadu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Pengadu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UBAH STATUS AKUN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_terdaftar",
+									"value": "a01",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "status_akun",
+									"value": "false",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sipdp/api/Pengadu/update_status_akun",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"Pengadu",
+								"update_status_akun"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ex",
+			"description": "endpoint untuk external seperti pengadu\n",
+			"item": [
+				{
+					"name": "POST Pengaduan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjpbeyJpZF90ZXJkYWZ0YXIiOiIyMDE5LTAwMSIsImVtYWlsIjoibWV5ZGFAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMiLCJhbGFtYXQiOiJqYWthcnRhIiwibmFtYV9kZXBhbiI6Ik1leWRhIiwibmFtYV9iZWxha2FuZyI6IiIsInRnbF90ZXJkYWZ0YXIiOiIyMDE5LTA3LTA3Iiwic3RhdHVzIjoidHJ1ZSJ9XX0.OKrPdWUAvmQ4oCRjrw-7kvabC_0ONbv_J7w_V9z7WlI"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nama_perusahaan",
+									"value": "METRO",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "judul_berita",
+									"value": "Mengapa kamu begini",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "edisi_penerbitan",
+									"value": "2019-08-12",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "catatan",
+									"value": "terjadi penyalahgunaan",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "lampiran[]",
+									"description": "",
+									"type": "file"
+								},
+								{
+									"key": "lampiran[]",
+									"description": "",
+									"type": "file"
+								},
+								{
+									"key": "lampiran[]",
+									"value": "",
+									"description": "",
+									"type": "file",
+									"disabled": true
+								},
+								{
+									"key": "lampiran[]",
+									"value": "",
+									"description": "",
+									"type": "file",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost/sipdp/api/ex/Pengaduan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"ex",
+								"Pengaduan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Pengaduan by user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjpbeyJpZF90ZXJkYWZ0YXIiOiIyMDE5LTAwMSIsImVtYWlsIjoibWV5ZGFAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMiLCJhbGFtYXQiOiJqYWthcnRhIiwibmFtYV9kZXBhbiI6Ik1leWRhIiwibmFtYV9iZWxha2FuZyI6IiIsInRnbF90ZXJkYWZ0YXIiOiIyMDE5LTA3LTA3Iiwic3RhdHVzIjoidHJ1ZSJ9XX0.OKrPdWUAvmQ4oCRjrw-7kvabC_0ONbv_J7w_V9z7WlI"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost/sipdp/api/ex/Pengaduan?",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"ex",
+								"Pengaduan"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "kompas",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW Notif pengaduan diterima",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjpbeyJpZF90ZXJkYWZ0YXIiOiIyMDE5LTAwMSIsImVtYWlsIjoibWV5ZGFAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMiLCJhbGFtYXQiOiJqYWthcnRhIiwibmFtYV9kZXBhbiI6Ik1leWRhIiwibmFtYV9iZWxha2FuZyI6IiIsInRnbF90ZXJkYWZ0YXIiOiIyMDE5LTA3LTA3Iiwic3RhdHVzIjoidHJ1ZSJ9XX0.OKrPdWUAvmQ4oCRjrw-7kvabC_0ONbv_J7w_V9z7WlI"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost/sipdp/api/ex/Pengaduan/showNotifPengaduan",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"ex",
+								"Pengaduan",
+								"showNotifPengaduan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "READ Pengaduan",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjpbeyJpZF90ZXJkYWZ0YXIiOiIyMDE5LTAwMSIsImVtYWlsIjoibWV5ZGFAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjMiLCJhbGFtYXQiOiJqYWthcnRhIiwibmFtYV9kZXBhbiI6Ik1leWRhIiwibmFtYV9iZWxha2FuZyI6IiIsInRnbF90ZXJkYWZ0YXIiOiIyMDE5LTA3LTA3Iiwic3RhdHVzIjoidHJ1ZSJ9XX0.OKrPdWUAvmQ4oCRjrw-7kvabC_0ONbv_J7w_V9z7WlI"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_pengaduan",
+									"value": "2019-07/PGD00002",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/sipdp/api/ex/Pengaduan/readPengaduan",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"ex",
+								"Pengaduan",
+								"readPengaduan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SHOW Keputusan users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-API-KEY",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwYXlsb2FkIjpbeyJpZF90ZXJkYWZ0YXIiOiJQTkctMjAxOS0wMDAwMiIsImVtYWlsIjoid2FoeXVhbGZhcmlzaTMwQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoid2FoeXVhaXMiLCJhbGFtYXQiOiJ3YWh5dWFpcyIsIm5hbWFfZGVwYW4iOiJ3YWh5dSIsIm5hbWFfYmVsYWthbmciOiJhbGZhcmlzaSIsInRnbF90ZXJkYWZ0YXIiOiIyMDE5LTA4LTA3Iiwic3RhdHVzIjoidHJ1ZSJ9XX0.POfcrVzn1kFH6HuErX11tei_G6q19RNstO_YyvlTwz8"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost/sipdp/api/ex/Keputusan",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"sipdp",
+								"api",
+								"ex",
+								"Keputusan"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "int",
+			"description": null,
+			"item": [
+				{
+					"name": "disposisi",
+					"description": "",
+					"item": [
+						{
+							"name": "ADD Disposisi",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6IlN1YmFnaSBCYWdpbyIsImFrc2VzIjoiVFUifQ.6yW9AJcNB1FhfSv4WCh1uctO6L1ktYUVYr1MAF0HKZo"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_petugas",
+											"value": "1",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "jenis_tugas",
+											"value": "a",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "catatan_disposisi",
+											"value": "b",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "id_pengaduan",
+											"value": "2",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "status_disposisi",
+											"value": ";",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost/sipdp/api/int/Disposisi",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Disposisi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SHOW Disposisi",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6IlN1YmFnaSBCYWdpbyIsImFrc2VzIjoiVFUifQ.6yW9AJcNB1FhfSv4WCh1uctO6L1ktYUVYr1MAF0HKZo"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost/sipdp/api/int/Disposisi",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Disposisi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SHOW DISPOSISI (proses)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Disposisi/show_disposisi_proses",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Disposisi",
+										"show_disposisi_proses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tindak Lanjut Disposisi",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nomor_disposisi",
+											"value": "DSP-2019-0700001",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "id_pengaduan",
+											"value": "2019-07/PGD00001",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Disposisi/tindak_lanjut_disposisi",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Disposisi",
+										"tindak_lanjut_disposisi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SHOW DISPOSISI (tindaklanjuti)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Disposisi/show_disposisi_tindaklanjuti",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Disposisi",
+										"show_disposisi_tindaklanjuti"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "pengaduan",
+					"description": "",
+					"item": [
+						{
+							"name": "SHOW Pengaduan",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "58f571af-190c-41ee-8a36-384d569dc4eb",
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost/sipdp/api/int/Pengaduan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Pengaduan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "new Notif pengaduan (TU)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6IlN1YmFnaSBCYWdpbyIsImFrc2VzIjoiVFUifQ.6yW9AJcNB1FhfSv4WCh1uctO6L1ktYUVYr1MAF0HKZo"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost/sipdp/api/int/Pengaduan/getNotif",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Pengaduan",
+										"getNotif"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET REQ Bukti Pengaduan",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6IlN1YmFnaSBCYWdpbyIsImFrc2VzIjoiVFUifQ.6yW9AJcNB1FhfSv4WCh1uctO6L1ktYUVYr1MAF0HKZo"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://localhost/sipdp/api/int/Pengaduan/requestBuktiPengaduan?id=2019-07/PGD00001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Pengaduan",
+										"requestBuktiPengaduan"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2019-07/PGD00001"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SHOW Jenis Tugas",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6IlN1YmFnaSBCYWdpbyIsImFrc2VzIjoiVFUifQ.6yW9AJcNB1FhfSv4WCh1uctO6L1ktYUVYr1MAF0HKZo"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Disposisi/show_jenis_tugas",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Disposisi",
+										"show_jenis_tugas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE pengaduan ? id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6IlN1YmFnaSBCYWdpbyIsImFrc2VzIjoiVFUifQ.6yW9AJcNB1FhfSv4WCh1uctO6L1ktYUVYr1MAF0HKZo"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id",
+											"value": "123",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Pengaduan/delete",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Pengaduan",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "dashboard",
+					"description": null,
+					"item": [
+						{
+							"name": "COUNT Pengaduan status",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Dashboard/count_pengaduan_status",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Dashboard",
+										"count_pengaduan_status"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "COUNT disposisi status",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Dashboard/count_disposisi_status",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Dashboard",
+										"count_disposisi_status"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "keputusan",
+					"description": null,
+					"item": [
+						{
+							"name": "ADD Surat Keputusan",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nomor_disposisi",
+											"value": "DSP-2019-0700001",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "lampiran",
+											"value": "ini lampiran",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "perihal",
+											"value": "ini dae",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "isi_agenda",
+											"value": "rest",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "id_pengaduan",
+											"value": "2019-07/PGD00001",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Keputusan",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Keputusan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Keputusan",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IndhaHl1QHN1cHBvcnQuY29tIiwibmFtYV9sZW5na2FwIjoiV2FoeXUgQWxmYXJpc2kiLCJha3NlcyI6IjEifQ.TM0tkZFbAWAMGPBIuf1l1V2EOETKxL5BlKCvHpQKJ8w"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Keputusan?",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Keputusan"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "2019-08-08",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "2019-08-08",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Keputusan Status (on report)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "localhost/sipdp/api/int/Keputusan/getKeputusanStatus?",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"int",
+										"Keputusan",
+										"getKeputusanStatus"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "ya",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Laporan",
+					"description": null,
+					"item": [
+						{
+							"name": "GET Keputusan  (where status = 'tidak')",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6ImJhZ2lvIGJhZ2lhIiwiYWtzZXMiOiJUVSJ9.PRB8A2Zpu5Va7vOcVcsWC62CRGgR2rT7v-iS_VWGlLk"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "localhost/sipdp/api/ex/Laporan",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"ex",
+										"Laporan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST Laporan",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6IlN1YmFnaSBCYWdpbyIsImFrc2VzIjoiVFUifQ.6yW9AJcNB1FhfSv4WCh1uctO6L1ktYUVYr1MAF0HKZo"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "tgl_pembuatan",
+											"value": "2019-09-10",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "no_surat_keputusan[]",
+											"value": "SRT/KEP/2019-08002",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "no_surat_keputusan[]",
+											"value": "SRT/KEP/2019-08003",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "no_surat_keputusan[]",
+											"value": "SRT/KEP/2019-08004",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost/sipdp/api/ex/Laporan",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"ex",
+										"Laporan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Laporan",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-API-KEY",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImJhZ2lvQGdtYWlsLmNvbSIsIm5hbWFfbGVuZ2thcCI6IlN1YmFnaSBCYWdpbyIsImFrc2VzIjoiVFUifQ.6yW9AJcNB1FhfSv4WCh1uctO6L1ktYUVYr1MAF0HKZo"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "localhost/sipdp/api/ex/Laporan",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"sipdp",
+										"api",
+										"ex",
+										"Laporan"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Login pet",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "bagio@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "akses",
+							"value": "TU",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sipdp/api/Auth/login_petugas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sipdp",
+						"api",
+						"Auth",
+						"login_petugas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "wahyualfarisi30@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "jakarta",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "nama_depan",
+							"value": "wahyu",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "nama_belakang",
+							"value": "alfarisi",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "tgl_terdaftar",
+							"value": "2019-08-19",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/sipdp/api/Auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sipdp",
+						"api",
+						"Auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Users",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "wahyualfarisi30@gmail.com",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "wahyuais",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/sipdp/api/Auth/login_users",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sipdp",
+						"api",
+						"Auth",
+						"login_users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert new users after verification fone",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost/sipdp/api/Auth/insertnewusers",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sipdp",
+						"api",
+						"Auth",
+						"insertnewusers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WHO I M",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost/sipdp/api/Auth/who_i_m",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"sipdp",
+						"api",
+						"Auth",
+						"who_i_m"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
